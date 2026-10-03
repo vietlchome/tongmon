@@ -1,6 +1,6 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 14:27",
+ "generatedAt": "03/10/2026 14:31",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
@@ -116,7 +116,59 @@
     "note": "Góp hũ thưởng"
    }
   ],
-  "history": []
+  "history": [
+   {
+    "week": "2026-W40",
+    "date": "2026-10-03",
+    "at": "14:31 03/10/2026",
+    "count": 38,
+    "list": [
+     "ThèmBúnBòHuế",
+     "Vĩnh•Dạ",
+     "TrươngTửPhàm",
+     "Tuất•Đế",
+     "TrọngThầnSư",
+     "ChíTôn•Tạihạ",
+     "Bạch•Dạ",
+     "<Tên trắng>",
+     "Ririka•PTTM",
+     "LâmKiếmHành",
+     "ChíTôn•Nga",
+     "ChíTôn•Nhiên",
+     "KhuynhThành",
+     "BáChủPooh",
+     "HDHànTuyệt",
+     "tiêudaoTạ°Diệm",
+     "ThèmZúGái18",
+     "ThiênĐạo",
+     "Ninh•Mặc",
+     "Phượng€ửuCa",
+     "ChíTôn•Nirual",
+     "ChíTôn•Kiếm",
+     "Thiên•Noah",
+     "HDHD•Finance",
+     "ChíTôn•SátTinh",
+     "Thiên•Uyên",
+     "Thiên•Trieuuuu",
+     "Thiên•Hui",
+     "ChíTôn•destiny",
+     "ChíTôn•holomeo",
+     "ĐưaTaoCáiHũ",
+     "Tiền•bốiwhat",
+     "ChíTôn•VTV",
+     "ThiênMaHẹ",
+     "炼魂•Bạch",
+     "Thiên•Quân",
+     "ChíTôn•MDuck",
+     "- Khởi•Linh•"
+    ],
+    "auto": true,
+    "seg": 1,
+    "winner": "Tích trữ",
+    "keep": true,
+    "amount": 0
+   }
+  ]
  },
  "sect": {
   "2026-W40": {
