@@ -14,7 +14,7 @@ Biến môi trường: ADMIN_PASS (mật khẩu quản trị web), FORCE=1 (cho 
 import argparse, datetime as dt, hashlib, io, json, os, re, sys, unicodedata, urllib.request
 
 T_SET, T_MEM, T_WEEK, T_PASTE = 'Cài đặt', 'Thành viên', 'Số liệu tuần', 'Dán ảnh'
-T_NOTICE, T_UPD, T_POT, T_DONOR, T_SPIN, T_DOCS = 'Cáo thị', 'Cập nhật game', 'Hũ thưởng', 'Mạnh thường quân', 'Lịch sử quay', 'Tàng thư các'
+T_NOTICE, T_UPD, T_DONOR, T_DOCS = 'Cáo thị', 'Cập nhật game', 'Mạnh thường quân', 'Tàng thư các'
 HE_TU = ['Pháp tu', 'Thể tu', 'Nho tu', 'Ngự quỷ', 'Ngự kiếm']
 HE_OLD = {'tu pháp': 'Pháp tu', 'luyện thể': 'Thể tu', 'nho thánh': 'Nho tu', 'ngự quỷ': 'Ngự quỷ', 'ngự kiếm': 'Ngự kiếm', 'pháp tu': 'Pháp tu', 'thể tu': 'Thể tu', 'nho tu': 'Nho tu'}
 LEFT_STATUS = ('Nghỉ hẳn', 'Bị kick')
@@ -115,6 +115,45 @@ def check_header(ws, row, expect, tab):
     if got != expect: err(f'Tab "{tab}" dòng {row}: tiêu đề cột phải là {expect}, đang là {got}')
 
 # ---------------- main ----------------
+SEGS = 8   # vòng quay 8 ô xen kẽ: ô chẵn Chia thưởng, ô lẻ Tích trữ
+
+def qd_of(e):
+    v = (e.get('acts') or {}).get('quyetDau', 0)
+    return 3 if v is True else max(0, min(3, int(v or 0)))
+
+def eligible_names(weeks, members, wk):
+    ws = sorted(weeks); prev = ([w for w in ws if w < wk] or [None])[-1]
+    out = []
+    for m in members:
+        if m.get('leftAt'): continue
+        e = weeks.get(wk, {}).get(m['id'])
+        if not e or qd_of(e) < 3: continue
+        p = weeks.get(prev, {}).get(m['id']) if prev else None
+        a, b = e.get('acts') or {}, (p or {}).get('acts') or {}
+        if p is not None and any(not a.get(k) and not b.get(k) for k in ('batHoang', 'quyNhat')): continue
+        out.append(m['name'])
+    return out
+
+def auto_spin(now, weeks, members, hist, donors):
+    """Tự quay 1 lần cho tuần vừa kết thúc, từ 5h sáng thứ Hai (giờ VN). Hoàn toàn ngẫu nhiên:
+    50% Chia thưởng (bốc 1 người đủ điều kiện, nhận cả hũ), 50% Tích trữ (hũ giữ nguyên)."""
+    import secrets
+    wk = game_week((now + dt.timedelta(hours=3) - dt.timedelta(days=7)).replace(tzinfo=None))
+    if wk not in weeks or any(h.get('week') == wk for h in hist): return None
+    names = eligible_names(weeks, members, wk)
+    today = now.strftime('%Y-%m-%d')
+    sp = {'week': wk, 'date': today, 'at': now.strftime('%H:%M %d/%m/%Y'), 'count': len(names), 'list': names, 'auto': True}
+    win = bool(names) and secrets.randbelow(2) == 0
+    sp['seg'] = 2 * secrets.randbelow(SEGS // 2) + (0 if win else 1)
+    if win:
+        paid = sum(h.get('amount', 0) for h in hist if not h.get('keep'))
+        sp['winner'] = names[secrets.randbelow(len(names))]
+        sp['amount'] = sum(x['amount'] for x in donors if x['date'] <= today) - paid
+    else:
+        sp.update({'winner': 'Tích trữ', 'keep': True, 'amount': 0})
+        if not names: sp['none'] = True
+    return sp
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--sheet-id'); ap.add_argument('--xlsx'); ap.add_argument('--out', default='data.json')
@@ -250,7 +289,7 @@ def main():
             if not d: err(f'Tab Cập nhật game dòng {i}: thiếu ngày'); continue
             updates.append({'id': f'u{i}', 'date': iso(d), 'title': nfc(r[1]), 'note': nfc(r[2]), 'pinned': boolv(r[3]), 'ts': i})
 
-    # ---- Hũ thưởng: tự tính = tổng góp - tổng đã trả. Mỗi lần trúng nhận toàn bộ hũ tại thời điểm quay.
+    # ---- Hũ thưởng: tự tính = tổng góp - tổng đã trả. Trúng Chia thưởng thì nhận toàn bộ hũ tại thời điểm quay.
     pot = {'value': 0, 'donors': [], 'history': []}
     ws = need(wb, T_DONOR)
     if ws:
@@ -261,28 +300,13 @@ def main():
             amt = num(r[2], f'Mạnh thường quân dòng {i}') or 0
             if amt <= 0: err(f'Mạnh thường quân dòng {i}: số tiền phải lớn hơn 0')
             pot['donors'].append({'name': nfc(r[1]), 'amount': amt, 'date': iso(d), 'note': nfc(r[3])})
-    ws = need(wb, T_SPIN)
-    spins = []
-    if ws:
-        check_header(ws, 1, ['Tuần', 'Ngày quay', 'Người trúng', 'Số người tham gia'], T_SPIN)
-        for i, r in enumerate(rows(ws, 2, 4), start=2):
-            if not nfc(r[2]): continue
-            d = to_date(r[1])
-            if not d: err(f'Lịch sử quay dòng {i}: thiếu Ngày quay'); continue
-            w = norm_week(r[0], d)
-            keep = key(nfc(r[2])) == key('Tích trữ')
-            if not keep and key(nfc(r[2])) not in by_key: warn(f'Lịch sử quay dòng {i}: "{r[2]}" không có trong tab Thành viên')
-            sp = {'week': w, 'date': iso(d), 'winner': 'Tích trữ' if keep else nfc(r[2]), 'count': num(r[3], f'Lịch sử quay dòng {i}') or 0}
-            if keep: sp['keep'] = True
-            spins.append(sp)
-    spins.sort(key=lambda x: x['date'])
-    paid = 0
-    for sp in spins:
-        if sp.get('keep'): sp['amount'] = 0; continue   # quay vào ô Tích trữ: hũ giữ nguyên
-        got = sum(x['amount'] for x in pot['donors'] if x['date'] <= sp['date'])
-        sp['amount'] = got - paid; paid += sp['amount']
-    pot['history'] = spins
-    pot['value'] = sum(x['amount'] for x in pot['donors']) - paid
+    # Lịch sử quay do máy tự quay, lưu trong data.json (không nhập trên Sheet nữa)
+    hist = [h for h in (old.get('pot') or {}).get('history', []) if isinstance(h, dict)]
+    sp = auto_spin(now, weeks, members, hist, pot['donors'])
+    if sp: hist.append(sp); print(f"Quay thưởng {sp['week']}: " + ('Tích trữ' if sp.get('keep') else f"{sp['winner']} trúng {sp['amount']:,.0f}") + f" ({sp['count']} người đủ điều kiện)")
+    hist.sort(key=lambda x: (x.get('date', ''), x.get('week', '')))
+    pot['history'] = hist
+    pot['value'] = sum(x['amount'] for x in pot['donors']) - sum(h.get('amount', 0) for h in hist if not h.get('keep'))
     settings['potBase'] = 0
 
     # ---- Tàng thư các
