@@ -898,6 +898,9 @@ a.lib-c:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--dc),0 12px 2
 .ws-last.win .wl-res{color:var(--gold)}
 .ws-last .wl-sub{font-size:13px;color:var(--ink2)}
 .ws-last .btn.spin{margin-top:12px;width:100%}
+
+.spin-status{border-radius:8px;padding:10px 14px;font-size:13.5px;background:var(--goldbg);color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 40%,transparent)}
+.spin-status.bad{background:var(--cinnbg);color:var(--cinn);border-color:color-mix(in srgb,var(--cinn) 40%,transparent)}
 </style>
 </head>
 <body>
@@ -1288,7 +1291,7 @@ function potBlock(){
     <div class="pot-main"><h3>Hũ thưởng tông môn</h3>
       <div class="bigrow">${SVG_COIN}<div class="big">${fmtN(P.value||0)} <span class="unit">${esc(S.potUnit)}</span></div></div>
       ${n?`<span class="acc">Đã tích luỹ ${n} tuần chưa có người trúng</span>`:''}
-      <div class="rule"><b>Tự quay 5h30 sáng thứ Hai:</b> 50% chia thưởng cả hũ cho 1 người bốc ngẫu nhiên, 50% tích trữ sang tuần sau.<br><b>Điều kiện:</b> đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang hoặc Quy nhất 2 tuần liên tiếp.
+      <div class="rule"><b>Mỗi tuần quay 1 lần:</b> 50% chia thưởng cả hũ cho 1 người bốc ngẫu nhiên, 50% tích trữ sang tuần sau.<br><b>Điều kiện:</b> đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang hoặc Quy nhất 2 tuần liên tiếp.
         ${wk?`<div class="eln"><span><b>${el.length}</b> người đủ điều kiện ${weekShort(wk)}</span><button class="btn sm" onclick="showElig()">Xem danh sách</button></div>`:''}</div>
       <button class="btn gold" style="margin-top:14px" onclick="go('wheel')">Tới vòng quay thưởng</button>
     </div>
@@ -1332,18 +1335,13 @@ function showDonors(){
 /* ===== Tab: Lịch sử quay thưởng ===== */
 let WHEEL = {rot:0, spinning:false};
 const SEGS = 8; // ô chẵn: Chia thưởng, ô lẻ: Tích trữ (mỗi loại 50%)
-// Kỳ quay kế tiếp: 5h30 sáng thứ Hai tới (giờ VN)
-function nextSpinText(){
-  const vn = new Date(Date.now() + (7*60 + new Date().getTimezoneOffset())*60000);
-  const d = new Date(vn); const dow = (d.getDay()+6)%7; d.setDate(d.getDate() + ((dow===0 && (vn.getHours()<5 || (vn.getHours()===5 && vn.getMinutes()<30))) ? 0 : 7-dow));
-  return `5h30 sáng thứ Hai ${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`;
-}
 function vWheel(){
   const wk = lastWeek(), S = D.settings, P = D.pot;
   const el = wk ? active().filter(m=>eligible(m,wk).ok) : [];
   const hist = P.history.slice().reverse(), last = hist[0];
-  let h = `<section class="hero">${SVG_MTN}<span class="hero-cl l" aria-hidden="true">${SVG_CLOUD}</span><span class="hero-cl r" aria-hidden="true">${SVG_CLOUD}</span><div class="plaque"><span class="knot" aria-hidden="true"></span><i class="tas l" aria-hidden="true"></i><i class="tas r" aria-hidden="true"></i><div class="seal-lg" aria-hidden="true">運</div><div style="min-width:0"><h2>Lịch sử quay thưởng</h2><div class="sub">Hũ thưởng tông môn, quay tự động mỗi tuần</div></div></div></section>`;
-  h += sh('輪','Vòng quay thưởng', 'Kỳ tới: '+nextSpinText());
+  let h = `<section class="hero">${SVG_MTN}<span class="hero-cl l" aria-hidden="true">${SVG_CLOUD}</span><span class="hero-cl r" aria-hidden="true">${SVG_CLOUD}</span><div class="plaque"><span class="knot" aria-hidden="true"></span><i class="tas l" aria-hidden="true"></i><i class="tas r" aria-hidden="true"></i><div class="seal-lg" aria-hidden="true">運</div><div style="min-width:0"><h2>Lịch sử quay thưởng</h2><div class="sub">Hũ thưởng tông môn${wk?', '+weekLabel(wk).toLowerCase():''}</div></div></div></section>`;
+  const spun = wk && P.history.some(x=>x.week===wk);
+  h += sh('輪','Vòng quay thưởng', wk ? (spun ? weekShort(wk)+' đã quay' : weekShort(wk)+' chưa quay') : '');
   h += `<div class="wheel-wrap">
     <div class="wheel-stage"><div class="wheel-ring"><canvas id="wheel" width="520" height="520" aria-label="Vòng quay: 50% chia thưởng, 50% tích trữ"></canvas><div class="wheel-hub" aria-hidden="true">運</div><div class="wheel-pin" aria-hidden="true"></div></div></div>
     <div class="wheel-side">
@@ -1352,12 +1350,16 @@ function vWheel(){
         <div class="wl-res">${last.keep?(last.none?'Không ai đủ điều kiện · Tích trữ':'Tích trữ'):esc(last.winner)}</div>
         <div class="wl-sub">${last.keep?'Hũ giữ nguyên sang tuần sau':'Trúng '+fmtN(last.amount)+' '+esc(S.potUnit)}${last.at?' · quay lúc '+esc(last.at):''}</div>
         ${last.seg!==undefined?`<button class="btn spin" id="spinBtn" onclick="replaySpin()">Xem lại vòng quay</button>`:''}</div>`
-       :`<div class="ws-last"><div class="lbl">Chưa có kỳ quay nào</div><div class="wl-sub">Kỳ đầu tiên: ${nextSpinText()}</div></div>`}
+       :`<div class="ws-last"><div class="lbl">Chưa có kỳ quay nào</div></div>`}
+      <div id="spinStatus" class="spin-status" hidden></div>
+      ${ADMIN && wk ? (spun ? `<div class="hint">${weekShort(wk)} đã quay. Mỗi tuần chỉ quay 1 lần.</div>`
+        : (S.spinKey && S.repo) ? `<button class="btn spin gold-spin" id="goSpin" onclick="askSpin()">Quay thưởng ${weekShort(wk)}</button>`
+        : `<div class="hint">Chưa bật nút quay: thêm secret <b>SPIN_TOKEN</b> trên GitHub rồi chạy đồng bộ.</div>`) : ''}
       <div class="ws-odds">
         <div class="wo win"><span class="woi">${ico('ingot')}</span><div><b>Chia thưởng · 50%</b><span>Bốc ngẫu nhiên 1 người đủ điều kiện, nhận cả hũ</span></div></div>
         <div class="wo keep"><span class="woi">${ico('gourd')}</span><div><b>Tích trữ · 50%</b><span>Hũ giữ nguyên, cộng dồn sang tuần sau</span></div></div>
       </div>
-      <div class="ws-rule">Máy tự quay lúc 5h30 sáng thứ Hai cho tuần vừa kết thúc, hoàn toàn ngẫu nhiên. Ban quản lý không can thiệp kết quả.</div>
+      <div class="ws-rule">Quản trị bấm nút quay, còn kết quả do máy chủ GitHub bốc ngẫu nhiên và ghi lại ngay. Không ai chọn hay sửa được kết quả, mỗi tuần chỉ quay 1 lần.</div>
       <div class="ws-names"><div class="lbl">Đang đủ điều kiện ${wk?weekShort(wk):''} (${el.length})</div><div class="namegrid">${el.map(m=>`<span>${esc(m.name)}</span>`).join('')||'<span class="muted">Chưa có ai.</span>'}</div></div>
     </div></div>`;
   h += sh('錄','Lịch sử quay thưởng', hist.length+' lần quay');
@@ -1424,14 +1426,78 @@ function showWinner(x){
     <div class="wm-v">trúng hũ thưởng <b>${fmtN(x.amount)} ${esc(S.potUnit)}</b></div>
     <div class="small muted">${weekLabel(x.week)}${x.at?'. Máy quay lúc '+esc(x.at):''}, ${x.count||L.length} người đủ điều kiện.</div>
     ${L.length?`<div class="wm-list"><span>Danh sách bốc thăm:</span> ${L.map(esc).join(', ')}</div>`:''}
-    <div class="wm-act"><button class="btn pri" onclick="closeModal()">Đóng</button></div></div>`);
+    <div class="wm-act"><button class="btn pri" onclick="closeModal();render()">Đóng</button></div></div>`);
 }
 function showKeep(x){
   const S=D.settings;
   modal(`<div class="win-modal keep"><div class="wm-seal" aria-hidden="true">${ico('gourd')}</div><div class="wm-k">Vòng quay dừng ở ô</div><div class="wm-res">Tích trữ</div>
     <div class="wm-v">${x.none?'Tuần này không ai đủ điều kiện. ':''}Hũ được giữ nguyên, cộng dồn sang tuần sau.</div>
     <div class="small muted">${weekLabel(x.week)}${x.at?'. Máy quay lúc '+esc(x.at):''}, ${x.count||0} người đủ điều kiện.</div>
-    <div class="wm-act"><button class="btn pri" onclick="closeModal()">Đóng</button></div></div>`);
+    <div class="wm-act"><button class="btn pri" onclick="closeModal();render()">Đóng</button></div></div>`);
+}
+/* ===== Quay thưởng thật: quản trị bấm, máy chủ GitHub bốc ngẫu nhiên ===== */
+const b64u8 = x => Uint8Array.from(atob(x), c=>c.charCodeAt(0));
+async function unlockToken(pw){
+  const k = D.settings.spinKey;
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:b64u8(k.salt), iterations:k.iter, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);
+  return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM', iv:b64u8(k.iv)}, key, b64u8(k.ct)));
+}
+function askSpin(){
+  const wk = lastWeek(), n = active().filter(m=>eligible(m,wk).ok).length;
+  modal(`<div class="hd"><h2>Quay thưởng ${weekShort(wk)}</h2><button class="iconbtn" onclick="closeModal()" aria-label="Đóng">✕</button></div><div class="bd">
+    <p class="small" style="margin-top:0">${n} người đủ điều kiện, hũ ${fmtN(D.pot.value)} ${esc(D.settings.potUnit)}. Máy sẽ bốc ngẫu nhiên: 50% chia thưởng cả hũ, 50% tích trữ. <b>Mỗi tuần chỉ quay 1 lần, không quay lại được.</b></p>
+    <label class="small muted" for="spw">Nhập lại mật khẩu quản trị để xác nhận</label>
+    <input id="spw" type="password" class="inp" style="width:100%;margin:6px 0 14px" onkeydown="if(event.key==='Enter')doSpin()">
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" onclick="closeModal()">Huỷ</button><button class="btn gold" id="doSpinBtn" onclick="doSpin()">Quay</button></div></div>`);
+  setTimeout(()=>$('#spw') && $('#spw').focus(), 50);
+}
+async function doSpin(){
+  const pw = $('#spw').value, wk = lastWeek(), S = D.settings, btn = $('#doSpinBtn');
+  if(await sha256(pw) !== S.adminHash) return toast('Sai mật khẩu');
+  btn.disabled = true; btn.textContent = 'Đang gửi…';
+  let tok; try{ tok = await unlockToken(pw); }catch(e){ btn.disabled=false; btn.textContent='Quay'; return toast('Không mở được khoá quay. Chạy đồng bộ lại sau khi đổi mật khẩu.', 5000); }
+  const api = `https://api.github.com/repos/${S.repo}`, hd = {Authorization:'Bearer '+tok, Accept:'application/vnd.github+json'};
+  const t0 = new Date(Date.now()-60000).toISOString();
+  const r = await fetch(`${api}/actions/workflows/sync.yml/dispatches`, {method:'POST', headers:hd, body:JSON.stringify({ref:'main', inputs:{reason:'Quay thưởng '+wk, spin:'1'}})}).catch(()=>null);
+  if(!r || r.status !== 204){ btn.disabled=false; btn.textContent='Quay'; return toast('GitHub không nhận lệnh quay ('+(r?r.status:'mất mạng')+'). Kiểm tra secret SPIN_TOKEN.', 6000); }
+  closeModal();
+  idleSpin(true); spinMsg('Máy đang bốc thăm và ghi kết quả, khoảng 1 phút…');
+  const started = Date.now();
+  const poll = async () => {
+    if(Date.now()-started > 6*60000){ idleSpin(false); return spinMsg('Quá lâu chưa có kết quả. Xem tab Actions trên GitHub, kết quả (nếu có) sẽ hiện khi tải lại trang.', true); }
+    try{
+      const rr = await fetch(`${api}/actions/runs?event=workflow_dispatch&created=${encodeURIComponent(">"+t0)}&per_page=1`, {headers:hd, cache:'no-store'}).then(x=>x.json());
+      const run = (rr.workflow_runs||[])[0];
+      if(run && run.status==='completed' && run.conclusion!=='success'){ idleSpin(false); return spinMsg('Lần quay bị lỗi (thường do Sheet đang có lỗi). Hũ chưa quay, sửa Sheet rồi quay lại.', true); }
+      const c = await fetch(`${api}/contents/data.json?ref=main&t=${Date.now()}`, {cache:'no-store'}).then(x=>x.json());
+      if(c && c.content){
+        const nd = JSON.parse(new TextDecoder().decode(b64u8(c.content.replace(/\n/g,''))));
+        const x = ((nd.pot||{}).history||[]).find(h=>h.week===wk);
+        if(x){ D = fixData(nd); spinMsg(''); return landSpin(x); }
+      }
+      if(run && run.status==='completed'){ if((Date.now()-started) > 90000 || run.doneSeen){ idleSpin(false); return spinMsg('Máy chạy xong nhưng không quay (tuần này đã quay rồi hoặc chưa có số liệu). Tải lại trang để xem.', true); } }
+    }catch(e){}
+    setTimeout(poll, 7000);
+  };
+  setTimeout(poll, 15000);
+}
+function spinMsg(t, bad){ const el = $('#spinStatus'); if(!el) return; el.hidden = !t; el.textContent = t; el.classList.toggle('bad', !!bad); const g=$('#goSpin'); if(g) g.disabled = !!t && !bad; }
+let IDLE = null;
+function idleSpin(on){
+  const cv = $('#wheel'); if(!cv) return;
+  if(IDLE){ cancelAnimationFrame(IDLE); IDLE = null; }
+  if(!on) return;
+  cv.style.transition = 'none';
+  const tick = () => { WHEEL.rot += 9; cv.style.transform = `rotate(${WHEEL.rot}deg)`; IDLE = requestAnimationFrame(tick); };
+  WHEEL.spinning = true; IDLE = requestAnimationFrame(tick);
+}
+function landSpin(x){
+  idleSpin(false);
+  const cv = $('#wheel'), seg = 360/SEGS, jitter = (Math.random()-.5)*seg*0.6, target = 360 - (x.seg+.5)*seg + jitter;
+  const base = WHEEL.rot - (WHEEL.rot%360); WHEEL.rot = base + 360*4 + target;
+  void cv.offsetWidth; cv.style.transition = 'transform 4.5s cubic-bezier(.2,.6,.1,1)'; cv.style.transform = `rotate(${WHEEL.rot}deg)`;
+  setTimeout(()=>{ WHEEL.spinning=false; x.keep ? showKeep(x) : rollName(x); }, 4700);
 }
 function showElig(){
   const wk = lastWeek(), A = active().slice().sort((a,b)=>a.name.localeCompare(b.name));
@@ -1623,7 +1689,7 @@ function vAdmin(){
       ${S.sheetUrl?`<a class="btn gold" href="${esc(S.sheetUrl)}" target="_blank" rel="noopener">Mở Google Sheet</a>`:'<div class="small muted">Chưa có link Sheet. Điền vào tab Cài đặt, dòng "Link Google Sheet".</div>'}
       <div class="hint" style="margin-top:12px">Sáng thứ Hai lúc 5h30 Sheet tự chốt tuần cũ lên web rồi chuyển sang tuần mới.</div></div>
     <div class="card"><h3>Vòng quay ${weekShort(wk)}</h3>
-      <p class="small" style="margin-top:0"><b>${el.length}</b> người đủ điều kiện. Hũ hiện tại <b>${fmtN(D.pot.value)} ${esc(S.potUnit)}</b>. Máy tự quay lúc 5h30 sáng thứ Hai, không cần thao tác.</p>
+      <p class="small" style="margin-top:0"><b>${el.length}</b> người đủ điều kiện. Hũ hiện tại <b>${fmtN(D.pot.value)} ${esc(S.potUnit)}</b>. Bấm Tới vòng quay để quay, kết quả do máy bốc ngẫu nhiên.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn gold" onclick="go('wheel')">Tới vòng quay</button><button class="btn" onclick="showElig()">Xem danh sách đủ điều kiện</button></div></div>
   </div>
   <div class="card"><h3>Tạo tin nhắn Zalo</h3>

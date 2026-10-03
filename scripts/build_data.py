@@ -117,6 +117,19 @@ def check_header(ws, row, expect, tab):
 # ---------------- main ----------------
 SEGS = 8   # vòng quay 8 ô xen kẽ: ô chẵn Chia thưởng, ô lẻ Tích trữ
 
+def spin_key(pw, token):
+    """Mã hoá token GitHub (chỉ có quyền chạy Actions) bằng mật khẩu quản trị, để nút Quay trên web gọi được máy quay.
+    Không có mật khẩu thì không giải mã được. Muối và IV suy ra cố định để data.json không đổi giữa các lần chạy."""
+    if not pw or not token: return None
+    import base64
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    salt = hashlib.sha256(('salt|' + pw + '|' + token).encode()).digest()[:16]
+    iv = hashlib.sha256(('iv|' + pw + '|' + token).encode()).digest()[:12]
+    key = hashlib.pbkdf2_hmac('sha256', pw.encode(), salt, 150000, 32)
+    ct = AESGCM(key).encrypt(iv, token.encode(), None)
+    b = lambda x: base64.b64encode(x).decode()
+    return {'salt': b(salt), 'iv': b(iv), 'ct': b(ct), 'iter': 150000}
+
 def qd_of(e):
     v = (e.get('acts') or {}).get('quyetDau', 0)
     return 3 if v is True else max(0, min(3, int(v or 0)))
@@ -134,12 +147,12 @@ def eligible_names(weeks, members, wk):
         out.append(m['name'])
     return out
 
-def auto_spin(now, weeks, members, hist, donors):
-    """Tự quay 1 lần cho tuần vừa kết thúc, từ 5h sáng thứ Hai (giờ VN). Hoàn toàn ngẫu nhiên:
-    50% Chia thưởng (bốc 1 người đủ điều kiện, nhận cả hũ), 50% Tích trữ (hũ giữ nguyên)."""
+def spin_week(now, wk, weeks, members, hist, donors):
+    """Quay thưởng cho tuần wk khi quản trị bấm nút trên web. Kết quả do máy bốc ngẫu nhiên (secrets), không ai chọn được:
+    50% Chia thưởng (bốc 1 người đủ điều kiện, nhận cả hũ), 50% Tích trữ (hũ giữ nguyên). Mỗi tuần chỉ quay 1 lần."""
     import secrets
-    wk = game_week((now + dt.timedelta(hours=3) - dt.timedelta(days=7)).replace(tzinfo=None))
-    if wk not in weeks or any(h.get('week') == wk for h in hist): return None
+    if not wk or wk not in weeks: print(f'Không quay: chưa có số liệu tuần {wk}.'); return None
+    if any(h.get('week') == wk for h in hist): print(f'Không quay: tuần {wk} đã quay rồi.'); return None
     names = eligible_names(weeks, members, wk)
     today = now.strftime('%Y-%m-%d')
     sp = {'week': wk, 'date': today, 'at': now.strftime('%H:%M %d/%m/%Y'), 'count': len(names), 'list': names, 'auto': True}
@@ -184,6 +197,8 @@ def main():
         'noticeMax': int(num(sv('Số cáo thị hiển thị', 4), 'Cài đặt') or 4),
         'sheetUrl': nfc(sv('Link Google Sheet', '')),
         'adminHash': hashlib.sha256(pw.encode()).hexdigest() if pw else (old.get('settings') or {}).get('adminHash'),
+        'spinKey': spin_key(pw, os.environ.get('SPIN_TOKEN', '')) or (old.get('settings') or {}).get('spinKey'),
+        'repo': os.environ.get('GITHUB_REPOSITORY') or (old.get('settings') or {}).get('repo', ''),
     }
 
     # ---- Thành viên
@@ -302,7 +317,8 @@ def main():
             pot['donors'].append({'name': nfc(r[1]), 'amount': amt, 'date': iso(d), 'note': nfc(r[3])})
     # Lịch sử quay do máy tự quay, lưu trong data.json (không nhập trên Sheet nữa)
     hist = [h for h in (old.get('pot') or {}).get('history', []) if isinstance(h, dict)]
-    sp = auto_spin(now, weeks, members, hist, pot['donors'])
+    # Quay cho tuần mới nhất đang có trên web (trùng với tuần web hiển thị ở vòng quay)
+    sp = spin_week(now, max(weeks) if weeks else None, weeks, members, hist, pot['donors']) if os.environ.get('SPIN') == '1' else None
     if sp: hist.append(sp); print(f"Quay thưởng {sp['week']}: " + ('Tích trữ' if sp.get('keep') else f"{sp['winner']} trúng {sp['amount']:,.0f}") + f" ({sp['count']} người đủ điều kiện)")
     hist.sort(key=lambda x: (x.get('date', ''), x.get('week', '')))
     pot['history'] = hist
