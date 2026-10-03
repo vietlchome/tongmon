@@ -673,6 +673,102 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .wm-list{margin-top:12px;font-size:12.5px;color:var(--ink2);max-height:90px;overflow:auto;text-align:left;background:var(--bg2);border-radius:6px;padding:8px 10px}
 .wm-list span{color:var(--ink3)}
 a.btn{text-decoration:none;display:inline-block}
+
+/* ===== v7: hoa văn cổ trang dày hơn ===== */
+.orn::after{display:none}
+.orn-c{position:absolute;width:30px;height:30px;background:var(--gold);opacity:.9;pointer-events:none;z-index:2;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M1.5 32V11Q1.5 1.5 11 1.5H32'/%3E%3Cpath d='M6.5 25V15.5Q6.5 6.5 15.5 6.5H25'/%3E%3Cpath d='M11 17.5a6.5 6.5 0 1 1 6.5 6.5a3.4 3.4 0 1 1 3.4-3.4'/%3E%3C/g%3E%3Ccircle cx='36' cy='1.5' r='1.6'/%3E%3Ccircle cx='1.5' cy='36' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M1.5 32V11Q1.5 1.5 11 1.5H32'/%3E%3Cpath d='M6.5 25V15.5Q6.5 6.5 15.5 6.5H25'/%3E%3Cpath d='M11 17.5a6.5 6.5 0 1 1 6.5 6.5a3.4 3.4 0 1 1 3.4-3.4'/%3E%3C/g%3E%3Ccircle cx='36' cy='1.5' r='1.6'/%3E%3Ccircle cx='1.5' cy='36' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat}
+.orn-c.tl{top:5px;left:5px}.orn-c.tr{top:5px;right:5px;transform:scaleX(-1)}.orn-c.bl{bottom:5px;left:5px;transform:scaleY(-1)}.orn-c.br{bottom:5px;right:5px;transform:scale(-1,-1)}
+.facts6.orn{padding:6px 10px}
+.evc.orn{padding:20px 22px}
+.board-col.orn .bc-head{padding-left:26px;padding-right:26px}
+.sh .sh-cl{flex:none;width:38px;color:var(--gold);opacity:.75;margin-left:-6px;display:flex}
+.sh .sh-cl svg{width:38px;height:auto;position:static;opacity:1}
+@media(max-width:560px){.sh .sh-cl{display:none}}
+.sh .ln{background:linear-gradient(90deg,var(--gold),color-mix(in srgb,var(--gold) 35%,transparent))}
+body::before{opacity:.07}
+/* hero: mây hai bên + tua rua */
+.hero .hero-cl{position:absolute;top:50%;width:150px;color:var(--gold);opacity:.35;pointer-events:none}
+.hero .hero-cl svg{width:100%;height:auto;position:static;opacity:1}
+.hero .hero-cl.l{right:calc(50% + 260px);transform:translateY(-30%)}
+.hero .hero-cl.r{left:calc(50% + 260px);transform:translateY(-30%) scaleX(-1)}
+@media(max-width:860px){.hero .hero-cl{display:none}}
+.plaque .tas{position:absolute;bottom:-34px;width:2px;height:22px;background:var(--brass)}
+.plaque .tas::before{content:"";position:absolute;top:-4px;left:-4px;width:10px;height:10px;border-radius:50%;background:var(--seal);box-shadow:0 0 0 1.5px var(--brass)}
+.plaque .tas::after{content:"";position:absolute;top:18px;left:-4px;width:10px;height:22px;background:linear-gradient(var(--seal),color-mix(in srgb,var(--seal) 40%,transparent));clip-path:polygon(30% 0,70% 0,100% 100%,0 100%)}
+.plaque .tas.l{left:26px}.plaque .tas.r{right:26px}
+.hero{margin-bottom:46px}
+
+/* ===== vinh danh: đại điện sơn mài, toả sáng ===== */
+.hall{position:relative;overflow:hidden;margin:6px 6px 34px;padding:30px 22px 20px;border-radius:10px;
+  background:radial-gradient(70% 90% at 50% 0%,rgba(230,199,122,.22),transparent 65%),linear-gradient(170deg,var(--lacq),var(--lacq2));
+  box-shadow:0 0 0 1.5px var(--brass),0 0 0 6px var(--lacq2),0 0 0 7.5px color-mix(in srgb,var(--brass) 65%,transparent),var(--shadow);color:#f5e6c8}
+.hall::before{content:"";position:absolute;left:0;right:0;top:0;height:9px;opacity:.5;
+  background:repeating-linear-gradient(90deg,var(--brass) 0 12px,transparent 12px 14px,var(--brass) 14px 16px,transparent 16px 18px);
+  -webkit-mask:linear-gradient(#000 0 2px,transparent 2px 4px,#000 4px 5px,transparent 5px 7px,#000 7px 9px);mask:linear-gradient(#000 0 2px,transparent 2px 4px,#000 4px 5px,transparent 5px 7px,#000 7px 9px)}
+.hall::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9px;opacity:.5;transform:scaleY(-1);
+  background:repeating-linear-gradient(90deg,var(--brass) 0 12px,transparent 12px 14px,var(--brass) 14px 16px,transparent 16px 18px);
+  -webkit-mask:linear-gradient(#000 0 2px,transparent 2px 4px,#000 4px 5px,transparent 5px 7px,#000 7px 9px);mask:linear-gradient(#000 0 2px,transparent 2px 4px,#000 4px 5px,transparent 5px 7px,#000 7px 9px)}
+.hall .cloud{position:absolute;width:190px;color:var(--brass);opacity:.12;pointer-events:none}
+.hall .hc-l{left:-30px;bottom:-10px}.hall .hc-r{right:-30px;top:16px;transform:scaleX(-1)}
+.hall-row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.18fr) minmax(0,1fr);gap:18px;align-items:end}
+.hon{--hc:#e6c77a;position:relative;text-align:center;padding:22px 16px 20px;border-radius:8px;min-width:0;cursor:pointer;
+  background:radial-gradient(90% 60% at 50% 0%,color-mix(in srgb,var(--hc) 20%,transparent),transparent 70%),rgba(0,0,0,.2);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--hc) 45%,transparent);transition:transform .2s,box-shadow .2s}
+.hon:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px var(--hc),0 10px 30px -10px color-mix(in srgb,var(--hc) 60%,transparent)}
+.hon .orn-c{background:var(--hc);width:24px;height:24px;opacity:.8}
+.hon.h1c{--hc:#ecc978;order:2}.hon.h2c{--hc:#93d3b6;order:1}.hon.h3c{--hc:#f0a58c;order:3}
+.hon.main{padding:30px 18px 26px;background:radial-gradient(90% 60% at 50% 0%,color-mix(in srgb,var(--hc) 30%,transparent),transparent 72%),rgba(0,0,0,.24)}
+.hon-em{position:relative;width:118px;height:118px;margin:0 auto 10px;display:grid;place-items:center}
+.hon.main .hon-em{width:150px;height:150px}
+.hon-em .rays{position:absolute;inset:-34px;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,color-mix(in srgb,var(--hc) 55%,transparent) 0 5deg,transparent 5deg 15deg);
+  -webkit-mask:radial-gradient(circle,#000 22%,transparent 68%);mask:radial-gradient(circle,#000 22%,transparent 68%);animation:hspin 40s linear infinite;opacity:.75}
+.hon-em .halo{position:absolute;inset:6px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--hc) 55%,transparent),transparent 70%);filter:blur(6px);animation:hpulse 3.2s ease-in-out infinite}
+.hon-em .medal{position:relative;width:64%;height:64%;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#c4553f,var(--seal) 60%,#6f281c);
+  box-shadow:0 0 0 3px var(--hc),0 0 0 7px rgba(0,0,0,.35),0 0 0 8.5px color-mix(in srgb,var(--hc) 70%,transparent),0 0 26px 4px color-mix(in srgb,var(--hc) 55%,transparent)}
+.hon-em .medal b{font:400 clamp(30px,4vw,44px)/1 var(--brush);color:#fbe9c2;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.hon.main .hon-em .medal b{font-size:clamp(38px,5vw,56px)}
+.hon-em .spk{position:absolute;width:10px;height:10px;background:#fff6dc;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:htw 2.6s ease-in-out infinite;filter:drop-shadow(0 0 4px var(--hc))}
+.hon-em .spk.a{top:6%;right:8%}.hon-em .spk.b{bottom:12%;left:2%;width:7px;height:7px;animation-delay:.9s}.hon-em .spk.c{top:30%;left:-6%;width:6px;height:6px;animation-delay:1.7s}
+.hon-tt{display:flex;align-items:center;justify-content:center;gap:10px;font:700 15px var(--serif);text-transform:uppercase;letter-spacing:.12em;color:var(--hc)}
+.hon-tt .hon-ln{flex:0 1 34px;height:1px;background:linear-gradient(90deg,transparent,var(--hc))}
+.hon-tt .hon-ln:last-child{background:linear-gradient(270deg,transparent,var(--hc))}
+.hon-nm{margin:10px 0 6px;font:700 clamp(24px,2.6vw,32px)/1.15 var(--serif);overflow-wrap:anywhere;
+  background:linear-gradient(180deg,#fff7df 10%,var(--hc) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 10px color-mix(in srgb,var(--hc) 45%,transparent)) drop-shadow(0 2px 0 rgba(0,0,0,.4))}
+.hon.main .hon-nm{font-size:clamp(28px,3.4vw,40px)}
+.hon-vv{font-size:14px;color:rgba(245,230,200,.78);font-variant-numeric:lining-nums tabular-nums}
+.hon.empty{cursor:default}
+.hon.empty:hover{transform:none;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--hc) 45%,transparent)}
+.hon.empty .hon-em{filter:grayscale(.85);opacity:.45}
+.hon.empty .rays,.hon.empty .halo{animation:none}
+.hon.empty .hon-nm{background:none;color:rgba(245,230,200,.55);filter:none;font-style:italic;font-weight:600;font-size:clamp(20px,2.2vw,26px)}
+.hall-note{position:relative;margin-top:16px;text-align:center;font-size:12.5px;color:rgba(245,230,200,.6)}
+@keyframes hspin{to{transform:rotate(360deg)}}
+@keyframes hpulse{50%{opacity:.55;transform:scale(.92)}}
+@keyframes htw{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.hon-em .rays,.hon-em .halo,.hon-em .spk{animation:none}.hon-em .spk{opacity:.8}}
+@media(max-width:760px){.hall{padding:24px 14px 16px}.hall-row{grid-template-columns:1fr;gap:14px}.hon.h1c{order:1}.hon.h2c{order:2}.hon.h3c{order:3}
+  .hon:not(.main){display:grid;grid-template-columns:96px 1fr;column-gap:14px;text-align:left;align-items:center;padding:16px}
+  .hon:not(.main) .hon-em{width:84px;height:84px;margin:0;grid-row:span 3}
+  .hon:not(.main) .hon-tt{justify-content:flex-start}.hon:not(.main) .hon-tt .hon-ln{display:none}
+  .hon:not(.main) .hon-nm{margin:4px 0 2px}}
+
+/* ===== v8: biểu tượng tu tiên thay chữ Hán ===== */
+.ico{display:block;flex:none}
+.sh .stp .ico{width:23px;height:23px}
+.pstp .ico{width:17px;height:17px}
+.evc h4 i .ico{width:22px;height:22px}
+.evc h4 i{display:inline-grid;place-items:center}
+.hon-em .medal .ico{width:64%;height:64%;color:#fbe9c2;filter:drop-shadow(0 2px 0 rgba(0,0,0,.35))}
+
+.facts6.orn>div{position:relative;padding-left:66px}
+.facts6 .fic{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--gold);
+  background:radial-gradient(circle,color-mix(in srgb,var(--gold) 16%,transparent),transparent 72%);box-shadow:inset 0 0 0 1.2px color-mix(in srgb,var(--gold) 55%,transparent)}
+.facts6 .fic .ico{width:24px;height:24px}
+.facts6 .warnf .fic{color:var(--cinn);box-shadow:inset 0 0 0 1.2px color-mix(in srgb,var(--cinn) 55%,transparent);background:radial-gradient(circle,color-mix(in srgb,var(--cinn) 16%,transparent),transparent 72%)}
+@media(max-width:560px){.facts6.orn>div{padding-left:14px;padding-top:52px}.facts6 .fic{top:14px;transform:none;left:12px;width:34px;height:34px}.facts6 .fic .ico{width:20px;height:20px}}
 </style>
 </head>
 <body>
@@ -719,7 +815,45 @@ const LEAD_ROLES = /tông chủ|phó|trưởng lão|chủ sự|hộ pháp/i;
 const SVG_MTN = `<svg class="mtn" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" opacity=".55" d="M0 120V78Q70 52 130 70T260 58Q330 22 400 52T540 48Q610 18 690 50T840 44Q910 20 980 52T1110 46Q1160 36 1200 50V120Z"/><path fill="currentColor" d="M0 120V96Q90 70 170 90T330 84Q420 60 500 86T680 80Q760 58 850 84T1020 78Q1110 62 1200 82V120Z"/></svg>`;
 const SVG_CLOUD = `<svg class="cloud" viewBox="0 0 120 60" aria-hidden="true"><path fill="currentColor" d="M18 50c-8 0-14-6-14-13s6-13 14-13c1 0 2 0 3 .3C24 14 32 8 42 8c8 0 15 4 19 11 3-2 7-3 11-3 11 0 20 9 20 20h4c7 0 13 6 13 13H18zm24-30c-5 0-9 4-9 9s4 9 9 9 9-4 9-9h-4c0 3-2 5-5 5s-5-2-5-5 2-5 5-5V20zm38 10c-4 0-7 3-7 7s3 7 7 7 7-3 7-7h-3c0 2-2 4-4 4s-4-2-4-4 2-4 4-4v-3z" fill-rule="evenodd"/></svg>`;
 const SVG_COIN = `<svg class="coinico" viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M24 2a22 22 0 1 1 0 44a22 22 0 1 1 0-44zm0 4a18 18 0 1 0 0 36a18 18 0 1 0 0-36zm0 3a15 15 0 1 1 0 30a15 15 0 1 1 0-30zm-5 10v10h10V19z"/></svg>`;
-const sh = (ch, title, note) => `<div class="sh"><span class="stp" aria-hidden="true">${ch}</span><h3>${title}</h3><span class="ln"></span>${note?`<span class="snote">${note}</span>`:''}</div>`;
+/* Biểu tượng tu tiên (nét vẽ, 32x32, theo màu chữ) */
+const ICP = {
+  // nguyên bảo: cống hiến
+  ingot: '<path d="M4 15.5c1.8 6 6.5 9 12 9s10.2-3 12-9c-1.6-.3-3.2.2-4.6 1.2C22.6 12 19.6 9.5 16 9.5S9.4 12 8.6 16.7C7.2 15.7 5.6 15.2 4 15.5z"/><path d="M11.5 15.5c0-3 2-5.2 4.5-5.2s4.5 2.2 4.5 5.2"/><path d="M8.5 19.5c2 1.6 4.6 2.4 7.5 2.4s5.5-.8 7.5-2.4"/>',
+  // lệnh bài có xoáy không gian: chuyển dời dị giới
+  portal: '<path d="M9 4.5h14v17l-7 6-7-6z"/><path d="M16 9.2a4.3 4.3 0 1 1-4.3 4.3 2.7 2.7 0 1 1 2.7 2.7 1.3 1.3 0 0 1-1.3-1.3"/><path d="M12.5 4.5V2.8h7v1.7"/>',
+  // phi kiếm bay lên trên mây: tiến bộ
+  sword: '<path d="M16 2.5l2.4 3.6v12.4h-4.8V6.1z"/><path d="M16 6.5v11"/><path d="M10.5 18.5h11"/><path d="M16 18.5v5.5"/><circle cx="16" cy="26" r="1.9"/><path d="M4 25.5c.6-2.2 2.6-3.3 4.6-2.7.6-1.7 2.6-2.4 4-1.3M28 25.5c-.6-2.2-2.6-3.3-4.6-2.7-.6-1.7-2.6-2.4-4-1.3"/>',
+  // hai kiếm bắt chéo: quyết đấu, sự kiện
+  swords: '<path d="M4 4l3.4 1.1L19 16.7 16.7 19 5.1 7.4z"/><path d="M28 4l-3.4 1.1L13 16.7l2.3 2.3L26.9 7.4z"/><path d="M15 21.5l6.5-6.5M10.5 15l6.5 6.5"/><path d="M19.6 19.6l4.6 4.6M12.4 19.6l-4.6 4.6"/><circle cx="25.6" cy="25.6" r="1.7"/><circle cx="6.4" cy="25.6" r="1.7"/>',
+  // núi non: bát hoang
+  mountain: '<path d="M2.5 26l8.5-13 4.5 6.5 4-5.5 10 12z"/><path d="M11 13l2 3.2 1.6-1.4"/><circle cx="23.5" cy="7.5" r="3"/><path d="M5 30h22"/>',
+  // thái cực: quy nhất
+  taiji: '<circle cx="16" cy="16" r="12"/><path d="M16 4a6 6 0 0 1 0 12 6 6 0 0 0 0 12"/><circle cx="16" cy="10" r="1.6" fill="currentColor"/><circle cx="16" cy="22" r="1.6"/>',
+  // cuộn thư: cáo thị
+  scroll: '<path d="M8 6.5h17v19H8"/><path d="M8 6.5a2.5 2.5 0 0 0-5 0v2h5M8 25.5a2.5 2.5 0 0 1-5 0v-2"/><path d="M8 6.5v19"/><path d="M25 6.5a2.5 2.5 0 0 1 5 0v2h-5M25 25.5a2.5 2.5 0 0 0 5 0v-2"/><path d="M12.5 12h8M12.5 16h8M12.5 20h5"/>',
+  // hoa sen: vinh danh
+  lotus: '<path d="M16 6c3 3.5 3 9.5 0 14-3-4.5-3-10.5 0-14z"/><path d="M15.5 20C12 18 8.5 13.5 9 9.5c3.2 1 5.7 4 6.5 7.3"/><path d="M16.5 20c3.5-2 7-6.5 6.5-10.5-3.2 1-5.7 4-6.5 7.3"/><path d="M15 20.5c-4 .6-8.6-1.4-10.5-5 3-.8 6.4.3 8.6 2.7M17 20.5c4 .6 8.6-1.4 10.5-5-3-.8-6.4.3-8.6 2.7"/><path d="M6 25h20M10 28h12"/>',
+  // hồ lô: mạnh thường quân
+  gourd: '<path d="M16 3.5v3"/><path d="M13 6.5h6"/><path d="M14 6.5c-3.5 1-4.2 6-1 7.8-5 1.4-7.5 5-7 9 .6 3.6 4.6 5.7 10 5.7s9.4-2.1 10-5.7c.5-4-2-7.6-7-9 3.2-1.8 2.5-6.8-1-7.8"/><path d="M18 4.5c2-1.6 4.4-1.4 6 0-1.4 1.8-3.8 2-6 0z"/><path d="M11 21.5c1.2 2 3 3 5 3"/>',
+  // kim bài có sao: người trúng hũ
+  medal: '<path d="M10 3l3 8M22 3l-3 8"/><circle cx="16" cy="19" r="8.5"/><path d="M16 13.8l1.7 3.4 3.7.5-2.7 2.6.6 3.7-3.3-1.7-3.3 1.7.6-3.7-2.7-2.6 3.7-.5z"/>',
+  // bảo tháp: phong thần bảng
+  pagoda: '<path d="M16 2.5v3"/><path d="M9 9.5c3-.8 5.3-2.3 7-4 1.7 1.7 4 3.2 7 4"/><path d="M11 9.5v4.5h10V9.5"/><path d="M7 17c3.5-.8 6.5-2 9-3 2.5 1 5.5 2.2 9 3"/><path d="M9.5 17v5h13v-5"/><path d="M5 25.5c4-.8 7.5-2 11-3.5 3.5 1.5 7 2.7 11 3.5"/><path d="M8 25.5v4h16v-4M14 29.5v-3.5h4v3.5"/>',
+  // danh sách đệ tử: thành viên
+  people: '<circle cx="11" cy="10" r="4"/><path d="M3.5 26c.5-5 3.6-8 7.5-8s7 3 7.5 8"/><circle cx="22" cy="11.5" r="3.3"/><path d="M19.5 18.8c1-.5 1.8-.7 2.5-.7 3.4 0 6 2.6 6.5 7"/>',
+  // bàn quay: vòng quay thưởng
+  wheel: '<circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="2.4"/><path d="M16 4v9.6M16 18.4V28M4 16h9.6M18.4 16H28M7.5 7.5l6.8 6.8M17.7 17.7l6.8 6.8M24.5 7.5l-6.8 6.8M14.3 17.7l-6.8 6.8"/>',
+  // sổ ghi chép: lịch sử
+  book: '<path d="M6 4.5h17a2 2 0 0 1 2 2v21H8a2 2 0 0 1-2-2z"/><path d="M6 25.5a2 2 0 0 1 2-2h17"/><path d="M11 9.5h9M11 13.5h9"/><circle cx="15.5" cy="18.5" r="1.4"/>',
+  // ấn quản trị
+  moon: '<path d="M21 4.5A11.5 11.5 0 1 0 27.5 21 9.5 9.5 0 0 1 21 4.5z"/><path d="M24.5 6.5l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6-1.6-.7 1.6-.7z"/>',
+  key: '<circle cx="11" cy="11" r="6"/><circle cx="11" cy="11" r="2"/><path d="M15.3 15.3L27 27M22 22l3-3M25 25l2.5-2.5"/>'
+};
+const ICON_OF = { '榮':'lotus','事':'swords','寶':'ingot','告':'scroll','封':'pagoda','榜':'people','輪':'wheel','錄':'book','管':'key',
+  '貢':'ingot','界':'portal','進':'sword','荒':'mountain','歸':'taiji','戰':'swords','義':'gourd','福':'medal' };
+const ico = (k, cls='') => { const n = ICON_OF[k] || k; const p = ICP[n]; return p ? `<svg class="ico ${cls}" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>` : k; };
+const ORN = `<span class="orn-c tl" aria-hidden="true"></span><span class="orn-c tr" aria-hidden="true"></span><span class="orn-c bl" aria-hidden="true"></span><span class="orn-c br" aria-hidden="true"></span>`;
+const sh = (ch, title, note) => `<div class="sh"><span class="stp" aria-hidden="true">${ico(ch)}</span><h3>${title}</h3><span class="ln"></span><span class="sh-cl" aria-hidden="true">${SVG_CLOUD}</span>${note?`<span class="snote">${note}</span>`:''}</div>`;
 const DEF_LINKS = [
   {group:'Công cụ & công lược', title:'Công lược Nhất Niệm Tiêu Dao', url:'https://nntd.netlify.app', note:'Công lược, tính tu vi, event tuần, chí bảo và nhiều công cụ khác'},
   {group:'Sự kiện', title:'Lịch sự kiện tháng', url:'', note:'Google Sheet tổng hợp sự kiện tháng sắp tới'},
@@ -866,11 +1000,11 @@ const grpChips = m => GROUPS.map(g=>`<span class="chip ${m.groups[g[0]]?'on':''}
 function lcPct(m, wk){ const p=prevWeekOf(wk); const a=num((E(wk,m.id)||{}).lc), b=num((E(p,m.id)||{}).lc); return (a&&b)? 100*(a-b)/b : 0; }
 function lcGain(m, wk){ const p=prevWeekOf(wk); const a=num((E(wk,m.id)||{}).lc), b=num((E(p,m.id)||{}).lc); return (a&&b)? a-b : 0; }
 function honors(wk){
-  if(!wk) return [];
-  const A = active().filter(m=>E(wk,m.id)); const used = new Set(); const out = [];
+  const A = wk ? active().filter(m=>E(wk,m.id)) : []; const used = new Set(); const out = [];
   const pick = (key, title, cls, ic, fmt) => {
     const L = A.map(m=>({m, v:key(m)})).filter(x=>x.v>0).sort((a,b)=>b.v-a.v);
-    const x = L.find(x=>!used.has(x.m.id)); if(!x) return; used.add(x.m.id); out.push({m:x.m, v:x.v, title, cls, ic, txt:fmt(x.v)});
+    const x = L.find(x=>!used.has(x.m.id)); if(x) used.add(x.m.id);
+    out.push({m:x?x.m:null, v:x?x.v:0, title, cls, ic, txt:x?fmt(x.v):''});
   };
   pick(m=>num((E(wk,m.id)||{}).ch), 'Đệ nhất cống hiến', 'h1c', '貢', v=>fmtN(v)+' cống hiến');
   pick(m=>num((E(wk,m.id)||{}).dg), 'Đệ nhất chuyển dời', 'h2c', '界', v=>fmtN(v)+' lệnh chuyển dời');
@@ -952,20 +1086,21 @@ function linkify(s){ return s.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" targ
 function vOverview(){
   const A = active(), wk = lastWeek(), S = D.settings;
   const totLC = A.reduce((s,m)=>s+curLC(m),0);
-  let h = `<section class="hero">${SVG_MTN}<div class="plaque"><span class="knot" aria-hidden="true"></span><div class="seal-lg" aria-hidden="true">宗</div><div style="min-width:0"><h2>${esc(S.name)}</h2><div class="sub">${esc(S.sub)}${wk?`, ${weekLabel(wk).toLowerCase()}`:''}</div></div></div></section>`;
-  h += sh('告','Cáo thị') + `<div class="duo even boards">${noticeBlock()}${updatesBlock()}</div>`;
-  if(!A.length) return h + onboarding();
+  let h = `<section class="hero">${SVG_MTN}<span class="hero-cl l" aria-hidden="true">${SVG_CLOUD}</span><span class="hero-cl r" aria-hidden="true">${SVG_CLOUD}</span><div class="plaque"><span class="knot" aria-hidden="true"></span><i class="tas l" aria-hidden="true"></i><i class="tas r" aria-hidden="true"></i><div class="seal-lg" aria-hidden="true">宗</div><div style="min-width:0"><h2>${esc(S.name)}</h2><div class="sub">${esc(S.sub)}${wk?`, ${weekLabel(wk).toLowerCase()}`:''}</div></div></div></section>`;
+  const notices = sh('告','Cáo thị') + `<div class="duo even boards">${noticeBlock()}${updatesBlock()}</div>`;
+  if(!A.length) return h + notices + onboarding();
   const sc = wk ? (D.sect[wk]||{}) : {};
   const offL = A.filter(m=>isOff(m,wk));
-  h += `<dl class="facts6 f4">
-    <div><dt>Thành viên</dt><dd>${A.length}<small> / ${S.maxMembers}</small></dd><div class="sub2">${S.maxMembers-A.length>0?'Còn '+(S.maxMembers-A.length)+' chỗ trống':'Đã đủ người'}</div></div>
-    <div><dt>Tổng lực chiến</dt><dd>${fmtLC(totLC)}</dd><div class="sub2">Trung bình ${fmtLC(totLC/Math.max(1,A.filter(m=>curLC(m)).length))} mỗi người</div></div>
-    <div class="${offL.length?'warnf':''}" ${offL.length?`onclick="F.off=true;go('members');setTimeout(()=>document.getElementById('mlist').scrollIntoView({block:'start'}),60)" role="button" tabindex="0" title="Xem danh sách"`:''}><dt>Offline quá 1 ngày</dt><dd>${offL.length}<small> người</small></dd><div class="sub2">${offL.length?'Bấm để xem danh sách':'Mọi người đều hoạt động'}</div></div>
-    <div><dt>Lệnh chuyển dời dị giới đang có</dt><dd>${sc.kho!==undefined&&sc.kho!==''?fmtN(sc.kho):'—'}</dd><div class="sub2">${wk?'Góp '+weekShort(wk)+': '+fmtN(A.reduce((s,m)=>s+num((E(wk,m.id)||{}).dg),0)):''}</div></div>
+  h += `<dl class="facts6 f4 orn">${ORN}
+    <div><span class="fic">${ico('people')}</span><dt>Thành viên</dt><dd>${A.length}<small> / ${S.maxMembers}</small></dd><div class="sub2">${S.maxMembers-A.length>0?'Còn '+(S.maxMembers-A.length)+' chỗ trống':'Đã đủ người'}</div></div>
+    <div><span class="fic">${ico('sword')}</span><dt>Tổng lực chiến</dt><dd>${fmtLC(totLC)}</dd><div class="sub2">Trung bình ${fmtLC(totLC/Math.max(1,A.filter(m=>curLC(m)).length))} mỗi người</div></div>
+    <div class="${offL.length?'warnf':''}" ${offL.length?`onclick="F.off=true;go('members');setTimeout(()=>document.getElementById('mlist').scrollIntoView({block:'start'}),60)" role="button" tabindex="0" title="Xem danh sách"`:''}><span class="fic">${ico('moon')}</span><dt>Offline quá 1 ngày</dt><dd>${offL.length}<small> người</small></dd><div class="sub2">${offL.length?'Bấm để xem danh sách':'Mọi người đều hoạt động'}</div></div>
+    <div><span class="fic">${ico('portal')}</span><dt>Kho lệnh dị giới</dt><dd>${sc.kho!==undefined&&sc.kho!==''?fmtN(sc.kho):'—'}</dd><div class="sub2">${wk?'Góp '+weekShort(wk)+': '+fmtN(A.reduce((s,m)=>s+num((E(wk,m.id)||{}).dg),0)):''}</div></div>
   </dl>`;
+  h += sh('榮','Vinh danh tuần', wk?weekLabel(wk):'') + honorsBlock(wk);
   h += eventsBlock(wk);
   h += sh('寶','Bảo khố tông môn') + potBlock();
-  h += sh('榮','Vinh danh tuần', weekLabel(wk)) + honorsBlock(wk);
+  h += notices;
   return h;
 }
 function rankCard(title, ch, key, actKey, wk){
@@ -973,7 +1108,7 @@ function rankCard(title, ch, key, actKey, wk){
   let d = '<span class="dpill eq">Chưa có so sánh</span>';
   if(cur && prev){ const x = prev-cur; d = x>0?`<span class="dpill up">▲ Tăng ${x} bậc</span>`:x<0?`<span class="dpill dn">▼ Giảm ${-x} bậc</span>`:'<span class="dpill eq">Giữ hạng</span>'; }
   const A = active().filter(m=>!m.away && E(wk,m.id)), nY = A.filter(m=>(E(wk,m.id).acts||{})[actKey]).length, nN = A.length-nY, tot=Math.max(1,A.length);
-  return `<div class="evc"><h4><i>${ch}</i>${title}</h4>
+  return `<div class="evc orn">${ORN}<h4><i>${ico(ch)}</i>${title}</h4>
     <div class="rk-line"><span class="rk-big">${cur?`<span class="hash">Hạng</span> ${cur}`:'<span class="hash">Chưa có hạng</span>'}</span>${d}</div>
     ${prev?`<div class="rk-prev">Tuần trước hạng ${prev}</div>`:''}
     <div class="qd3"><div><b class="ok">${nY}</b><span>Tham gia</span></div><div><b class="no">${nN}</b><span>Không tham gia</span></div></div>
@@ -993,7 +1128,7 @@ function eventsBlock(wk){
   <div class="evrow">
     ${rankCard('Bát hoang tranh đoạt','荒','bh','batHoang',wk)}
     ${rankCard('Tông môn quy nhất','歸','qn','quyNhat',wk)}
-    <div class="evc"><h4><i>戰</i>Tông môn quyết đấu</h4>
+    <div class="evc orn">${ORN}<h4><i>${ico('戰')}</i>Tông môn quyết đấu</h4>
       <div class="rk-line"><span class="rk-big">${Math.round(100*n3/tot)}<span class="hash">%</span></span><span class="dpill ${n3/tot>=.8?'up':n3/tot>=.5?'eq':'dn'}">đánh đủ lượt</span></div><div class="rk-prev">${A.length} thành viên đang hoạt động</div><div class="qd3"><div><b class="ok">${n3}</b><span>Đánh đủ 3/3 lượt</span></div><div><b class="no">${n0}</b><span>Không tham gia</span></div></div>
       <div class="bar" style="margin-top:12px" aria-hidden="true"><span style="width:${100*n3/tot}%;background:var(--jade)"></span><span style="width:${100*nP/tot}%;background:var(--amber)"></span><span style="width:${100*n0/tot}%;background:var(--cinn)"></span></div>
       <div class="legend"><span><i style="background:var(--jade)"></i>Đủ 3/3</span><span><i style="background:var(--amber)"></i>Chưa đủ: ${nP}</span><span><i style="background:var(--cinn)"></i>Không đánh</span></div>
@@ -1020,18 +1155,18 @@ function potBlock(){
   const el = wk ? active().filter(m=>eligible(m,wk).ok) : [];
   const dn = donorsAgg(), hist = P.history.slice().reverse();
   return `<div class="pot pot-wide">${SVG_CLOUD}
-    <div class="pot-main"><h3>Hũ thưởng tông môn</h3><div class="lbl">Quay mỗi tuần một lần. Chưa ai trúng thì hũ tiếp tục lớn thêm.</div>
+    <div class="pot-main"><h3>Hũ thưởng tông môn</h3>
       <div class="bigrow">${SVG_COIN}<div class="big">${fmtN(P.value||0)} <span class="unit">${esc(S.potUnit)}</span></div></div>
       ${n?`<span class="acc">Đã tích luỹ ${n} tuần chưa có người trúng</span>`:''}
       <div class="rule"><b>Điều kiện quay:</b> đánh đủ 3/3 lượt Tông môn quyết đấu trong tuần, và không bỏ Bát hoang tranh đoạt hoặc Tông môn quy nhất 2 tuần liên tiếp.
         ${wk?`<div class="eln"><span><b>${el.length}</b> người đủ điều kiện ${weekShort(wk)}</span><button class="btn sm" onclick="showElig()">Xem danh sách</button></div>`:''}</div>
       <button class="btn gold" style="margin-top:14px" onclick="go('wheel')">Tới vòng quay thưởng</button>
     </div>
-    <div class="pot-list"><h4><span class="pstp">義</span>Mạnh thường quân</h4>
+    <div class="pot-list"><h4><span class="pstp">${ico('義')}</span>Mạnh thường quân</h4>
       ${dn.length? `<ol class="plist">${dn.slice(0,5).map((d,i)=>`<li><span class="i">${i+1}</span><span class="n">${esc(d.name)}</span><span class="v">${fmtN(d.total)}</span></li>`).join('')}</ol>
         <button class="pmore" onclick="showDonors()">Xem đủ ${dn.length} mạnh thường quân</button>` : '<div class="pempty">Chưa có ai góp hũ.</div>'}
     </div>
-    <div class="pot-list"><h4><span class="pstp">福</span>Người từng trúng hũ</h4>
+    <div class="pot-list"><h4><span class="pstp">${ico('福')}</span>Người từng trúng hũ</h4>
       ${hist.length? `<ol class="plist">${hist.slice(0,5).map(x=>`<li><span class="i">${wn(x.week)}</span><span class="n">${esc(x.winner)}</span><span class="v">${fmtN(x.amount)}</span></li>`).join('')}</ol>
         <button class="pmore" onclick="go('wheel')">Xem lịch sử quay thưởng</button>` : '<div class="pempty">Chưa có ai trúng hũ.</div>'}
     </div></div>`;
@@ -1051,7 +1186,7 @@ function vWheel(){
   const el = wk ? active().filter(m=>eligible(m,wk).ok) : [];
   const hist = P.history.slice().reverse();
   const canSpin = ADMIN || window.EMBED_DATA;
-  let h = `<section class="hero">${SVG_MTN}<div class="plaque"><span class="knot" aria-hidden="true"></span><div class="seal-lg" aria-hidden="true">運</div><div style="min-width:0"><h2>Lịch sử quay thưởng</h2><div class="sub">Vòng quay may mắn hũ thưởng tông môn</div></div></div></section>`;
+  let h = `<section class="hero">${SVG_MTN}<span class="hero-cl l" aria-hidden="true">${SVG_CLOUD}</span><span class="hero-cl r" aria-hidden="true">${SVG_CLOUD}</span><div class="plaque"><span class="knot" aria-hidden="true"></span><i class="tas l" aria-hidden="true"></i><i class="tas r" aria-hidden="true"></i><div class="seal-lg" aria-hidden="true">運</div><div style="min-width:0"><h2>Lịch sử quay thưởng</h2><div class="sub">Vòng quay may mắn hũ thưởng tông môn</div></div></div></section>`;
   h += sh('輪','Vòng quay ' + weekShort(wk), el.length+' người đủ điều kiện');
   h += `<div class="wheel-wrap">
     <div class="wheel-stage"><div class="wheel-ring"><canvas id="wheel" width="520" height="520" aria-label="Vòng quay may mắn"></canvas><div class="wheel-hub" aria-hidden="true">運</div><div class="wheel-pin" aria-hidden="true"></div></div></div>
@@ -1122,10 +1257,18 @@ function showElig(){
     <div class="sec"><h4>Chưa đủ (${no.length})</h4>${no.map(m=>`<div class="watch" onclick="openMember('${m.id}')"><span class="nm">${esc(m.name)}</span><span class="why">${esc(eligible(m,wk).why)}</span></div>`).join('')}</div></div>`);
 }
 function honorsBlock(wk){
-  const H = honors(wk), NUM=['壹','貳','參'];
-  return `<div class="honors">
-    ${H.length?`<div class="tablets">${H.map((x,i)=>`<div class="tablet ${x.cls}" onclick="openMember('${x.m.id}')"><div class="ic">${x.ic}</div><div class="tt">${x.title}</div><div class="nm">${esc(x.m.name)}</div><div class="vv">${x.txt}</div><span class="wm" aria-hidden="true">${NUM[i]}</span></div>`).join('')}</div>`:'<div class="muted small">Chưa có số liệu tuần.</div>'}
-    <div class="hint">Mỗi danh hiệu trao cho một người khác nhau. Tiến bộ vượt bậc tính theo % lực chiến tăng so với chính người đó tuần trước.</div></div>`;
+  const H = honors(wk);
+  const tip = ['Người góp nhiều cống hiến nhất tuần','Người góp nhiều lệnh chuyển dời dị giới nhất tuần','Lực chiến tăng nhiều nhất (theo %) so với chính mình tuần trước'];
+  const card = (x,i) => `<div title="${tip[i]}" class="hon ${x.cls} ${x.m?'':'empty'} ${i===0?'main':''}" ${x.m?`onclick="openMember('${x.m.id}')" role="button" tabindex="0"`:''}>
+      ${ORN}
+      <div class="hon-em" aria-hidden="true"><span class="rays"></span><span class="halo"></span><span class="medal">${ico(x.ic)}</span>${x.m?'<i class="spk a"></i><i class="spk b"></i><i class="spk c"></i>':''}</div>
+      <div class="hon-tt"><span class="hon-ln"></span>${x.title}<span class="hon-ln"></span></div>
+      <div class="hon-nm">${x.m?esc(x.m.name):'Chờ cập nhật'}</div>
+      <div class="hon-vv">${x.m?x.txt:'Chưa có số liệu tuần này'}</div>
+    </div>`;
+  return `<section class="hall">${SVG_CLOUD.replace('class="cloud"','class="cloud hc-l"')}${SVG_CLOUD.replace('class="cloud"','class="cloud hc-r"')}
+    <div class="hall-row">${H.map(card).join('')}</div>
+  </section>`;
 }
 /* ===== Cáo thị & cập nhật game ===== */
 const nowStr = () => new Date().toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit',year:'numeric'});
@@ -1137,7 +1280,7 @@ function clampFix(){ document.querySelectorAll('.nt-body').forEach(el=>{ const b
 function toggleMore(btn){ const el=btn.previousElementSibling; el.classList.toggle('open'); btn.textContent = el.classList.contains('open')?'Thu gọn':'Xem thêm'; }
 function noticeBlock(){
   const L = noticesSorted();
-  return `<section class="board-col"><div class="bc-head"><h3>Cáo thị tông môn</h3></div><div class="bc-list">
+  return `<section class="board-col orn">${ORN}<div class="bc-head"><h3>Cáo thị tông môn</h3></div><div class="bc-list">
     ${L.length? L.map(n=>`<article class="nt ${n.pinned?'pin':''}">
       <div class="nt-top">${n.pinned?'<span class="pintag">Ghim</span>':''}${n.title?`<h4>${esc(n.title)}</h4>`:''}</div>
       <div class="nt-meta">${esc(n.at||'')}${n.by?', '+esc(n.by):''}</div>
@@ -1146,7 +1289,7 @@ function noticeBlock(){
 }
 function updatesBlock(){
   const L = updatesSorted(), t = today();
-  return `<section class="board-col"><div class="bc-head"><h3>Cập nhật game sắp tới</h3></div><div class="bc-list">
+  return `<section class="board-col orn">${ORN}<div class="bc-head"><h3>Cập nhật game sắp tới</h3></div><div class="bc-list">
     ${L.length? L.map(u=>{ const [y,m,d]=(u.date||'--').split('-'); const days = Math.round((new Date(u.date)-new Date(t))/864e5); const past = u.date<t;
       return `<article class="nt up ${u.pinned?'pin':''} ${past?'past':''}"><div class="up-row"><div class="dt">${d}<small>tháng ${Number(m)}</small></div><div style="min-width:0;flex:1">
         <div class="nt-top">${u.pinned?'<span class="pintag">Ghim</span>':''}<h4>${esc(u.title)}</h4><span class="soon ${past?'done':''}">${past?'Đã qua':days===0?'Hôm nay':days===1?'Ngày mai':'Còn '+days+' ngày'}</span></div>
@@ -1314,7 +1457,7 @@ function genZalo(){
     s += (!lowC.length && !lowD.length) ? '\nTuần này cả tông đều đạt chỉ tiêu. Cảm ơn các đạo hữu! 🎉' : '\nCác đạo hữu cố gắng bù giúp tông nhé. Ai bận thì báo ban quản lý để ghi nhận tạm nghỉ 🙏';
   } else if(t.value==='honor'){
     const H = honors(wk);
-    s = `🏆 Vinh danh ${weekLabel(wk).toLowerCase()} của ${S.name}\n\n` + (H.map(x=>`• ${x.title}: ${x.m.name} (${x.txt})`).join('\n') || 'Chưa có số liệu.') + `\n\nCảm ơn các đạo hữu đã góp sức cho tông!`;
+    s = `🏆 Vinh danh ${weekLabel(wk).toLowerCase()} của ${S.name}\n\n` + (H.filter(x=>x.m).map(x=>`• ${x.title}: ${x.m.name} (${x.txt})`).join('\n') || 'Chưa có số liệu.') + `\n\nCảm ơn các đạo hữu đã góp sức cho tông!`;
   } else if(t.value==='off'){
     const L = A.filter(m=>isOff(m,wk));
     s = `⏰ ${S.name}: các đạo hữu offline quá 1 ngày\n\n` + (L.map(m=>`• ${nm(m)}: ${seenOf(m,wk)}`).join('\n') || 'Không có ai.') + (L.length?'\n\nNhớ đăng nhập điểm danh, góp cống hiến cho tông nhé!':'');
