@@ -1,6 +1,6 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 14:05",
+ "generatedAt": "03/10/2026 14:13",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
@@ -38,7 +38,12 @@
   "noticeMax": 4,
   "sheetUrl": "",
   "adminHash": "5ba0ecc1d644f3af2ca95d3d3134663363318b953eec2c1939ab83e0ae728a9f",
-  "spinKey": null,
+  "spinKey": {
+   "salt": "ZThTUw2rq8nUmuRMxQxa4Q==",
+   "iv": "FLlwhKw3cAPQH4xi",
+   "ct": "uA6mbrvTmz/q7nlRDg3aEtqOw2HSWiulBiATI+55r1PpNKtC5CyvyjsnQQRflwVNElUAKJaNc7l8xNxrqCfY06CNmSgz37r2ERi6/9Jf91yP3exV5ORbuDUMWu/BGroi5jjom3v67ElolN1C7w==",
+   "iter": 150000
+  },
   "repo": "vietlchome/tongmon",
   "potBase": 0
  },
