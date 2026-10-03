@@ -1,6 +1,6 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 14:31",
+ "generatedAt": "03/10/2026 14:39",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
@@ -36,6 +36,14 @@
   ],
   "potUnit": "VNĐ",
   "noticeMax": 4,
+  "elig": {
+   "qd": 3,
+   "bh": 2,
+   "qn": 2,
+   "ch": 0,
+   "dg": 0,
+   "ld": false
+  },
   "sheetUrl": "",
   "adminHash": "5ba0ecc1d644f3af2ca95d3d3134663363318b953eec2c1939ab83e0ae728a9f",
   "spinKey": {
