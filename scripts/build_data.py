@@ -116,6 +116,7 @@ def check_header(ws, row, expect, tab):
 
 # ---------------- main ----------------
 SEGS = 8   # vòng quay 8 ô xen kẽ: ô chẵn Chia thưởng, ô lẻ Tích trữ
+MAX_KEEP = 3   # tích trữ tối đa 3 lần liên tiếp, lần thứ 4 chắc chắn nổ hũ
 
 def spin_key(pw, token):
     """Mã hoá token GitHub (chỉ có quyền chạy Actions) bằng mật khẩu quản trị, để nút Quay trên web gọi được máy quay.
@@ -156,7 +157,14 @@ def spin_week(now, wk, weeks, members, hist, donors):
     names = eligible_names(weeks, members, wk)
     today = now.strftime('%Y-%m-%d')
     sp = {'week': wk, 'date': today, 'at': now.strftime('%H:%M %d/%m/%Y'), 'count': len(names), 'list': names, 'auto': True}
-    win = bool(names) and secrets.randbelow(2) == 0
+    # Bảo hiểm: đã Tích trữ 3 lần liên tiếp thì lần này chắc chắn Chia thưởng (nếu có người đủ điều kiện)
+    streak = 0
+    for h in sorted(hist, key=lambda x: (x.get('date', ''), x.get('week', '')), reverse=True):
+        if not h.get('keep'): break
+        streak += 1
+    pity = bool(names) and streak >= MAX_KEEP
+    win = pity or (bool(names) and secrets.randbelow(2) == 0)
+    if pity: sp['pity'] = True
     sp['seg'] = 2 * secrets.randbelow(SEGS // 2) + (0 if win else 1)
     if win:
         paid = sum(h.get('amount', 0) for h in hist if not h.get('keep'))

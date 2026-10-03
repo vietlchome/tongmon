@@ -901,6 +901,12 @@ a.lib-c:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--dc),0 12px 2
 
 .spin-status{border-radius:8px;padding:10px 14px;font-size:13.5px;background:var(--goldbg);color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 40%,transparent)}
 .spin-status.bad{background:var(--cinnbg);color:var(--cinn);border-color:color-mix(in srgb,var(--cinn) 40%,transparent)}
+
+.streak{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink2);padding:2px 2px}
+.streak .dots{display:inline-flex;gap:5px}
+.streak .dots i{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--jade)}
+.streak .dots i.on{background:var(--jade)}
+.streak.hot{color:var(--cinn)}.streak.hot .dots i{background:var(--cinn);box-shadow:0 0 8px var(--cinn)}
 </style>
 </head>
 <body>
@@ -1291,7 +1297,7 @@ function potBlock(){
     <div class="pot-main"><h3>Hũ thưởng tông môn</h3>
       <div class="bigrow">${SVG_COIN}<div class="big">${fmtN(P.value||0)} <span class="unit">${esc(S.potUnit)}</span></div></div>
       ${n?`<span class="acc">Đã tích luỹ ${n} tuần chưa có người trúng</span>`:''}
-      <div class="rule"><b>Mỗi tuần quay 1 lần:</b> 50% chia thưởng cả hũ cho 1 người bốc ngẫu nhiên, 50% tích trữ sang tuần sau.<br><b>Điều kiện:</b> đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang hoặc Quy nhất 2 tuần liên tiếp.
+      <div class="rule"><b>Mỗi tuần quay 1 lần:</b> 50% chia thưởng cả hũ cho 1 người bốc ngẫu nhiên, 50% tích trữ sang tuần sau. Tích trữ tối đa ${MAX_KEEP} lần liên tiếp, lần thứ ${MAX_KEEP+1} chắc chắn nổ hũ.<br><b>Điều kiện:</b> đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang hoặc Quy nhất 2 tuần liên tiếp.
         ${wk?`<div class="eln"><span><b>${el.length}</b> người đủ điều kiện ${weekShort(wk)}</span><button class="btn sm" onclick="showElig()">Xem danh sách</button></div>`:''}</div>
       <button class="btn gold" style="margin-top:14px" onclick="go('wheel')">Tới vòng quay thưởng</button>
     </div>
@@ -1334,6 +1340,8 @@ function showDonors(){
 
 /* ===== Tab: Lịch sử quay thưởng ===== */
 let WHEEL = {rot:0, spinning:false};
+const MAX_KEEP = 3; // tích trữ tối đa 3 lần liên tiếp, lần thứ 4 chắc chắn nổ hũ
+const keepStreak = () => { let n=0; for(const h of D.pot.history.slice().reverse()){ if(!h.keep) break; n++; } return n; };
 const SEGS = 8; // ô chẵn: Chia thưởng, ô lẻ: Tích trữ (mỗi loại 50%)
 function vWheel(){
   const wk = lastWeek(), S = D.settings, P = D.pot;
@@ -1357,8 +1365,9 @@ function vWheel(){
         : `<div class="hint">Chưa bật nút quay: thêm secret <b>SPIN_TOKEN</b> trên GitHub rồi chạy đồng bộ.</div>`) : ''}
       <div class="ws-odds">
         <div class="wo win"><span class="woi">${ico('ingot')}</span><div><b>Chia thưởng · 50%</b><span>Bốc ngẫu nhiên 1 người đủ điều kiện, nhận cả hũ</span></div></div>
-        <div class="wo keep"><span class="woi">${ico('gourd')}</span><div><b>Tích trữ · 50%</b><span>Hũ giữ nguyên, cộng dồn sang tuần sau</span></div></div>
+        <div class="wo keep"><span class="woi">${ico('gourd')}</span><div><b>Tích trữ · 50%</b><span>Hũ giữ nguyên, cộng dồn sang tuần sau. Tối đa ${MAX_KEEP} lần liên tiếp, lần thứ ${MAX_KEEP+1} chắc chắn nổ hũ</span></div></div>
       </div>
+      ${(()=>{ const k=keepStreak(); return `<div class="streak ${k>=MAX_KEEP?'hot':''}"><span class="dots">${Array.from({length:MAX_KEEP},(_,i)=>`<i class="${i<k?'on':''}"></i>`).join('')}</span>${k>=MAX_KEEP?`<b>Đã tích trữ ${k} lần liên tiếp: kỳ này chắc chắn nổ hũ!</b>`:`Đã tích trữ <b>${k}/${MAX_KEEP}</b> lần liên tiếp`}</div>`; })()}
       <div class="ws-rule">Quản trị bấm nút quay, còn kết quả do máy chủ GitHub bốc ngẫu nhiên và ghi lại ngay. Không ai chọn hay sửa được kết quả, mỗi tuần chỉ quay 1 lần.</div>
       <div class="ws-names"><div class="lbl">Đang đủ điều kiện ${wk?weekShort(wk):''} (${el.length})</div><div class="namegrid">${el.map(m=>`<span>${esc(m.name)}</span>`).join('')||'<span class="muted">Chưa có ai.</span>'}</div></div>
     </div></div>`;
@@ -1424,6 +1433,7 @@ function showWinner(x){
   const S=D.settings, L = x.list||[];
   modal(`<div class="win-modal"><div class="wm-seal" aria-hidden="true">${ico('ingot')}</div><div class="wm-k">Chúc mừng đạo hữu</div><div class="wm-n">${esc(x.winner)}</div>
     <div class="wm-v">trúng hũ thưởng <b>${fmtN(x.amount)} ${esc(S.potUnit)}</b></div>
+    ${x.pity?`<div class="small" style="color:var(--gold)">Đã tích trữ ${MAX_KEEP} lần liên tiếp nên kỳ này chắc chắn nổ hũ.</div>`:''}
     <div class="small muted">${weekLabel(x.week)}${x.at?'. Máy quay lúc '+esc(x.at):''}, ${x.count||L.length} người đủ điều kiện.</div>
     ${L.length?`<div class="wm-list"><span>Danh sách bốc thăm:</span> ${L.map(esc).join(', ')}</div>`:''}
     <div class="wm-act"><button class="btn pri" onclick="closeModal();render()">Đóng</button></div></div>`);
@@ -1446,7 +1456,7 @@ async function unlockToken(pw){
 function askSpin(){
   const wk = lastWeek(), n = active().filter(m=>eligible(m,wk).ok).length;
   modal(`<div class="hd"><h2>Quay thưởng ${weekShort(wk)}</h2><button class="iconbtn" onclick="closeModal()" aria-label="Đóng">✕</button></div><div class="bd">
-    <p class="small" style="margin-top:0">${n} người đủ điều kiện, hũ ${fmtN(D.pot.value)} ${esc(D.settings.potUnit)}. Máy sẽ bốc ngẫu nhiên: 50% chia thưởng cả hũ, 50% tích trữ. <b>Mỗi tuần chỉ quay 1 lần, không quay lại được.</b></p>
+    <p class="small" style="margin-top:0">${n} người đủ điều kiện, hũ ${fmtN(D.pot.value)} ${esc(D.settings.potUnit)}. ${keepStreak()>=MAX_KEEP?'Đã tích trữ '+keepStreak()+' lần liên tiếp nên <b>kỳ này chắc chắn chia thưởng</b>, máy chỉ bốc người trúng.':'Máy sẽ bốc ngẫu nhiên: 50% chia thưởng cả hũ, 50% tích trữ.'} <b>Mỗi tuần chỉ quay 1 lần, không quay lại được.</b></p>
     <label class="small muted" for="spw">Nhập lại mật khẩu quản trị để xác nhận</label>
     <input id="spw" type="password" class="inp" style="width:100%;margin:6px 0 14px" onkeydown="if(event.key==='Enter')doSpin()">
     <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" onclick="closeModal()">Huỷ</button><button class="btn gold" id="doSpinBtn" onclick="doSpin()">Quay</button></div></div>`);
