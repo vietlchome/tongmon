@@ -58,6 +58,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index-tongmon.html data.json _site/
+          cp -r assets _site/ 2>/dev/null || true
           cp index-tongmon.html _site/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

@@ -875,6 +875,22 @@ a.lib-c:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--dc),0 12px 2
 .lib-u{margin-top:auto;padding-top:8px;font-size:12px;color:var(--ink3);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .lib-c.nolink{opacity:.65}
 @media(max-width:560px){.lib{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lib-c{padding:18px 10px 14px}.lib-t{font-size:15px}.lib-d{display:none}}
+
+/* ===== góp quỹ ===== */
+.donate{position:relative;display:flex;gap:22px;align-items:center;margin:14px 6px 30px;padding:20px 24px;border-radius:8px;background:var(--card);
+  border:1px solid color-mix(in srgb,var(--gold) 35%,var(--line));box-shadow:var(--shadow)}
+.dn-qr{flex:none;width:118px;padding:0;border:0;background:none;cursor:zoom-in;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1.5px var(--brass),0 6px 18px -8px rgba(0,0,0,.5)}
+.dn-qr img{display:block;width:100%;height:auto}
+.dn-body{min-width:0;flex:1}
+.dn-k{display:flex;align-items:center;gap:10px;font:700 19px var(--serif);text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
+.dn-ic{width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;color:#fbe9c2;background:radial-gradient(circle at 35% 30%,#c4553f,var(--seal) 60%,#6f281c);box-shadow:0 0 0 1.5px var(--brass)}
+.dn-ic .ico{width:20px;height:20px}
+.dn-acc{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:10px 0 6px;font-size:14px;color:var(--ink2)}
+.dn-acc b{font:700 20px var(--sans);color:var(--ink);letter-spacing:.04em;font-variant-numeric:lining-nums tabular-nums}
+.dn-pledge{margin:0 0 4px;font-size:13.5px;color:var(--ink2)}
+.dn-pledge b{color:var(--jade)}
+.dn-note{margin:0;font-size:13px;color:var(--ink3)}
+@media(max-width:560px){.donate{flex-direction:column;text-align:center;padding:22px 16px}.dn-qr{width:170px}.dn-k{justify-content:center;font-size:17px}.dn-acc{justify-content:center}}
 </style>
 </head>
 <body>
@@ -1206,7 +1222,7 @@ function vOverview(){
   </dl>`;
   h += sh('榮','Vinh danh tuần', wk?weekLabel(wk):'') + honorsBlock(wk);
   h += eventsBlock(wk);
-  h += sh('寶','Bảo khố tông môn') + potBlock();
+  h += sh('寶','Bảo khố tông môn') + potBlock() + donateBlock();
   h += notices;
   return h;
 }
@@ -1278,10 +1294,30 @@ function potBlock(){
         <button class="pmore" onclick="go('wheel')">Xem lịch sử quay thưởng</button>` : '<div class="pempty">Chưa có ai trúng hũ.</div>'}
     </div></div>`;
 }
+const DONATE = { bank:'MSB', name:'DAM DUC VIET', acc:'03601016931473', qr:'assets/qr-donate.png' };
+function donateBlock(){
+  return `<div class="donate orn">${ORN}
+    <button class="dn-qr" onclick="showQR()" aria-label="Phóng to mã QR"><img src="${DONATE.qr}" alt="Mã QR tài khoản ${DONATE.bank} ${DONATE.name}" loading="lazy"></button>
+    <div class="dn-body">
+      <div class="dn-k"><span class="dn-ic">${ico('gourd')}</span>Góp quỹ thưởng tông môn</div>
+      <div class="dn-acc"><span>${DONATE.bank}</span><b>${DONATE.acc}</b><span>${DONATE.name}</span>
+        <button class="btn sm" onclick="copyAcc(this)">Chép số tài khoản</button></div>
+      <p class="dn-pledge">Tài khoản chỉ dùng để nhận góp cho quỹ thưởng tông môn, <b>cam kết không dùng cho mục đích cá nhân</b>.</p>
+      <p class="dn-note">Chuyển xong, đạo hữu nhắn ban quản lý để được ghi tên lên bảng Mạnh thường quân.</p>
+    </div></div>`;
+}
+function showQR(){
+  modal(`<div class="hd"><h2>Góp quỹ thưởng tông môn</h2><button class="iconbtn" onclick="closeModal()" aria-label="Đóng">✕</button></div><div class="bd" style="text-align:center">
+    <img src="${DONATE.qr}" alt="Mã QR tài khoản ${DONATE.bank} ${DONATE.name}" style="width:min(100%,340px);border-radius:12px">
+    <p class="small" style="margin:12px 0 4px"><b>${DONATE.bank} · ${DONATE.acc} · ${DONATE.name}</b></p>
+    <p class="small muted" style="margin:0">Chỉ dùng cho quỹ thưởng tông môn, không dùng cho mục đích cá nhân. Chuyển xong nhắn ban quản lý để được ghi tên lên bảng Mạnh thường quân.</p></div>`);
+}
+function copyAcc(btn){ const done=()=>{ btn.textContent='Đã chép'; setTimeout(()=>btn.textContent='Chép số tài khoản',1600); };
+  try{ navigator.clipboard.writeText(DONATE.acc).then(done,()=>prompt('Số tài khoản',DONATE.acc)); }catch(e){ prompt('Số tài khoản',DONATE.acc); } }
 function showDonors(){
   const dn = donorsAgg(), S=D.settings, tot = dn.reduce((a,d)=>a+d.total,0);
   modal(`<div class="hd"><h2>Mạnh thường quân</h2><button class="iconbtn" onclick="closeModal()" aria-label="Đóng">✕</button></div><div class="bd">
-    <p class="small muted" style="margin-top:0">Tổng đã góp vào hũ: <b>${fmtN(tot)} ${esc(S.potUnit)}</b>, từ ${dn.length} người. Tông môn ghi nhận tấm lòng của các đạo hữu.</p>
+    <p class="small muted" style="margin-top:0">Tổng đã góp vào hũ: <b>${fmtN(tot)} ${esc(S.potUnit)}</b>, từ ${dn.length} người. Tông môn ghi nhận tấm lòng của các đạo hữu. <a href="#" onclick="showQR();return false">Góp quỹ</a></p>
     <div class="tablewrap"><table><thead><tr><th class="nosort">#</th><th class="nosort">Đạo hữu</th><th class="nosort num">Số lần góp</th><th class="nosort num">Tổng góp (${esc(S.potUnit)})</th></tr></thead><tbody>
     ${dn.map((d,i)=>`<tr style="cursor:default"><td class="muted">${i+1}</td><td class="nm">${esc(d.name)}</td><td class="num">${d.times}</td><td class="num"><b>${fmtN(d.total)}</b></td></tr>`).join('')}</tbody></table></div></div>`);
 }
