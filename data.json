@@ -1,0 +1,1570 @@
+{
+ "version": 5,
+ "generatedAt": "03/10/2026 12:23",
+ "settings": {
+  "name": "Cổ Giới S84",
+  "sub": "Nhất Niệm Tiêu Dao",
+  "maxMembers": 50,
+  "kpi": {
+   "ch": 7000.0,
+   "dg": 10.0
+  },
+  "tiers": [
+   {
+    "name": "Thiên",
+    "min": 13000000000.0
+   },
+   {
+    "name": "Địa",
+    "min": 11000000000.0
+   },
+   {
+    "name": "Huyền",
+    "min": 9000000000.0
+   },
+   {
+    "name": "Hoàng",
+    "min": 0
+   }
+  ],
+  "roles": [
+   "Tông Chủ",
+   "Phó Tông Chủ",
+   "Trưởng Lão",
+   "Chủ Sự",
+   "Thành Viên"
+  ],
+  "potUnit": "VNĐ",
+  "noticeMax": 4,
+  "sheetUrl": "",
+  "adminHash": "5ba0ecc1d644f3af2ca95d3d3134663363318b953eec2c1939ab83e0ae728a9f",
+  "potBase": 0
+ },
+ "notices": [
+  {
+   "id": "n2",
+   "title": "Nội quy tông môn",
+   "text": "Mỗi tuần tối thiểu 7.000 cống hiến và 10 lệnh chuyển dời dị giới.\nĐánh đủ 3/3 lượt Tông môn quyết đấu.\nKhông bỏ Bát hoang tranh đoạt và Tông môn quy nhất 2 tuần liên tiếp.\nAi bận việc riêng thì báo trước cho ban quản lý để được ghi nhận xin nghỉ, không bị tính chuyên cần.\nVi phạm 2 tuần liền sẽ bị mời ra để nhường chỗ cho đạo hữu mới.",
+   "by": "ThèmBúnBòHuế",
+   "pinned": true,
+   "at": "25/09/2026 21:00",
+   "ts": 1790370000
+  },
+  {
+   "id": "n3",
+   "title": "Lịch quyết đấu tuần này",
+   "text": "Tối thứ 7 lúc 20h: Tông môn quyết đấu, các đạo hữu online đúng giờ.\nChủ nhật 21h: Bát hoang tranh đoạt.",
+   "by": "Vĩnh•Dạ",
+   "pinned": false,
+   "at": "01/10/2026 20:30",
+   "ts": 1790886600
+  },
+  {
+   "id": "n4",
+   "title": "",
+   "text": "Dữ liệu trên web đang là dữ liệu thử nghiệm, chỉ để xem giao diện.",
+   "by": "ThèmBúnBòHuế",
+   "pinned": false,
+   "at": "02/10/2026 08:00",
+   "ts": 1790928000
+  },
+  {
+   "id": "n5",
+   "title": "Chúc mừng LăngSương",
+   "text": "Chúc mừng đạo hữu LăngSương trúng hũ thưởng tuần 36!",
+   "by": "TrươngTửPhàm",
+   "pinned": false,
+   "at": "07/09/2026 22:10",
+   "ts": 1788819000
+  }
+ ],
+ "updates": [
+  {
+   "id": "u2",
+   "date": "2026-09-24",
+   "title": "Bảo trì cập nhật phiên bản 2.3",
+   "note": "",
+   "pinned": false,
+   "ts": 2
+  },
+  {
+   "id": "u3",
+   "date": "2026-10-03",
+   "title": "Mở sự kiện Trung Thu",
+   "note": "Đổi bánh trung thu lấy rương chí bảo",
+   "pinned": false,
+   "ts": 3
+  },
+  {
+   "id": "u4",
+   "date": "2026-10-08",
+   "title": "Bảo trì cập nhật phiên bản 2.4",
+   "note": "Dự kiến 10h–14h",
+   "pinned": false,
+   "ts": 4
+  },
+  {
+   "id": "u5",
+   "date": "2026-10-15",
+   "title": "Mở cảnh giới mới",
+   "note": "Cảnh giới mới mở cho toàn server. Nhớ tích đan, quả và linh thạch trước khi mở để đột phá sớm nhất. Xem chi tiết cách tính thời gian đột phá trong mục Tu vi của trang công lược.",
+   "pinned": true,
+   "ts": 5
+  }
+ ],
+ "links": [
+  {
+   "group": "Công cụ & công lược",
+   "title": "Công lược Nhất Niệm Tiêu Dao",
+   "url": "https://nntd.netlify.app",
+   "note": "Công lược, tính tu vi, event tuần, chí bảo và nhiều công cụ khác"
+  },
+  {
+   "group": "Sự kiện",
+   "title": "Lịch sự kiện tháng 10",
+   "url": "",
+   "note": "Google Sheet tổng hợp sự kiện tháng sắp tới"
+  },
+  {
+   "group": "Sự kiện",
+   "title": "Facebook Nhất Niệm Tiêu Dao",
+   "url": "",
+   "note": "Trang chính thức, nơi đăng event tuần"
+  },
+  {
+   "group": "Cập nhật game",
+   "title": "Thông tin cập nhật phiên bản",
+   "url": "",
+   "note": "Thay đổi và nội dung mới của game"
+  },
+  {
+   "group": "Nạp game",
+   "title": "Trang nạp chính thức",
+   "url": "",
+   "note": "Nạp qua trang chính thức để nhận đủ ưu đãi"
+  }
+ ],
+ "pot": {
+  "value": 1250000.0,
+  "donors": [
+   {
+    "name": "ThèmBúnBòHuế",
+    "amount": 200000.0,
+    "date": "2026-08-10",
+    "note": ""
+   },
+   {
+    "name": "TrươngTửPhàm",
+    "amount": 150000.0,
+    "date": "2026-08-12",
+    "note": ""
+   },
+   {
+    "name": "Vĩnh•Dạ",
+    "amount": 150000.0,
+    "date": "2026-08-20",
+    "note": ""
+   },
+   {
+    "name": "ThèmBúnBòHuế",
+    "amount": 300000.0,
+    "date": "2026-08-25",
+    "note": ""
+   },
+   {
+    "name": "KiếmNguyệt",
+    "amount": 200000.0,
+    "date": "2026-08-28",
+    "note": ""
+   },
+   {
+    "name": "LăngSương",
+    "amount": 100000.0,
+    "date": "2026-09-02",
+    "note": ""
+   },
+   {
+    "name": "TrọngThầnSư",
+    "amount": 300000.0,
+    "date": "2026-09-04",
+    "note": ""
+   },
+   {
+    "name": "ThèmBúnBòHuế",
+    "amount": 300000.0,
+    "date": "2026-09-10",
+    "note": ""
+   },
+   {
+    "name": "TrươngTửPhàm",
+    "amount": 200000.0,
+    "date": "2026-09-14",
+    "note": ""
+   },
+   {
+    "name": "Vĩnh•Dạ",
+    "amount": 150000.0,
+    "date": "2026-09-18",
+    "note": ""
+   },
+   {
+    "name": "KiếmNguyệt",
+    "amount": 100000.0,
+    "date": "2026-09-21",
+    "note": ""
+   },
+   {
+    "name": "HuyềnDao",
+    "amount": 100000.0,
+    "date": "2026-09-24",
+    "note": ""
+   },
+   {
+    "name": "ThanhHỏa",
+    "amount": 150000.0,
+    "date": "2026-09-27",
+    "note": ""
+   },
+   {
+    "name": "ThèmBúnBòHuế",
+    "amount": 250000.0,
+    "date": "2026-09-30",
+    "note": ""
+   }
+  ],
+  "history": [
+   {
+    "week": "2026-W34",
+    "date": "2026-08-23",
+    "winner": "VânPhong",
+    "count": 18.0,
+    "amount": 500000.0
+   },
+   {
+    "week": "2026-W36",
+    "date": "2026-09-06",
+    "winner": "LăngSương",
+    "count": 21.0,
+    "amount": 900000.0
+   }
+  ]
+ },
+ "sect": {
+  "2026-W40": {
+   "bh": 2.0,
+   "qn": 2.0,
+   "kho": 315.0
+  }
+ },
+ "members": [
+  {
+   "id": "mac7eebe3",
+   "name": "ThèmBúnBòHuế",
+   "zalo": "Hoàng Trang",
+   "role": "Tông Chủ",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11090000000
+  },
+  {
+   "id": "md3610f7f",
+   "name": "Vĩnh•Dạ",
+   "zalo": "Phạm Minh",
+   "role": "Phó Tông Chủ",
+   "heChinh": "Ngự quỷ",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12960000000
+  },
+  {
+   "id": "ma8eb729f",
+   "name": "TrươngTửPhàm",
+   "zalo": "Trần Đức",
+   "role": "Phó Tông Chủ",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 14520000000
+  },
+  {
+   "id": "mc273266d",
+   "name": "TrọngThầnSư",
+   "zalo": "Lê Hà",
+   "role": "Chủ Sự",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10330000000
+  },
+  {
+   "id": "m6f4069b1",
+   "name": "TửNguyệt",
+   "zalo": "Trần Tuấn",
+   "role": "Trưởng Lão",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9520000000
+  },
+  {
+   "id": "md54125e3",
+   "name": "NguyệtLinh",
+   "zalo": "Phạm Huy",
+   "role": "Trưởng Lão",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10980000000
+  },
+  {
+   "id": "md4f53bce",
+   "name": "ThanhKhách",
+   "zalo": "Đặng Khoa",
+   "role": "Chủ Sự",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 13280000000
+  },
+  {
+   "id": "mcff24c3c",
+   "name": "PhongLâm97",
+   "zalo": "Vũ Minh",
+   "role": "Chủ Sự",
+   "heChinh": "Ngự quỷ",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": true,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "Xin nghỉ tuần 41 vì đi công tác.",
+   "lc": 11390000000
+  },
+  {
+   "id": "m74c6c3de",
+   "name": "BạchTiên",
+   "zalo": "Trần Tuấn",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11670000000
+  },
+  {
+   "id": "m460ae906",
+   "name": "LamLâm85",
+   "zalo": "Lê Bảo",
+   "role": "Thành Viên",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12100000000
+  },
+  {
+   "id": "m402e31aa",
+   "name": "KiếmNguyệt",
+   "zalo": "Phạm Hùng",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 15930000000
+  },
+  {
+   "id": "m3ba0b468",
+   "name": "VânSương68",
+   "zalo": "Đặng Bảo",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 15040000000
+  },
+  {
+   "id": "m81394d39",
+   "name": "TửMộng31",
+   "zalo": "Đặng Trang",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "Chuyên đánh Bát hoang, gọi khi cần đội hình.",
+   "lc": 10320000000
+  },
+  {
+   "id": "m67e79cc3",
+   "name": "DạVân91",
+   "zalo": "Phạm Hùng",
+   "role": "Thành Viên",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9040000000
+  },
+  {
+   "id": "mdb2aa1f7",
+   "name": "HànCa94",
+   "zalo": "Vũ Quân",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 13780000000
+  },
+  {
+   "id": "m37e1d35c",
+   "name": "HànMộng71",
+   "zalo": "Hoàng Thảo",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11140000000
+  },
+  {
+   "id": "mea55798b",
+   "name": "LăngSương",
+   "zalo": "Vũ Minh",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9170000000
+  },
+  {
+   "id": "m9be43323",
+   "name": "KiếmPhong",
+   "zalo": "Vũ Tuấn",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8740000000
+  },
+  {
+   "id": "mdfbf3126",
+   "name": "MặcMộng",
+   "zalo": "Nguyễn Tuấn",
+   "role": "Thành Viên",
+   "heChinh": "Ngự quỷ",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 7880000000
+  },
+  {
+   "id": "m5d5533c1",
+   "name": "DạHỏa41",
+   "zalo": "Vũ Quân",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 7930000000
+  },
+  {
+   "id": "m78eeac2e",
+   "name": "PhongMộng",
+   "zalo": "Trần Anh",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10640000000
+  },
+  {
+   "id": "m2e3ef8a4",
+   "name": "KiếmVân83",
+   "zalo": "Đặng Hà",
+   "role": "Thành Viên",
+   "heChinh": "Ngự quỷ",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9350000000
+  },
+  {
+   "id": "mc9f50f9b",
+   "name": "LăngVũ29",
+   "zalo": "Hoàng Tuấn",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 7050000000
+  },
+  {
+   "id": "ma72587e4",
+   "name": "HuyếtCa",
+   "zalo": "Vũ Đức",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 14770000000
+  },
+  {
+   "id": "me7e82c45",
+   "name": "MặcVân",
+   "zalo": "Hoàng Hà",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9020000000
+  },
+  {
+   "id": "m9cab8c48",
+   "name": "CửuTuyết",
+   "zalo": "Nguyễn Hà",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 15210000000
+  },
+  {
+   "id": "m2155607f",
+   "name": "BạchĐao",
+   "zalo": "Phạm Dũng",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12370000000
+  },
+  {
+   "id": "m457a1f18",
+   "name": "PhongCa37",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 14920000000
+  },
+  {
+   "id": "m4ead8be4",
+   "name": "HuyếtĐao",
+   "zalo": "Phạm Long",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11890000000
+  },
+  {
+   "id": "m5f124d19",
+   "name": "TinhHà",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "Ngự quỷ",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 15650000000
+  },
+  {
+   "id": "m28824a6f",
+   "name": "LạcTâm",
+   "zalo": "Lê Long",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10350000000
+  },
+  {
+   "id": "m0d730cb7",
+   "name": "CửuKiếm",
+   "zalo": "Phạm Long",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12820000000
+  },
+  {
+   "id": "mbd604583",
+   "name": "LamCa",
+   "zalo": "Vũ Tuấn",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12200000000
+  },
+  {
+   "id": "m90435573",
+   "name": "BạchTrần38",
+   "zalo": "Lê Phúc",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 5650000000
+  },
+  {
+   "id": "m54e5aecd",
+   "name": "ThanhHỏa",
+   "zalo": "Vũ Thảo",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 14920000000
+  },
+  {
+   "id": "m37e0d75e",
+   "name": "HuyềnDao",
+   "zalo": "Lê Hùng",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 13880000000
+  },
+  {
+   "id": "m638f0994",
+   "name": "BạchTrần71",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "Nho tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 6380000000
+  },
+  {
+   "id": "m1e47a6d7",
+   "name": "TiêuSương",
+   "zalo": "Hoàng Đức",
+   "role": "Thành Viên",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12360000000
+  },
+  {
+   "id": "m57f83671",
+   "name": "LamVân79",
+   "zalo": "Trần Khoa",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12550000000
+  },
+  {
+   "id": "mcca5b934",
+   "name": "VânPhong",
+   "zalo": "Vũ Linh",
+   "role": "Thành Viên",
+   "heChinh": "Ngự quỷ",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 15080000000
+  },
+  {
+   "id": "ma1c6f6a2",
+   "name": "LạcKhách47",
+   "zalo": "Hoàng Tuấn",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10750000000
+  },
+  {
+   "id": "me15a8b49",
+   "name": "DạẢnh",
+   "zalo": "Lê Nam",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 6680000000
+  },
+  {
+   "id": "m3d0ddbbd",
+   "name": "LăngDao",
+   "zalo": "Phạm Linh",
+   "role": "Thành Viên",
+   "heChinh": "Pháp tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10350000000
+  },
+  {
+   "id": "m859721ff",
+   "name": "BạchTrần",
+   "zalo": "Đặng Huy",
+   "role": "Thành Viên",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10620000000
+  },
+  {
+   "id": "m38ec134e",
+   "name": "LăngLâm",
+   "zalo": "Lê Huy",
+   "role": "Thành Viên",
+   "heChinh": "Thể tu",
+   "groups": {
+    "thongBao": true,
+    "troChuyen": true
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10710000000
+  },
+  {
+   "id": "m09734573",
+   "name": "CôPhongKhách",
+   "zalo": "Lý Bảo",
+   "role": "Thành Viên",
+   "heChinh": "Ngự kiếm",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 0,
+   "leftAt": "2026-09-20",
+   "leftReason": "Bị kick: Không đạt KPI",
+   "blacklist": true
+  },
+  {
+   "id": "mce5734a5",
+   "name": "Thử nghiệm",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9500000000
+  }
+ ],
+ "weeks": {
+  "2026-W40": {
+   "mac7eebe3": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 11090000000,
+    "ch": 10868.0,
+    "dg": 9.0,
+    "seen": "2 phút trước"
+   },
+   "md3610f7f": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 12960000000,
+    "ch": 9228.0,
+    "dg": 21.0,
+    "seen": "20 phút trước"
+   },
+   "ma8eb729f": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 14520000000,
+    "ch": 8699.0,
+    "dg": 7.0,
+    "seen": "Trực tuyến"
+   },
+   "mc273266d": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 10330000000,
+    "ch": 10187.0,
+    "dg": 15.0,
+    "seen": "46 phút trước"
+   },
+   "m6f4069b1": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 9520000000,
+    "ch": 4431.0,
+    "dg": 3.0,
+    "seen": "1 ngày trước"
+   },
+   "md54125e3": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 10980000000,
+    "ch": 4671.0,
+    "dg": 5.0,
+    "seen": "3 ngày trước"
+   },
+   "md4f53bce": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": false
+    },
+    "lc": 13280000000,
+    "ch": 11042.0,
+    "dg": 10.0,
+    "seen": "20 phút trước"
+   },
+   "mcff24c3c": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 11390000000,
+    "ch": 6846.0,
+    "dg": 0.0,
+    "seen": "3 ngày trước"
+   },
+   "m74c6c3de": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 11670000000,
+    "ch": 4241.0,
+    "dg": 3.0,
+    "seen": "2 phút trước"
+   },
+   "m460ae906": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 12100000000,
+    "ch": 9303.0,
+    "dg": 14.0,
+    "seen": "12 giờ trước"
+   },
+   "m402e31aa": {
+    "acts": {
+     "quyetDau": 2,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": false
+    },
+    "lc": 15930000000,
+    "ch": 10623.0,
+    "dg": 17.0,
+    "seen": "Trực tuyến"
+   },
+   "m3ba0b468": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 15040000000,
+    "ch": 7448.0,
+    "dg": 16.0,
+    "seen": "1 giờ trước"
+   },
+   "m81394d39": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 10320000000,
+    "ch": 6642.0,
+    "dg": 21.0,
+    "seen": "20 phút trước"
+   },
+   "m67e79cc3": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 9040000000,
+    "ch": 3714.0,
+    "dg": 3.0,
+    "seen": "3 ngày trước"
+   },
+   "mdb2aa1f7": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": true,
+     "quyNhat": false
+    },
+    "lc": 13780000000,
+    "ch": 10509.0,
+    "dg": 19.0,
+    "seen": "Trực tuyến"
+   },
+   "m37e1d35c": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 11140000000,
+    "ch": 10300.0,
+    "dg": 15.0,
+    "seen": "20 phút trước"
+   },
+   "mea55798b": {
+    "acts": {
+     "quyetDau": 1,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 9170000000,
+    "ch": 7276.0,
+    "dg": 12.0,
+    "seen": "2 phút trước"
+   },
+   "m9be43323": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 8740000000,
+    "ch": 6062.0,
+    "dg": 7.0,
+    "seen": "Trực tuyến"
+   },
+   "mdfbf3126": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 7880000000,
+    "ch": 4652.0,
+    "dg": 6.0,
+    "seen": "Trực tuyến"
+   },
+   "m5d5533c1": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 7930000000,
+    "ch": 2534.0,
+    "dg": 5.0,
+    "seen": "3 ngày trước"
+   },
+   "m78eeac2e": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 10640000000,
+    "ch": 9466.0,
+    "dg": 8.0,
+    "seen": "12 giờ trước"
+   },
+   "m2e3ef8a4": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 9350000000,
+    "ch": 3059.0,
+    "dg": 9.0,
+    "seen": "2 ngày trước"
+   },
+   "mc9f50f9b": {
+    "acts": {
+     "quyetDau": 1,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 7050000000,
+    "ch": 8660.0,
+    "dg": 13.0,
+    "seen": "12 giờ trước"
+   },
+   "ma72587e4": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 14770000000,
+    "ch": 7424.0,
+    "dg": 7.0,
+    "seen": "1 giờ trước"
+   },
+   "me7e82c45": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 9020000000,
+    "ch": 8802.0,
+    "dg": 16.0,
+    "seen": "1 giờ trước"
+   },
+   "m9cab8c48": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 15210000000,
+    "ch": 6168.0,
+    "dg": 2.0,
+    "seen": "3 ngày trước"
+   },
+   "m2155607f": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 12370000000,
+    "ch": 9078.0,
+    "dg": 22.0,
+    "seen": "5 giờ trước"
+   },
+   "m457a1f18": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": true,
+     "quyNhat": false
+    },
+    "lc": 14920000000,
+    "ch": 8062.0,
+    "dg": 6.0,
+    "seen": "Trực tuyến"
+   },
+   "m4ead8be4": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 11890000000,
+    "ch": 9616.0,
+    "dg": 25.0,
+    "seen": "5 giờ trước"
+   },
+   "m5f124d19": {
+    "acts": {
+     "quyetDau": 1,
+     "loanDau": false,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 15650000000,
+    "ch": 6507.0,
+    "dg": 9.0,
+    "seen": "Trực tuyến"
+   },
+   "m28824a6f": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 10350000000,
+    "ch": 6670.0,
+    "dg": 13.0,
+    "seen": "12 giờ trước"
+   },
+   "m0d730cb7": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 12820000000,
+    "ch": 7397.0,
+    "dg": 10.0,
+    "seen": "Trực tuyến"
+   },
+   "mbd604583": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 12200000000,
+    "ch": 9306.0,
+    "dg": 17.0,
+    "seen": "5 giờ trước"
+   },
+   "m90435573": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 5650000000,
+    "ch": 9156.0,
+    "dg": 16.0,
+    "seen": "5 giờ trước"
+   },
+   "m54e5aecd": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 14920000000,
+    "ch": 11487.0,
+    "dg": 13.0,
+    "seen": "1 giờ trước"
+   },
+   "m37e0d75e": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 13880000000,
+    "ch": 8683.0,
+    "dg": 16.0,
+    "seen": "12 giờ trước"
+   },
+   "m638f0994": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 6380000000,
+    "ch": 10501.0,
+    "dg": 17.0,
+    "seen": "Trực tuyến"
+   },
+   "m1e47a6d7": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 12360000000,
+    "ch": 9749.0,
+    "dg": 14.0,
+    "seen": "12 giờ trước"
+   },
+   "m57f83671": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": true
+    },
+    "lc": 12550000000,
+    "ch": 9256.0,
+    "dg": 16.0,
+    "seen": "1 giờ trước"
+   },
+   "mcca5b934": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 15080000000,
+    "ch": 9374.0,
+    "dg": 5.0,
+    "seen": "5 giờ trước"
+   },
+   "ma1c6f6a2": {
+    "acts": {
+     "quyetDau": 2,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 10750000000,
+    "ch": 9289.0,
+    "dg": 19.0,
+    "seen": "12 giờ trước"
+   },
+   "me15a8b49": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 6680000000,
+    "ch": 11012.0,
+    "dg": 15.0,
+    "seen": "12 giờ trước"
+   },
+   "m3d0ddbbd": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 10350000000,
+    "ch": 4857.0,
+    "dg": 6.0,
+    "seen": "12 giờ trước"
+   },
+   "m859721ff": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": true,
+     "batHoang": true,
+     "quyNhat": true
+    },
+    "lc": 10620000000,
+    "ch": 6222.0,
+    "dg": 15.0,
+    "seen": "1 giờ trước"
+   },
+   "m38ec134e": {
+    "acts": {
+     "quyetDau": 2,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 10710000000,
+    "ch": 9034.0,
+    "dg": 11.0,
+    "seen": "20 phút trước"
+   },
+   "mce5734a5": {
+    "acts": {
+     "quyetDau": 0,
+     "loanDau": false,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 9500000000,
+    "ch": 8000
+   }
+  }
+ }
+}
