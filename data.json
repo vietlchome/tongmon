@@ -1,12 +1,12 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 14:39",
+ "generatedAt": "03/10/2026 16:46",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
   "maxMembers": 56,
   "kpi": {
-   "ch": 7000.0,
+   "ch": 8000.0,
    "dg": 1.0
   },
   "tiers": [
@@ -180,21 +180,21 @@
  },
  "sect": {
   "2026-W40": {
-   "bh": 2.0,
+   "bh": 1.0,
    "qn": 2.0,
-   "kho": 315.0
+   "kho": 164.0
   }
  },
  "members": [
   {
    "id": "mac7eebe3",
    "name": "ThèmBúnBòHuế",
-   "zalo": "",
+   "zalo": "Trần Tài",
    "role": "Tông Chủ",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -205,12 +205,12 @@
   {
    "id": "md3610f7f",
    "name": "Vĩnh•Dạ",
-   "zalo": "",
+   "zalo": "Nhân Nghĩa",
    "role": "Phó Tông Chủ",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -221,12 +221,12 @@
   {
    "id": "ma8eb729f",
    "name": "TrươngTửPhàm",
-   "zalo": "",
+   "zalo": "Việt",
    "role": "Phó Tông Chủ",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -237,12 +237,12 @@
   {
    "id": "m48f6a4b2",
    "name": "Tuất•Đế",
-   "zalo": "",
+   "zalo": "Xơn",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -253,12 +253,12 @@
   {
    "id": "mc273266d",
    "name": "TrọngThầnSư",
-   "zalo": "",
+   "zalo": "Văn Toàn",
    "role": "Chủ Sự",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -269,12 +269,12 @@
   {
    "id": "m1b359ff6",
    "name": "ChíTôn•Tạihạ",
-   "zalo": "",
+   "zalo": "Văn Cường",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -285,12 +285,12 @@
   {
    "id": "m62b77b22",
    "name": "Bạch•Dạ",
-   "zalo": "",
+   "zalo": "Tiến Thịnh",
    "role": "Trưởng Lão",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -301,12 +301,12 @@
   {
    "id": "mc18b917d",
    "name": "<Tên trắng>",
-   "zalo": "",
+   "zalo": "<Tên trắng>",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
     "thongBao": false,
-    "troChuyen": false
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -317,12 +317,12 @@
   {
    "id": "m66c6e7ab",
    "name": "Ririka•PTTM",
-   "zalo": "",
+   "zalo": "Ngo Loc",
    "role": "Trưởng Lão",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -349,12 +349,12 @@
   {
    "id": "m1f757181",
    "name": "ChíTôn•Nga",
-   "zalo": "",
+   "zalo": "Nga Tương",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -381,12 +381,12 @@
   {
    "id": "m31e0717c",
    "name": "KhuynhThành",
-   "zalo": "",
+   "zalo": "Quang Linh",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -397,12 +397,12 @@
   {
    "id": "m9b191051",
    "name": "BáChủPooh",
-   "zalo": "",
+   "zalo": "Đào Chung",
    "role": "Trưởng Lão",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -413,12 +413,12 @@
   {
    "id": "m422f73e5",
    "name": "HDHànTuyệt",
-   "zalo": "",
+   "zalo": "智 忠",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -429,12 +429,12 @@
   {
    "id": "mf6cc9d47",
    "name": "tiêudaoTạ°Diệm",
-   "zalo": "",
+   "zalo": "Phùng Phi",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -461,12 +461,12 @@
   {
    "id": "m5c0358b1",
    "name": "ThiênĐạo",
-   "zalo": "",
+   "zalo": "Lương Gia Kỳ",
    "role": "Trưởng Lão",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -493,12 +493,12 @@
   {
    "id": "m2b664f33",
    "name": "Phượng€ửuCa",
-   "zalo": "",
+   "zalo": "Hoàng Tùng",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -509,12 +509,12 @@
   {
    "id": "m9ddb520d",
    "name": "ChíTôn•Nirual",
-   "zalo": "",
+   "zalo": "Quang Nhật",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -525,12 +525,12 @@
   {
    "id": "m05c72a90",
    "name": "ChíTôn•Kiếm",
-   "zalo": "",
+   "zalo": "Quốc Bảo",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -541,12 +541,12 @@
   {
    "id": "ma777a416",
    "name": "Thiên•Noah",
-   "zalo": "",
+   "zalo": "Đức",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -557,12 +557,12 @@
   {
    "id": "m514bfe1e",
    "name": "HDHD•Finance",
-   "zalo": "",
+   "zalo": "Thiện Chí",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -573,12 +573,12 @@
   {
    "id": "m08160f41",
    "name": "ChíTôn•SátTinh",
-   "zalo": "",
+   "zalo": "Tuấn Kiệt",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
     "thongBao": false,
-    "troChuyen": false
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -589,12 +589,12 @@
   {
    "id": "m96a19c5c",
    "name": "Thiên•Uyên",
-   "zalo": "",
+   "zalo": "Duy Thăng",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -605,12 +605,12 @@
   {
    "id": "m94583c14",
    "name": "Thiên•Trieuuuu",
-   "zalo": "",
+   "zalo": "Triệu Huy",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -621,12 +621,12 @@
   {
    "id": "m58312e7f",
    "name": "Thiên•Hui",
-   "zalo": "",
+   "zalo": "Khánh Huy",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -637,12 +637,12 @@
   {
    "id": "mdf2a252e",
    "name": "ChíTôn•destiny",
-   "zalo": "",
+   "zalo": "Quang Nhỏ",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -653,12 +653,12 @@
   {
    "id": "m374d855d",
    "name": "ChíTôn•holomeo",
-   "zalo": "",
+   "zalo": "Văn Đạt",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -669,12 +669,12 @@
   {
    "id": "m4e420709",
    "name": "ĐưaTaoCáiHũ",
-   "zalo": "",
+   "zalo": "Nguyen",
    "role": "Chủ Sự",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -685,12 +685,12 @@
   {
    "id": "m6089626a",
    "name": "Tiền•bốiwhat",
-   "zalo": "",
+   "zalo": "Quân",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -749,12 +749,12 @@
   {
    "id": "m3e3edf23",
    "name": "Thiên•Quân",
-   "zalo": "",
+   "zalo": "Mạnh Cương",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -765,12 +765,12 @@
   {
    "id": "mb6787f14",
    "name": "ChíTôn•MDuck",
-   "zalo": "",
+   "zalo": "Minh Đức",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
@@ -781,12 +781,12 @@
   {
    "id": "mb830bcce",
    "name": "- Khởi•Linh•",
-   "zalo": "",
+   "zalo": "Đỗ Nguyệt Linh",
    "role": "Thành Viên",
    "heChinh": "",
    "groups": {
-    "thongBao": false,
-    "troChuyen": false
+    "thongBao": true,
+    "troChuyen": true
    },
    "away": false,
    "joinedAt": "2026-10-03",
