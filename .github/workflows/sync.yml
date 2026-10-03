@@ -1,0 +1,67 @@
+name: Đồng bộ Sheet lên web
+
+on:
+  schedule:
+    - cron: '0 17 * * *'    # 0h00 hằng ngày giờ VN
+    - cron: '45 22 * * 0'   # 5h45 sáng thứ Hai giờ VN (dự phòng chốt tuần, trước giờ reset 8h)
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Lý do chạy'
+        required: false
+        default: 'Chạy tay'
+      force:
+        description: 'Cho phép sửa tuần cũ hơn tuần mới nhất (1 = có)'
+        required: false
+        default: '0'
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sync-data
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install openpyxl
+
+      - name: Đọc Sheet và tạo data.json
+        env:
+          ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
+          FORCE: ${{ github.event.inputs.force }}
+        run: python scripts/build_data.py --sheet-id "${{ secrets.SHEET_ID }}" --out data.json
+
+      - name: Lưu data.json vào repo (giữ lịch sử)
+        run: |
+          if [ -z "$(git status --porcelain -- data.json)" ]; then echo "Không có thay đổi"; exit 0; fi
+          git config user.name "tong-mon-bot"
+          git config user.email "tong-mon-bot@users.noreply.github.com"
+          git add data.json
+          git commit -m "Đồng bộ Sheet $(TZ=Asia/Ho_Chi_Minh date '+%d/%m/%Y %H:%M') - ${{ github.event.inputs.reason || github.event_name }}"
+          git push
+
+      - name: Chuẩn bị trang web
+        run: |
+          mkdir -p _site
+          cp index-tongmon.html data.json _site/
+          cp index-tongmon.html _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
