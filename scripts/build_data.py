@@ -395,4 +395,11 @@ def main():
     for w_ in WARN: print('  Lưu ý: ' + w_)
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        tb = traceback.extract_tb(e.__traceback__)[-1]
+        die(f'Lỗi khi chạy: {type(e).__name__}: {e} (dòng {tb.lineno}, {tb.name})')
