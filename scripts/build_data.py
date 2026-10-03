@@ -11,7 +11,7 @@ Dùng:
   python scripts/build_data.py --xlsx path/to/file.xlsx   # đọc file có sẵn (để thử)
 Biến môi trường: ADMIN_PASS (mật khẩu quản trị web), FORCE=1 (cho phép ghi đè tuần cũ hơn tuần mới nhất).
 """
-import argparse, datetime as dt, hashlib, io, json, os, re, sys, unicodedata, urllib.request, urllib.parse
+import argparse, datetime as dt, hashlib, io, json, os, re, sys, unicodedata, urllib.request, urllib.parse, urllib.error
 
 T_SET, T_MEM, T_WEEK, T_PASTE = 'Cài đặt', 'Thành viên', 'Số liệu tuần', 'Dán ảnh'
 T_NOTICE, T_UPD, T_DONOR, T_DOCS = 'Cáo thị', 'Cập nhật game', 'Mạnh thường quân', 'Tàng thư các'
@@ -100,8 +100,11 @@ def load_wb(args):
         # Sheet riêng tư: Apps Script (chạy bằng quyền chủ Sheet) trả file xlsx khi đúng khoá
         import base64
         url = api + ('&' if '?' in api else '?') + 'key=' + urllib.parse.quote(k)
-        with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=120) as r:
-            txt = r.read().decode('utf-8', 'replace').strip()
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=120) as r:
+                txt = r.read().decode('utf-8', 'replace').strip()
+        except urllib.error.HTTPError as e:
+            die(f'Apps Script trả lỗi HTTP {e.code}. Kiểm tra bản triển khai Ứng dụng web: "Thực thi với tư cách: Tôi", "Người có quyền truy cập: Bất kỳ ai", và secret SHEET_API là URL đuôi /exec.')
         try: data = base64.b64decode(txt, validate=True)
         except Exception: data = b''
         if not data.startswith(b'PK'):
@@ -109,8 +112,11 @@ def load_wb(args):
     else:
         url = f'https://docs.google.com/spreadsheets/d/{args.sheet_id}/export?format=xlsx'
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=60) as r:
-            data = r.read()
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = r.read()
+        except urllib.error.HTTPError as e:
+            die(f'Google từ chối đọc Sheet qua link công khai (HTTP {e.code}). Sheet đang để chế độ "Bị hạn chế" nhưng chưa cài chế độ Sheet riêng tư: tạo 2 secret SHEET_API và SHEET_KEY (xem HUONG-DAN mục A.4), hoặc tạm mở lại chia sẻ "Bất kỳ ai có đường liên kết: Người xem".')
         if not data.startswith(b'PK'):
             die('Không tải được Sheet. Kiểm tra Sheet đã chia sẻ "Bất kỳ ai có đường liên kết đều có thể xem" và SHEET_ID đúng, hoặc cài chế độ Sheet riêng tư (SHEET_API, SHEET_KEY).')
     return openpyxl.load_workbook(io.BytesIO(data), data_only=True)
