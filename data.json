@@ -1,6 +1,6 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 13:06",
+ "generatedAt": "03/10/2026 14:05",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
@@ -38,6 +38,8 @@
   "noticeMax": 4,
   "sheetUrl": "",
   "adminHash": "5ba0ecc1d644f3af2ca95d3d3134663363318b953eec2c1939ab83e0ae728a9f",
+  "spinKey": null,
+  "repo": "vietlchome/tongmon",
   "potBase": 0
  },
  "notices": [
