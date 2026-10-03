@@ -85,6 +85,12 @@ def norm_week(v, fallback_date=None):
     err(f'Mã tuần "{v}" sai, ví dụ đúng: 2026-W41'); return None
 
 # ---------------- đọc workbook ----------------
+def gh_error(msg):
+    if os.environ.get('GITHUB_ACTIONS'): print('::error::' + str(msg).replace('\n', ' '), flush=True)
+
+def die(msg):
+    print(msg, flush=True); gh_error(msg); sys.exit(1)
+
 def load_wb(args):
     import openpyxl
     if args.xlsx:
@@ -99,14 +105,14 @@ def load_wb(args):
         try: data = base64.b64decode(txt, validate=True)
         except Exception: data = b''
         if not data.startswith(b'PK'):
-            sys.exit('Không tải được Sheet qua Apps Script (' + txt[:80] + '). Kiểm tra secret SHEET_API, SHEET_KEY và bản triển khai Web app.')
+            die('Không tải được Sheet qua Apps Script (' + txt[:80] + '). Kiểm tra secret SHEET_API, SHEET_KEY và bản triển khai Web app.')
     else:
         url = f'https://docs.google.com/spreadsheets/d/{args.sheet_id}/export?format=xlsx'
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=60) as r:
             data = r.read()
         if not data.startswith(b'PK'):
-            sys.exit('Không tải được Sheet. Kiểm tra Sheet đã chia sẻ "Bất kỳ ai có đường liên kết đều có thể xem" và SHEET_ID đúng, hoặc cài chế độ Sheet riêng tư (SHEET_API, SHEET_KEY).')
+            die('Không tải được Sheet. Kiểm tra Sheet đã chia sẻ "Bất kỳ ai có đường liên kết đều có thể xem" và SHEET_ID đúng, hoặc cài chế độ Sheet riêng tư (SHEET_API, SHEET_KEY).')
     return openpyxl.load_workbook(io.BytesIO(data), data_only=True)
 
 def rows(ws, start=2, ncol=None):
@@ -374,6 +380,7 @@ def main():
     if ERRORS:
         print('DỪNG LẠI, chưa cập nhật web vì Sheet có lỗi:')
         for e in ERRORS: print('  - ' + e)
+        for e in ERRORS[:10]: gh_error(e)   # hiện thẳng trong trang lần chạy trên GitHub (Annotations)
         sys.exit(1)
 
     data = {'version': 5, 'generatedAt': now.strftime('%d/%m/%Y %H:%M'), 'settings': settings, 'notices': notices, 'updates': updates,
