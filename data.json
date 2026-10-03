@@ -1,6 +1,6 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 13:05",
+ "generatedAt": "03/10/2026 13:06",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
@@ -12,19 +12,19 @@
   "tiers": [
    {
     "name": "Thiên",
-    "min": 13000000000.0
+    "pct": 10
    },
    {
     "name": "Địa",
-    "min": 11000000000.0
+    "pct": 20
    },
    {
     "name": "Huyền",
-    "min": 9000000000.0
+    "pct": 30
    },
    {
     "name": "Hoàng",
-    "min": 0
+    "pct": 40
    }
   ],
   "roles": [
