@@ -49,6 +49,8 @@ jobs:
           FORCE: ${{ github.event.inputs.force }}
           SPIN: ${{ github.event.inputs.spin }}
           SPIN_TOKEN: ${{ secrets.SPIN_TOKEN }}
+          SHEET_API: ${{ secrets.SHEET_API }}
+          SHEET_KEY: ${{ secrets.SHEET_KEY }}
         run: python scripts/build_data.py --sheet-id "${{ secrets.SHEET_ID }}" --out data.json
 
       - name: Lưu data.json vào repo (giữ lịch sử)

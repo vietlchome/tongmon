@@ -89,12 +89,24 @@ def load_wb(args):
     import openpyxl
     if args.xlsx:
         return openpyxl.load_workbook(args.xlsx, data_only=True)
-    url = f'https://docs.google.com/spreadsheets/d/{args.sheet_id}/export?format=xlsx'
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        data = r.read()
-    if not data.startswith(b'PK'):
-        sys.exit('Không tải được Sheet. Kiểm tra Sheet đã chia sẻ "Bất kỳ ai có đường liên kết đều có thể xem" và SHEET_ID đúng.')
+    api, k = os.environ.get('SHEET_API', '').strip(), os.environ.get('SHEET_KEY', '').strip()
+    if api and k:
+        # Sheet riêng tư: Apps Script (chạy bằng quyền chủ Sheet) trả file xlsx khi đúng khoá
+        import base64, urllib.parse
+        url = api + ('&' if '?' in api else '?') + 'key=' + urllib.parse.quote(k)
+        with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=120) as r:
+            txt = r.read().decode('utf-8', 'replace').strip()
+        try: data = base64.b64decode(txt, validate=True)
+        except Exception: data = b''
+        if not data.startswith(b'PK'):
+            sys.exit('Không tải được Sheet qua Apps Script (' + txt[:80] + '). Kiểm tra secret SHEET_API, SHEET_KEY và bản triển khai Web app.')
+    else:
+        url = f'https://docs.google.com/spreadsheets/d/{args.sheet_id}/export?format=xlsx'
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            data = r.read()
+        if not data.startswith(b'PK'):
+            sys.exit('Không tải được Sheet. Kiểm tra Sheet đã chia sẻ "Bất kỳ ai có đường liên kết đều có thể xem" và SHEET_ID đúng, hoặc cài chế độ Sheet riêng tư (SHEET_API, SHEET_KEY).')
     return openpyxl.load_workbook(io.BytesIO(data), data_only=True)
 
 def rows(ws, start=2, ncol=None):
@@ -189,7 +201,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--sheet-id'); ap.add_argument('--xlsx'); ap.add_argument('--out', default='data.json')
     args = ap.parse_args()
-    if not args.sheet_id and not args.xlsx: sys.exit('Cần --sheet-id hoặc --xlsx')
+    if not args.sheet_id and not args.xlsx and not os.environ.get('SHEET_API'): sys.exit('Cần --sheet-id, --xlsx hoặc SHEET_API')
     wb = load_wb(args)
     old = {}
     if os.path.exists(args.out):
