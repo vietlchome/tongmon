@@ -839,6 +839,42 @@ tr.rt1 .nm{color:var(--gold)}
   background:color-mix(in srgb,var(--tc) 18%,var(--card));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--tc) 55%,transparent);color:var(--tc)}
 .tcol.tc-top .champ .cl{background:#1a1408;color:#ecc978}
 .champ .cn,.champ .cv{z-index:1}
+
+/* ===== v10: vòng quay 2 bước ===== */
+.ws-odds{display:grid;gap:8px}
+.wo{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card)}
+.wo .woi{width:40px;height:40px;flex:none;border-radius:50%;display:grid;place-items:center;color:#fbe9c2}
+.wo .woi .ico{width:24px;height:24px}
+.wo.win .woi{background:radial-gradient(circle at 35% 30%,#c4553f,var(--seal) 60%,#6f281c);box-shadow:0 0 0 1.5px var(--brass)}
+.wo.keep .woi{background:linear-gradient(160deg,#2c3b35,var(--lacq2));box-shadow:0 0 0 1.5px var(--brass);color:var(--brass2)}
+.wo b{display:block;font:700 15px var(--serif);text-transform:uppercase;letter-spacing:.06em}
+.wo.win b{color:var(--cinn)}.wo.keep b{color:var(--jade)}
+.wo span{font-size:13px;color:var(--ink2)}
+.wm-seal .ico{width:44px;height:44px}
+.wm-res{font:700 34px/1.2 var(--serif);text-transform:uppercase;letter-spacing:.08em;color:var(--jade);margin:4px 0 8px}
+.wm-res.win{color:var(--cinn)}
+.win-modal.keep .wm-seal{background:linear-gradient(160deg,#2c3b35,var(--lacq2));color:var(--brass2)}
+.roll{margin:18px auto 6px;max-width:340px;padding:18px 12px;border-radius:8px;background:linear-gradient(160deg,var(--lacq),var(--lacq2));box-shadow:0 0 0 1.5px var(--brass),0 0 0 4px var(--lacq2),0 0 0 5px color-mix(in srgb,var(--brass) 60%,transparent)}
+.roll-n{display:block;font:700 28px/1.2 var(--sans);color:var(--brass2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.roll-n.tick{animation:rtick .12s ease-out}
+@keyframes rtick{from{transform:translateY(-30%);opacity:.3}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.roll-n.tick{animation:none}}
+/* ===== v10: Tàng thư các dạng lưới ===== */
+.lib{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-bottom:30px}
+.lib-c{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:22px 18px 18px;min-width:0;text-decoration:none;color:var(--ink);
+  background:radial-gradient(90% 55% at 50% 0%,color-mix(in srgb,var(--dc) 14%,transparent),transparent 70%),var(--card);
+  border:1px solid color-mix(in srgb,var(--dc) 35%,var(--line));border-radius:8px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+a.lib-c:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--dc),0 12px 26px -14px var(--dc)}
+.lib-c .orn-c{background:var(--dc);opacity:.6;width:22px;height:22px}
+.lib-ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;margin-bottom:6px;color:var(--dc);
+  background:radial-gradient(circle,color-mix(in srgb,var(--dc) 20%,transparent),transparent 72%);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--dc) 60%,transparent)}
+.lib-ic .ico{width:30px;height:30px}
+.lib-g{font:700 11.5px var(--serif);text-transform:uppercase;letter-spacing:.14em;color:var(--dc)}
+.lib-t{font:700 17px/1.3 var(--serif);color:var(--ink)}
+.lib-d{font-size:13px;color:var(--ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lib-u{margin-top:auto;padding-top:8px;font-size:12px;color:var(--ink3);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lib-c.nolink{opacity:.65}
+@media(max-width:560px){.lib{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lib-c{padding:18px 10px 14px}.lib-t{font-size:15px}.lib-d{display:none}}
 </style>
 </head>
 <body>
@@ -1214,7 +1250,7 @@ function showQd0(){
 }
 function potWeeks(){
   const P = D.pot; if(!lastWeek()) return 0;
-  const last = P.history.length ? P.history[P.history.length-1].week : null;
+  const pays = P.history.filter(x=>!x.keep), last = pays.length ? pays[pays.length-1].week : null;
   return weeks().filter(w=> !last || w>last).length;
 }
 function donorsAgg(){
@@ -1224,7 +1260,7 @@ function donorsAgg(){
 function potBlock(){
   const P = D.pot, S = D.settings, n = potWeeks(), wk = lastWeek();
   const el = wk ? active().filter(m=>eligible(m,wk).ok) : [];
-  const dn = donorsAgg(), hist = P.history.slice().reverse();
+  const dn = donorsAgg(), hist = P.history.filter(x=>!x.keep).reverse();
   return `<div class="pot pot-wide">${SVG_CLOUD}
     <div class="pot-main"><h3>Hũ thưởng tông môn</h3>
       <div class="bigrow">${SVG_COIN}<div class="big">${fmtN(P.value||0)} <span class="unit">${esc(S.potUnit)}</span></div></div>
@@ -1252,72 +1288,100 @@ function showDonors(){
 
 /* ===== Tab: Lịch sử quay thưởng ===== */
 let WHEEL = {rot:0, spinning:false};
+const SEGS = 8; // ô chẵn: Chia thưởng, ô lẻ: Tích trữ (mỗi loại 50%)
 function vWheel(){
   const wk = lastWeek(), S = D.settings, P = D.pot;
   const el = wk ? active().filter(m=>eligible(m,wk).ok) : [];
   const hist = P.history.slice().reverse();
   const canSpin = ADMIN || window.EMBED_DATA;
-  let h = `<section class="hero">${SVG_MTN}<span class="hero-cl l" aria-hidden="true">${SVG_CLOUD}</span><span class="hero-cl r" aria-hidden="true">${SVG_CLOUD}</span><div class="plaque"><span class="knot" aria-hidden="true"></span><i class="tas l" aria-hidden="true"></i><i class="tas r" aria-hidden="true"></i><div class="seal-lg" aria-hidden="true">運</div><div style="min-width:0"><h2>Lịch sử quay thưởng</h2><div class="sub">Vòng quay may mắn hũ thưởng tông môn</div></div></div></section>`;
+  let h = `<section class="hero">${SVG_MTN}<span class="hero-cl l" aria-hidden="true">${SVG_CLOUD}</span><span class="hero-cl r" aria-hidden="true">${SVG_CLOUD}</span><div class="plaque"><span class="knot" aria-hidden="true"></span><i class="tas l" aria-hidden="true"></i><i class="tas r" aria-hidden="true"></i><div class="seal-lg" aria-hidden="true">運</div><div style="min-width:0"><h2>Lịch sử quay thưởng</h2><div class="sub">Hũ thưởng tông môn${wk?', '+weekLabel(wk).toLowerCase():''}</div></div></div></section>`;
   h += sh('輪','Vòng quay ' + weekShort(wk), el.length+' người đủ điều kiện');
   h += `<div class="wheel-wrap">
-    <div class="wheel-stage"><div class="wheel-ring"><canvas id="wheel" width="520" height="520" aria-label="Vòng quay may mắn"></canvas><div class="wheel-hub" aria-hidden="true">運</div><div class="wheel-pin" aria-hidden="true"></div></div></div>
+    <div class="wheel-stage"><div class="wheel-ring"><canvas id="wheel" width="520" height="520" aria-label="Vòng quay: 50% chia thưởng, 50% tích trữ"></canvas><div class="wheel-hub" aria-hidden="true">運</div><div class="wheel-pin" aria-hidden="true"></div></div></div>
     <div class="wheel-side">
       <div class="ws-pot"><div class="lbl">Giá trị hũ hiện tại</div><div class="big">${fmtN(P.value||0)} <span class="unit">${esc(S.potUnit)}</span></div></div>
-      <div class="ws-rule">Đủ điều kiện: đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang tranh đoạt hoặc Tông môn quy nhất 2 tuần liên tiếp.</div>
+      <div class="ws-odds">
+        <div class="wo win"><span class="woi">${ico('ingot')}</span><div><b>Chia thưởng · 50%</b><span>Bốc ngẫu nhiên 1 người đủ điều kiện, nhận cả hũ</span></div></div>
+        <div class="wo keep"><span class="woi">${ico('gourd')}</span><div><b>Tích trữ · 50%</b><span>Hũ giữ nguyên, cộng dồn sang tuần sau</span></div></div>
+      </div>
       ${el.length?`<button class="btn spin" id="spinBtn" ${canSpin?'':'disabled'} onclick="spinWheel()">${ADMIN?'Quay thưởng':window.EMBED_DATA?'Quay thử':'Đăng nhập quản trị để quay'}</button>`:'<div class="muted small">Tuần này chưa có ai đủ điều kiện.</div>'}
       ${!ADMIN&&window.EMBED_DATA?'<div class="hint">Bản xem thử: quay để xem hiệu ứng, kết quả không được lưu.</div>':''}
-      <div class="ws-names"><div class="lbl">Danh sách trên vòng quay</div><div class="namegrid">${el.map(m=>`<span>${esc(m.name)}</span>`).join('')||'<span class="muted">Chưa có ai.</span>'}</div></div>
+      <div class="ws-names"><div class="lbl">Người đủ điều kiện (${el.length})</div><div class="namegrid">${el.map(m=>`<span>${esc(m.name)}</span>`).join('')||'<span class="muted">Chưa có ai.</span>'}</div></div>
     </div></div>`;
   h += sh('錄','Lịch sử quay thưởng', hist.length+' lần quay');
-  h += hist.length ? `<div class="tablewrap hist-table"><table><thead><tr><th class="nosort">Tuần</th><th class="nosort">Ngày quay</th><th class="nosort">Người trúng</th><th class="nosort num">Giá trị (${esc(S.potUnit)})</th><th class="nosort num">Số người tham gia</th></tr></thead><tbody>
-    ${hist.map((x,i)=>`<tr style="cursor:default" class="${i===0?'latest':''}"><td>${weekLabel(x.week)}</td><td>${x.date?dmy(x.date):'—'}</td><td><span class="win">${esc(x.winner)}</span></td><td class="num"><b>${fmtN(x.amount)}</b></td><td class="num">${x.count?x.count:'—'}</td></tr>`).join('')}</tbody></table></div>`
+  h += hist.length ? `<div class="tablewrap hist-table"><table><thead><tr><th class="nosort">Tuần</th><th class="nosort">Ngày quay</th><th class="nosort">Kết quả</th><th class="nosort num">Giá trị (${esc(S.potUnit)})</th><th class="nosort num">Số người tham gia</th></tr></thead><tbody>
+    ${hist.map((x,i)=>`<tr style="cursor:default" class="${i===0?'latest':''}"><td>${weekLabel(x.week)}</td><td>${x.date?dmy(x.date):'—'}</td><td>${x.keep?'<span class="pill st-info">Tích trữ</span>':`<span class="win">${esc(x.winner)}</span>`}</td><td class="num">${x.keep?'—':`<b>${fmtN(x.amount)}</b>`}</td><td class="num">${x.count?x.count:'—'}</td></tr>`).join('')}</tbody></table></div>`
     : `<div class="card empty"><b>Chưa có lần quay nào</b>Kết quả mỗi lần quay sẽ được ghi lại ở đây.</div>`;
   return h;
 }
 function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
 function drawWheel(){
   const cv = $('#wheel'); if(!cv) return;
-  const wk = lastWeek(), names = wk ? active().filter(m=>eligible(m,wk).ok).map(m=>m.name) : [];
   const dpr = window.devicePixelRatio||1, size = cv.clientWidth||520; cv.width = size*dpr; cv.height = size*dpr;
   const c = cv.getContext('2d'); c.scale(dpr,dpr); const r = size/2, R = r-4;
-  const cols = [cssVar('--lacq')||'#1f2a26', cssVar('--seal')||'#9b3d2e', '#5a4a26'];
+  const win = cssVar('--seal')||'#9b3d2e', keep = cssVar('--lacq')||'#1f2a26';
   const txt = cssVar('--brass2')||'#e6d7b0', brass = cssVar('--brass')||'#c4a96f';
   c.translate(r,r);
-  if(!names.length){ c.fillStyle=cols[0]; c.beginPath(); c.arc(0,0,R,0,Math.PI*2); c.fill(); return; }
-  const n = names.length, a = Math.PI*2/n;
-  for(let i=0;i<n;i++){
+  const a = Math.PI*2/SEGS;
+  for(let i=0;i<SEGS;i++){
+    const isWin = i%2===0;
     c.beginPath(); c.moveTo(0,0); c.arc(0,0,R,-Math.PI/2+i*a,-Math.PI/2+(i+1)*a); c.closePath();
-    c.fillStyle = cols[n%3===1&&i===n-1?1:i%3]; c.fill();
-    c.strokeStyle = brass; c.lineWidth = 1; c.stroke();
-    const ang = -Math.PI/2+(i+.5)*a, flip = Math.cos(ang) < -0.001;
-    c.save(); c.rotate(flip ? ang+Math.PI : ang); c.textAlign = flip ? 'left' : 'right'; c.textBaseline='middle'; c.fillStyle=txt;
-    const fs = Math.max(10, Math.min(16, 260/n+6)); c.font = `600 ${fs}px "Be Vietnam Pro", sans-serif`;
-    let s = names[i]; while(c.measureText(s).width > R*0.62 && s.length>3) s = s.slice(0,-2)+'…';
-    c.fillText(s, flip ? -(R-14) : R-14, 0); c.restore();
+    const g = c.createRadialGradient(0,0,R*0.25,0,0,R); g.addColorStop(0, isWin?'#c4553f':'#2c3b35'); g.addColorStop(1, isWin?win:keep);
+    c.fillStyle = g; c.fill(); c.strokeStyle = brass; c.lineWidth = 1.5; c.stroke();
+    const ang = -Math.PI/2+(i+.5)*a;
+    c.save(); c.rotate(ang); c.translate(R*0.66,0); c.rotate(Math.PI/2);
+    c.textAlign='center'; c.textBaseline='middle'; c.fillStyle = isWin ? '#fbe9c2' : txt;
+    const fs = Math.max(12, Math.min(20, size/26)); c.font = `700 ${fs}px "Cormorant Garamond", Georgia, serif`;
+    c.fillText(isWin?'CHIA':'TÍCH', 0, -fs*0.62); c.fillText(isWin?'THƯỞNG':'TRỮ', 0, fs*0.62); c.restore();
   }
   c.beginPath(); c.arc(0,0,R*0.3,0,Math.PI*2); c.strokeStyle=brass; c.lineWidth=2; c.stroke();
 }
+const rnd01 = () => crypto.getRandomValues(new Uint32Array(1))[0]/4294967296;
 function spinWheel(){
   if(WHEEL.spinning) return; const wk=lastWeek();
   const L = active().filter(m=>eligible(m,wk).ok); if(!L.length) return;
-  const n = L.length, rnd = crypto.getRandomValues(new Uint32Array(1))[0]/4294967296;
-  const idx = Math.floor(rnd*n), seg = 360/n, jitter = (Math.random()-.5)*seg*0.6;
+  const isWin = rnd01() < 0.5;
+  const pick = Math.floor(rnd01()*(SEGS/2)), idx = pick*2 + (isWin?0:1), seg = 360/SEGS, jitter = (rnd01()-.5)*seg*0.6;
   const target = 360 - (idx+.5)*seg + jitter;
   const base = WHEEL.rot - (WHEEL.rot%360);
   WHEEL.rot = base + 360*7 + target; WHEEL.spinning = true;
   const cv = $('#wheel'); const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   cv.style.transition = reduce ? 'none' : 'transform 6.5s cubic-bezier(.12,.72,.08,1)'; cv.style.transform = `rotate(${WHEEL.rot}deg)`;
   $('#spinBtn').disabled = true;
-  setTimeout(()=>{ WHEEL.spinning=false; $('#spinBtn') && ($('#spinBtn').disabled=false); showWinner(L[idx], n); }, reduce?300:6700);
+  setTimeout(()=>{ WHEEL.spinning=false; $('#spinBtn') && ($('#spinBtn').disabled=false); isWin ? rollName(L) : showKeep(L.length); }, reduce?300:6700);
+}
+const spinTime = () => new Date().toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',second:'2-digit',day:'2-digit',month:'2-digit',year:'numeric'});
+// Bước 2: bốc tên ngẫu nhiên trong danh sách đủ điều kiện
+function rollName(L){
+  const S = D.settings, n = L.length, win = L[Math.floor(rnd01()*n)];
+  modal(`<div class="win-modal"><div class="wm-k">Vòng quay dừng ở ô</div><div class="wm-res win">Chia thưởng</div>
+    <div class="small muted">Đang bốc ngẫu nhiên 1 trong ${n} người đủ điều kiện</div>
+    <div class="roll"><span class="roll-n" id="rollN">${esc(L[0].name)}</span></div></div>`);
+  const el = $('#rollN'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let t = 0, delay = 45, total = reduce ? 0 : 3600;
+  const step = () => {
+    if(t >= total){ showWinner(win, n); return; }
+    el.textContent = L[Math.floor(Math.random()*n)].name; el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick');
+    t += delay; delay = Math.min(delay*1.09, 420); setTimeout(step, delay);
+  };
+  setTimeout(step, reduce?0:500);
 }
 function showWinner(m, count){
-  const S=D.settings, wk=lastWeek(), t=new Date().toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',second:'2-digit',day:'2-digit',month:'2-digit',year:'numeric'});
+  const S=D.settings, wk=lastWeek(), t=spinTime();
   const L = active().filter(x=>eligible(x,wk).ok).map(x=>x.name);
-  modal(`<div class="win-modal"><div class="wm-seal" aria-hidden="true">福</div><div class="wm-k">Chúc mừng đạo hữu</div><div class="wm-n">${esc(m.name)}</div>
+  modal(`<div class="win-modal"><div class="wm-seal" aria-hidden="true">${ico('ingot')}</div><div class="wm-k">Chúc mừng đạo hữu</div><div class="wm-n">${esc(m.name)}</div>
     <div class="wm-v">trúng hũ thưởng <b>${fmtN(D.pot.value)} ${esc(S.potUnit)}</b></div>
-    <div class="small muted">${weekLabel(wk)}. Quay lúc ${t}, ${count} người tham gia.</div>
-    <div class="wm-list"><span>Danh sách trên vòng quay:</span> ${L.map(esc).join(', ')}</div>
-    ${ADMIN?`<div class="hint" style="margin-top:12px">Chụp màn hình này gửi nhóm Zalo, rồi ghi người trúng vào tab "Lịch sử quay" trong Sheet và đặt lại "Giá trị hũ hiện tại".</div>`:'<div class="hint" style="margin-top:12px">Bản xem thử, kết quả không được lưu.</div>'}
+    <div class="small muted">${weekLabel(wk)}. Quay lúc ${t}, ${count} người đủ điều kiện.</div>
+    <div class="wm-list"><span>Danh sách bốc thăm:</span> ${L.map(esc).join(', ')}</div>
+    ${ADMIN?`<div class="hint" style="margin-top:12px">Chụp màn hình này gửi nhóm Zalo, rồi ghi người trúng vào tab "Lịch sử quay" trong Sheet. Hũ tự về 0.</div>`:'<div class="hint" style="margin-top:12px">Bản xem thử, kết quả không được lưu.</div>'}
+    <div class="wm-act"><button class="btn pri" onclick="closeModal()">Đóng</button></div></div>`);
+}
+function showKeep(count){
+  const S=D.settings, wk=lastWeek(), t=spinTime();
+  modal(`<div class="win-modal keep"><div class="wm-seal" aria-hidden="true">${ico('gourd')}</div><div class="wm-k">Vòng quay dừng ở ô</div><div class="wm-res">Tích trữ</div>
+    <div class="wm-v">Hũ <b>${fmtN(D.pot.value)} ${esc(S.potUnit)}</b> được giữ nguyên, cộng dồn sang tuần sau.</div>
+    <div class="small muted">${weekLabel(wk)}. Quay lúc ${t}, ${count} người đủ điều kiện.</div>
+    ${ADMIN?`<div class="hint" style="margin-top:12px">Chụp màn hình này gửi nhóm Zalo, rồi thêm 1 dòng vào tab "Lịch sử quay" trong Sheet, cột Người trúng chọn "Tích trữ".</div>`:'<div class="hint" style="margin-top:12px">Bản xem thử, kết quả không được lưu.</div>'}
     <div class="wm-act"><button class="btn pri" onclick="closeModal()">Đóng</button></div></div>`);
 }
 function showElig(){
@@ -1487,16 +1551,16 @@ function vDocs(){
   L.forEach((l,i)=>{ let g=groups.find(x=>x.name===l.group); if(!g){ g={name:l.group||'Khác', items:[]}; groups.push(g); } g.items.push({l,i}); });
   let h = `<section class="hero docs-hero">${SVG_MTN}<div class="plaque"><span class="knot" aria-hidden="true"></span><div class="seal-lg" aria-hidden="true">閣</div><div style="min-width:0"><h2>Tàng thư các</h2><div class="sub">Tài liệu và đường dẫn nhanh cho đạo hữu</div></div></div></section>`;
   if(!L.length) return h + `<div class="card empty"><b>Chưa có tài liệu nào</b>Ban quản lý sẽ bổ sung sớm.</div>`;
+  const gIcon = g => { const x = String(g||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d'); return /cong cu|cong luoc|huong dan|tai lieu/.test(x)?'book':/su kien|event/.test(x)?'swords':/nap|shop|mua/.test(x)?'ingot':/nhom|group|cong dong|official/.test(x)?'people':/trang chu|fanpage|facebook|web/.test(x)?'pagoda':'scroll'; };
+  h += `<div class="lib">`;
   groups.forEach((g,gi)=>{
-    h += `<div class="docgroup">${sh(['書','節','新','寶','卷'][gi%5], esc(g.name))}<div class="docs">`;
-    g.items.forEach(({l,i})=>{
+    g.items.forEach(({l})=>{
       let host=''; try{ host = l.url ? new URL(l.url).hostname.replace(/^www\./,'') : ''; }catch(e){ host=l.url; }
-      const inner = `<span class="gl">${esc((l.title||'?').trim().charAt(0).toUpperCase())}</span><span style="min-width:0;flex:1"><b>${esc(l.title)}</b>${l.note?`<span class="ds">${esc(l.note)}</span>`:''}<span class="url">${l.url?esc(host):'Chưa có đường dẫn'}</span></span>`;
-      const ed = '';
-      h += l.url ? `<a class="doc dc${gi%5}" href="${esc(l.url)}" target="_blank" rel="noopener">${inner}${ed}</a>` : `<div class="doc nolink dc${gi%5}">${inner}${ed}</div>`;
+      const inner = `${ORN}<span class="lib-ic">${ico(gIcon(g.name))}</span><span class="lib-g">${esc(g.name)}</span><b class="lib-t">${esc(l.title)}</b>${l.note?`<span class="lib-d">${esc(l.note)}</span>`:''}<span class="lib-u">${l.url?esc(host)+' ↗':'Chưa có đường dẫn'}</span>`;
+      h += l.url ? `<a class="lib-c orn dc${gi%5}" href="${esc(l.url)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="lib-c orn nolink dc${gi%5}">${inner}</div>`;
     });
-    h += `</div></div>`;
   });
+  h += `</div>`;
   return h;
 }
 /* ===== Quản trị ===== */
@@ -1550,7 +1614,7 @@ function genZalo(){
     s = `🎰 Danh sách đủ điều kiện quay hũ ${weekLabel(wk).toLowerCase()} (${ok.length} người)\nHũ hiện tại: ${fmtN(D.pot.value)} ${S.potUnit}\n\n` + (ok.map(m=>`• ${m.name}`).join('\n')||'Chưa có ai.') + `\n\nĐiều kiện: đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang tranh đoạt hoặc Tông môn quy nhất 2 tuần liên tiếp.`;
   } else {
     const n = potWeeks();
-    s = `💰 Hũ thưởng ${S.name}\n\nGiá trị hiện tại: ${fmtN(D.pot.value)} ${S.potUnit}` + (n?`\nĐã tích luỹ ${n} tuần chưa có người trúng!`:'') + (D.pot.history.length?`\nLần trúng gần nhất: ${D.pot.history[D.pot.history.length-1].winner}`:'') + `\n\nQuay hũ mỗi tuần, các đạo hữu nhớ tham gia!`;
+    s = `💰 Hũ thưởng ${S.name}\n\nGiá trị hiện tại: ${fmtN(D.pot.value)} ${S.potUnit}` + (n?`\nĐã tích luỹ ${n} tuần chưa có người trúng!`:'') + (D.pot.history.filter(x=>!x.keep).length?`\nLần trúng gần nhất: ${D.pot.history.filter(x=>!x.keep).slice(-1)[0].winner}`:'') + `\n\nQuay hũ mỗi tuần: 50% chia thưởng cả hũ, 50% tích trữ sang tuần sau. Các đạo hữu nhớ tham gia!`;
   }
   out.value = s.trim();
 }

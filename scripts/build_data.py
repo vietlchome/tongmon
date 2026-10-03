@@ -270,11 +270,15 @@ def main():
             d = to_date(r[1])
             if not d: err(f'Lịch sử quay dòng {i}: thiếu Ngày quay'); continue
             w = norm_week(r[0], d)
-            if nfc(r[2]) and key(nfc(r[2])) not in by_key: warn(f'Lịch sử quay dòng {i}: "{r[2]}" không có trong tab Thành viên')
-            spins.append({'week': w, 'date': iso(d), 'winner': nfc(r[2]), 'count': num(r[3], f'Lịch sử quay dòng {i}') or 0})
+            keep = key(nfc(r[2])) == key('Tích trữ')
+            if not keep and key(nfc(r[2])) not in by_key: warn(f'Lịch sử quay dòng {i}: "{r[2]}" không có trong tab Thành viên')
+            sp = {'week': w, 'date': iso(d), 'winner': 'Tích trữ' if keep else nfc(r[2]), 'count': num(r[3], f'Lịch sử quay dòng {i}') or 0}
+            if keep: sp['keep'] = True
+            spins.append(sp)
     spins.sort(key=lambda x: x['date'])
     paid = 0
     for sp in spins:
+        if sp.get('keep'): sp['amount'] = 0; continue   # quay vào ô Tích trữ: hũ giữ nguyên
         got = sum(x['amount'] for x in pot['donors'] if x['date'] <= sp['date'])
         sp['amount'] = got - paid; paid += sp['amount']
     pot['history'] = spins
