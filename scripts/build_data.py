@@ -48,6 +48,14 @@ def parse_lc(v, where=''):
     x = float(m.group(1)) * k
     return int(x * 1e9) if (not m.group(2) and x < 1000) else int(x)
 
+def tiers_pct(sv):
+    # Phong Thần Bảng chia theo % số người, xếp theo lực chiến. Hoàng Bảng là phần còn lại.
+    p = [float(num(sv(f'{n} Bảng (% người)', d), 'Cài đặt') or 0) for n, d in (('Thiên', 10), ('Địa', 20), ('Huyền', 30))]
+    if sum(p) >= 100: err(f'Cài đặt: tổng % Thiên + Địa + Huyền Bảng = {sum(p):g}%, phải nhỏ hơn 100%')
+    p = [int(x) if x == int(x) else x for x in p]
+    return [{'name': 'Thiên', 'pct': p[0]}, {'name': 'Địa', 'pct': p[1]}, {'name': 'Huyền', 'pct': p[2]},
+            {'name': 'Hoàng', 'pct': round(100 - sum(p), 2)}]
+
 def boolv(v):
     if isinstance(v, bool): return v
     return nfc(v).lower() in ('true', 'x', '1', 'có', 'co', 'yes', '✓', 'v')
@@ -132,10 +140,7 @@ def main():
         'name': nfc(sv('Tên tông', 'Tông Môn')), 'sub': nfc(sv('Dòng phụ', 'Nhất Niệm Tiêu Dao')),
         'maxMembers': int(num(sv('Số thành viên tối đa', 50), 'Cài đặt') or 50),
         'kpi': {'ch': num(sv('KPI cống hiến mỗi tuần', 7000), 'Cài đặt') or 0, 'dg': num(sv('KPI lệnh dị giới mỗi tuần', 0), 'Cài đặt') or 0},
-        'tiers': [{'name': 'Thiên', 'min': float(num(sv('Ngưỡng Thiên Bảng (tỷ)', 13), 'Cài đặt')) * 1e9},
-                  {'name': 'Địa', 'min': float(num(sv('Ngưỡng Địa Bảng (tỷ)', 11), 'Cài đặt')) * 1e9},
-                  {'name': 'Huyền', 'min': float(num(sv('Ngưỡng Huyền Bảng (tỷ)', 9), 'Cài đặt')) * 1e9},
-                  {'name': 'Hoàng', 'min': 0}],
+        'tiers': tiers_pct(sv),
         'roles': roles, 'potUnit': nfc(sv('Đơn vị hũ thưởng', 'VNĐ')),
         'noticeMax': int(num(sv('Số cáo thị hiển thị', 4), 'Cài đặt') or 4),
         'sheetUrl': nfc(sv('Link Google Sheet', '')),
