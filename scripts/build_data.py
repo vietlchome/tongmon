@@ -11,7 +11,7 @@ Dùng:
   python scripts/build_data.py --xlsx path/to/file.xlsx   # đọc file có sẵn (để thử)
 Biến môi trường: ADMIN_PASS (mật khẩu quản trị web), FORCE=1 (cho phép ghi đè tuần cũ hơn tuần mới nhất).
 """
-import argparse, datetime as dt, hashlib, io, json, os, re, sys, unicodedata, urllib.request
+import argparse, datetime as dt, hashlib, io, json, os, re, sys, unicodedata, urllib.request, urllib.parse
 
 T_SET, T_MEM, T_WEEK, T_PASTE = 'Cài đặt', 'Thành viên', 'Số liệu tuần', 'Dán ảnh'
 T_NOTICE, T_UPD, T_DONOR, T_DOCS = 'Cáo thị', 'Cập nhật game', 'Mạnh thường quân', 'Tàng thư các'
@@ -92,7 +92,7 @@ def load_wb(args):
     api, k = os.environ.get('SHEET_API', '').strip(), os.environ.get('SHEET_KEY', '').strip()
     if api and k:
         # Sheet riêng tư: Apps Script (chạy bằng quyền chủ Sheet) trả file xlsx khi đúng khoá
-        import base64, urllib.parse
+        import base64
         url = api + ('&' if '?' in api else '?') + 'key=' + urllib.parse.quote(k)
         with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=120) as r:
             txt = r.read().decode('utf-8', 'replace').strip()
