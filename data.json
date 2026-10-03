@@ -1,6 +1,6 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 14:13",
+ "generatedAt": "03/10/2026 14:27",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
@@ -101,11 +101,17 @@
   }
  ],
  "pot": {
-  "value": 30000.0,
+  "value": 53456.0,
   "donors": [
    {
     "name": "TrươngTửPhàm",
     "amount": 30000.0,
+    "date": "2026-10-05",
+    "note": "Góp hũ thưởng"
+   },
+   {
+    "name": "- Khởi•Linh•",
+    "amount": 23456.0,
     "date": "2026-10-05",
     "note": "Góp hũ thưởng"
    }
