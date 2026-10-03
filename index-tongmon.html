@@ -1722,7 +1722,7 @@ function vAdmin(){
       <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn gold" onclick="go('wheel')">Tới vòng quay</button><button class="btn" onclick="showElig()">Xem danh sách đủ điều kiện</button></div></div>
   </div>
   <div class="card"><h3>Tạo tin nhắn Zalo</h3>
-    <div class="toolbar"><select id="zType" onchange="genZalo()" aria-label="Loại tin nhắn"><option value="kpi">Nhắc chưa đạt KPI tuần</option><option value="honor">Vinh danh tuần</option><option value="off">Nhắc người offline quá 1 ngày</option><option value="group">Nhắc vào nhóm Thông báo, Trò chuyện</option><option value="act">Danh sách tham gia sự kiện tuần</option><option value="pot">Thông báo hũ thưởng</option><option value="elig">Danh sách đủ điều kiện quay hũ</option></select>
+    <div class="toolbar"><select id="zType" onchange="genZalo()" aria-label="Loại tin nhắn"><option value="kpi">Nhắc chưa đạt KPI tuần</option><option value="honor">Vinh danh tuần</option><option value="off">Nhắc người offline quá 1 ngày</option><option value="group">Nhắc vào nhóm Thông báo, Trò chuyện</option><option value="miss">Nhắc chưa tham gia sự kiện tuần</option><option value="act">Danh sách tham gia sự kiện tuần</option><option value="pot">Thông báo hũ thưởng</option><option value="elig">Danh sách đủ điều kiện quay hũ</option></select>
     <select id="zWeek" onchange="genZalo()" aria-label="Tuần">${ws.map(w=>`<option value="${w}">${weekLabel(w)}</option>`).join('')}</select>
     <button class="btn pri" onclick="copyZalo()">Copy tin nhắn</button></div>
     <textarea id="zText" rows="9" aria-label="Nội dung tin nhắn"></textarea></div>
@@ -1750,6 +1750,15 @@ function genZalo(){
     if(a.length) s += `\nChưa vào nhóm THÔNG BÁO:\n` + a.map(m=>`• ${nm(m)}`).join('\n') + '\n';
     if(b.length) s += `\nChưa vào nhóm TRÒ CHUYỆN:\n` + b.map(m=>`• ${nm(m)}`).join('\n') + '\n';
     if(!a.length&&!b.length) s += '\nMọi người đã vào đủ nhóm 👍';
+  } else if(t.value==='miss'){
+    const B = A.filter(m=>!m.away && E(wk,m.id)), c = ELIG();
+    s = `⚔ ${S.name}: nhắc sự kiện ${weekLabel(wk).toLowerCase()}\n`;
+    const qd = B.filter(m=>qdOf(E(wk,m.id))<3);
+    if(qd.length) s += `\nTông môn quyết đấu chưa đủ 3/3 lượt (${qd.length}):\n` + qd.map(m=>`• ${nm(m)}: ${qdOf(E(wk,m.id))}/3`).join('\n') + '\n';
+    ACTS.slice(1).forEach(a=>{ const L = B.filter(m=>!(E(wk,m.id).acts||{})[a[0]]); if(L.length) s += `\nChưa tham gia ${a[1]} (${L.length}):\n` + L.map(m=>`• ${nm(m)}`).join('\n') + '\n'; });
+    const risk = B.filter(m=>(c.bh>1 && missedN(m,wk,'batHoang',c.bh-1) && !missedN(m,wk,'batHoang',c.bh)) || (c.qn>1 && missedN(m,wk,'quyNhat',c.qn-1) && !missedN(m,wk,'quyNhat',c.qn)));
+    if(risk.length) s += `\n⚠ Bỏ thêm 1 tuần nữa là mất quyền quay hũ:\n` + risk.map(m=>`• ${nm(m)}`).join('\n') + '\n';
+    s += (qd.length||risk.length||ACTS.slice(1).some(a=>B.some(m=>!(E(wk,m.id).acts||{})[a[0]]))) ? '\nCác đạo hữu tranh thủ tham gia giúp tông nhé!' : '\nCả tông tham gia đủ sự kiện tuần này 🎉';
   } else if(t.value==='act'){
     s = `⚔ Tham gia sự kiện ${weekLabel(wk).toLowerCase()} của ${S.name}\n`;
     ACTS.forEach(a=>{ const L=A.filter(m=>a[0]==='quyetDau'?qdOf(E(wk,m.id))===3:(E(wk,m.id)||{acts:{}}).acts[a[0]]).sort((x,y)=>curLC(y)-curLC(x)); s += `\n${a[1]}${a[0]==='quyetDau'?' đủ 3/3 lượt':''} (${L.length} người):\n` + (L.map(m=>`• ${m.name}`).join('\n')||'• (chưa có)') + '\n'; });
