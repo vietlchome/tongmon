@@ -1,13 +1,13 @@
 {
  "version": 5,
- "generatedAt": "03/10/2026 12:29",
+ "generatedAt": "03/10/2026 13:05",
  "settings": {
   "name": "Cổ Giới S84",
   "sub": "Nhất Niệm Tiêu Dao",
-  "maxMembers": 50,
+  "maxMembers": 56,
   "kpi": {
    "ch": 7000.0,
-   "dg": 10.0
+   "dg": 1.0
   },
   "tiers": [
    {
@@ -43,73 +43,22 @@
  "notices": [
   {
    "id": "n2",
-   "title": "Nội quy tông môn",
-   "text": "Mỗi tuần tối thiểu 7.000 cống hiến và 10 lệnh chuyển dời dị giới.\nĐánh đủ 3/3 lượt Tông môn quyết đấu.\nKhông bỏ Bát hoang tranh đoạt và Tông môn quy nhất 2 tuần liên tiếp.\nAi bận việc riêng thì báo trước cho ban quản lý để được ghi nhận xin nghỉ, không bị tính chuyên cần.\nVi phạm 2 tuần liền sẽ bị mời ra để nhường chỗ cho đạo hữu mới.",
-   "by": "ThèmBúnBòHuế",
-   "pinned": true,
-   "at": "25/09/2026 21:00",
-   "ts": 1790370000
-  },
-  {
-   "id": "n3",
-   "title": "Lịch quyết đấu tuần này",
-   "text": "Tối thứ 7 lúc 20h: Tông môn quyết đấu, các đạo hữu online đúng giờ.\nChủ nhật 21h: Bát hoang tranh đoạt.",
-   "by": "Vĩnh•Dạ",
-   "pinned": false,
-   "at": "01/10/2026 20:30",
-   "ts": 1790886600
-  },
-  {
-   "id": "n4",
-   "title": "",
-   "text": "Dữ liệu trên web đang là dữ liệu thử nghiệm, chỉ để xem giao diện.",
-   "by": "ThèmBúnBòHuế",
-   "pinned": false,
-   "at": "02/10/2026 08:00",
-   "ts": 1790928000
-  },
-  {
-   "id": "n5",
-   "title": "Chúc mừng LăngSương",
-   "text": "Chúc mừng đạo hữu LăngSương trúng hũ thưởng tuần 36!",
+   "title": "TÔNG QUY",
+   "text": "Mỗi tuần tối thiểu 7.000 cống hiến và 1 lệnh chuyển dời dị giới\nĐánh đủ 3/3 lượt Tông môn quyết đấu.\nKhông bỏ Bát hoang tranh đoạt và Tông môn quy nhất 2 tuần liên tiếp.\nAi bận việc riêng thì báo trước cho ban quản lý để được ghi nhận xin nghỉ nhé.",
    "by": "TrươngTửPhàm",
-   "pinned": false,
-   "at": "07/09/2026 22:10",
-   "ts": 1788819000
+   "pinned": true,
+   "at": "03/10/2026",
+   "ts": 1790985600
   }
  ],
  "updates": [
   {
    "id": "u2",
-   "date": "2026-09-24",
-   "title": "Bảo trì cập nhật phiên bản 2.3",
-   "note": "",
-   "pinned": false,
-   "ts": 2
-  },
-  {
-   "id": "u3",
-   "date": "2026-10-03",
-   "title": "Mở sự kiện Trung Thu",
-   "note": "Đổi bánh trung thu lấy rương chí bảo",
-   "pinned": false,
-   "ts": 3
-  },
-  {
-   "id": "u4",
-   "date": "2026-10-08",
-   "title": "Bảo trì cập nhật phiên bản 2.4",
-   "note": "Dự kiến 10h–14h",
-   "pinned": false,
-   "ts": 4
-  },
-  {
-   "id": "u5",
-   "date": "2026-10-15",
-   "title": "Mở cảnh giới mới",
-   "note": "Cảnh giới mới mở cho toàn server. Nhớ tích đan, quả và linh thạch trước khi mở để đột phá sớm nhất. Xem chi tiết cách tính thời gian đột phá trong mục Tu vi của trang công lược.",
+   "date": "2026-10-05",
+   "title": "Đại hội luyện khí mở lại",
+   "note": "Nhớ tích trữ nguyên liệu tím vàng, cây chế đồ",
    "pinned": true,
-   "ts": 5
+   "ts": 2
   }
  ],
  "links": [
@@ -123,131 +72,38 @@
    "group": "Sự kiện",
    "title": "Lịch sự kiện tháng 10",
    "url": "",
-   "note": "Google Sheet tổng hợp sự kiện tháng sắp tới"
+   "note": "Google Sheet tổng hợp sự kiện tháng sắp tới - UPDATE SAU"
   },
   {
-   "group": "Sự kiện",
+   "group": "Trang chủ",
    "title": "Facebook Nhất Niệm Tiêu Dao",
-   "url": "",
+   "url": "https://www.facebook.com/OvermortalVN",
    "note": "Trang chính thức, nơi đăng event tuần"
-  },
-  {
-   "group": "Cập nhật game",
-   "title": "Thông tin cập nhật phiên bản",
-   "url": "",
-   "note": "Thay đổi và nội dung mới của game"
   },
   {
    "group": "Nạp game",
    "title": "Trang nạp chính thức",
-   "url": "",
+   "url": "https://zoneplay.vn/payment",
    "note": "Nạp qua trang chính thức để nhận đủ ưu đãi"
+  },
+  {
+   "group": "Nhóm Official",
+   "title": "Nhóm trao đổi chính thức",
+   "url": "https://www.facebook.com/groups/nhatniemtieudao",
+   "note": ""
   }
  ],
  "pot": {
-  "value": 1250000.0,
+  "value": 30000.0,
   "donors": [
    {
-    "name": "ThèmBúnBòHuế",
-    "amount": 200000.0,
-    "date": "2026-08-10",
-    "note": ""
-   },
-   {
     "name": "TrươngTửPhàm",
-    "amount": 150000.0,
-    "date": "2026-08-12",
-    "note": ""
-   },
-   {
-    "name": "Vĩnh•Dạ",
-    "amount": 150000.0,
-    "date": "2026-08-20",
-    "note": ""
-   },
-   {
-    "name": "ThèmBúnBòHuế",
-    "amount": 300000.0,
-    "date": "2026-08-25",
-    "note": ""
-   },
-   {
-    "name": "KiếmNguyệt",
-    "amount": 200000.0,
-    "date": "2026-08-28",
-    "note": ""
-   },
-   {
-    "name": "LăngSương",
-    "amount": 100000.0,
-    "date": "2026-09-02",
-    "note": ""
-   },
-   {
-    "name": "TrọngThầnSư",
-    "amount": 300000.0,
-    "date": "2026-09-04",
-    "note": ""
-   },
-   {
-    "name": "ThèmBúnBòHuế",
-    "amount": 300000.0,
-    "date": "2026-09-10",
-    "note": ""
-   },
-   {
-    "name": "TrươngTửPhàm",
-    "amount": 200000.0,
-    "date": "2026-09-14",
-    "note": ""
-   },
-   {
-    "name": "Vĩnh•Dạ",
-    "amount": 150000.0,
-    "date": "2026-09-18",
-    "note": ""
-   },
-   {
-    "name": "KiếmNguyệt",
-    "amount": 100000.0,
-    "date": "2026-09-21",
-    "note": ""
-   },
-   {
-    "name": "HuyềnDao",
-    "amount": 100000.0,
-    "date": "2026-09-24",
-    "note": ""
-   },
-   {
-    "name": "ThanhHỏa",
-    "amount": 150000.0,
-    "date": "2026-09-27",
-    "note": ""
-   },
-   {
-    "name": "ThèmBúnBòHuế",
-    "amount": 250000.0,
-    "date": "2026-09-30",
-    "note": ""
+    "amount": 30000.0,
+    "date": "2026-10-05",
+    "note": "Góp hũ thưởng"
    }
   ],
-  "history": [
-   {
-    "week": "2026-W34",
-    "date": "2026-08-23",
-    "winner": "VânPhong",
-    "count": 18.0,
-    "amount": 500000.0
-   },
-   {
-    "week": "2026-W36",
-    "date": "2026-09-06",
-    "winner": "LăngSương",
-    "count": 21.0,
-    "amount": 900000.0
-   }
-  ]
+  "history": []
  },
  "sect": {
   "2026-W40": {
@@ -260,66 +116,610 @@
   {
    "id": "mac7eebe3",
    "name": "ThèmBúnBòHuế",
-   "zalo": "Hoàng Trang",
+   "zalo": "",
    "role": "Tông Chủ",
-   "heChinh": "Pháp tu",
+   "heChinh": "",
    "groups": {
-    "thongBao": true,
-    "troChuyen": true
-   },
-   "away": false,
-   "joinedAt": "2026-10-03",
-   "aliases": [],
-   "note": "",
-   "lc": 11090000000
-  },
-  {
-   "id": "md3610f7f",
-   "name": "Vĩnh•Dạ",
-   "zalo": "Phạm Minh",
-   "role": "Phó Tông Chủ",
-   "heChinh": "Ngự quỷ",
-   "groups": {
-    "thongBao": true,
-    "troChuyen": true
-   },
-   "away": false,
-   "joinedAt": "2026-10-03",
-   "aliases": [],
-   "note": "",
-   "lc": 12960000000
-  },
-  {
-   "id": "ma8eb729f",
-   "name": "TrươngTửPhàm",
-   "zalo": "Trần Đức",
-   "role": "Phó Tông Chủ",
-   "heChinh": "Thể tu",
-   "groups": {
-    "thongBao": true,
+    "thongBao": false,
     "troChuyen": false
    },
    "away": false,
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 14520000000
+   "lc": 11430000000
+  },
+  {
+   "id": "md3610f7f",
+   "name": "Vĩnh•Dạ",
+   "zalo": "",
+   "role": "Phó Tông Chủ",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 13100000000
+  },
+  {
+   "id": "ma8eb729f",
+   "name": "TrươngTửPhàm",
+   "zalo": "",
+   "role": "Phó Tông Chủ",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 14740000000
+  },
+  {
+   "id": "m48f6a4b2",
+   "name": "Tuất•Đế",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10930000000
   },
   {
    "id": "mc273266d",
    "name": "TrọngThầnSư",
-   "zalo": "Lê Hà",
+   "zalo": "",
    "role": "Chủ Sự",
-   "heChinh": "Thể tu",
+   "heChinh": "",
    "groups": {
-    "thongBao": true,
-    "troChuyen": true
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10950000000
+  },
+  {
+   "id": "m1b359ff6",
+   "name": "ChíTôn•Tạihạ",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11810000000
+  },
+  {
+   "id": "m62b77b22",
+   "name": "Bạch•Dạ",
+   "zalo": "",
+   "role": "Trưởng Lão",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
    },
    "away": false,
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
    "lc": 10330000000
+  },
+  {
+   "id": "mc18b917d",
+   "name": "<Tên trắng>",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8330000000
+  },
+  {
+   "id": "m66c6e7ab",
+   "name": "Ririka•PTTM",
+   "zalo": "",
+   "role": "Trưởng Lão",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 14410000000
+  },
+  {
+   "id": "m4ef64b65",
+   "name": "LâmKiếmHành",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11250000000
+  },
+  {
+   "id": "m1f757181",
+   "name": "ChíTôn•Nga",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9720000000
+  },
+  {
+   "id": "mf22361e6",
+   "name": "ChíTôn•Nhiên",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11230000000
+  },
+  {
+   "id": "m31e0717c",
+   "name": "KhuynhThành",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 11270000000
+  },
+  {
+   "id": "m9b191051",
+   "name": "BáChủPooh",
+   "zalo": "",
+   "role": "Trưởng Lão",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12710000000
+  },
+  {
+   "id": "m422f73e5",
+   "name": "HDHànTuyệt",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10130000000
+  },
+  {
+   "id": "mf6cc9d47",
+   "name": "tiêudaoTạ°Diệm",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8529999999
+  },
+  {
+   "id": "m66750445",
+   "name": "ThèmZúGái18",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9190000000
+  },
+  {
+   "id": "m5c0358b1",
+   "name": "ThiênĐạo",
+   "zalo": "",
+   "role": "Trưởng Lão",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 12350000000
+  },
+  {
+   "id": "m23cf2a70",
+   "name": "Ninh•Mặc",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 7300000000
+  },
+  {
+   "id": "m2b664f33",
+   "name": "Phượng€ửuCa",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10500000000
+  },
+  {
+   "id": "m9ddb520d",
+   "name": "ChíTôn•Nirual",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8010000000
+  },
+  {
+   "id": "m05c72a90",
+   "name": "ChíTôn•Kiếm",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9150000000
+  },
+  {
+   "id": "ma777a416",
+   "name": "Thiên•Noah",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9670000000
+  },
+  {
+   "id": "m514bfe1e",
+   "name": "HDHD•Finance",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10670000000
+  },
+  {
+   "id": "m08160f41",
+   "name": "ChíTôn•SátTinh",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9030000000
+  },
+  {
+   "id": "m96a19c5c",
+   "name": "Thiên•Uyên",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10310000000
+  },
+  {
+   "id": "m94583c14",
+   "name": "Thiên•Trieuuuu",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8910000000
+  },
+  {
+   "id": "m58312e7f",
+   "name": "Thiên•Hui",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8289999999
+  },
+  {
+   "id": "mdf2a252e",
+   "name": "ChíTôn•destiny",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8050000000
+  },
+  {
+   "id": "m374d855d",
+   "name": "ChíTôn•holomeo",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 7710000000
+  },
+  {
+   "id": "m4e420709",
+   "name": "ĐưaTaoCáiHũ",
+   "zalo": "",
+   "role": "Chủ Sự",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10230000000
+  },
+  {
+   "id": "m6089626a",
+   "name": "Tiền•bốiwhat",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 9270000000
+  },
+  {
+   "id": "m0b8d7f41",
+   "name": "ChíTôn•VTV",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 6450000000
+  },
+  {
+   "id": "m7b8a2d5b",
+   "name": "ThiênMaHẹ",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 6630000000
+  },
+  {
+   "id": "m74f65fa3",
+   "name": "炼魂•Bạch",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 8550000000
+  },
+  {
+   "id": "m3e3edf23",
+   "name": "Thiên•Quân",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 10280000000
+  },
+  {
+   "id": "mb6787f14",
+   "name": "ChíTôn•MDuck",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 7690000000
+  },
+  {
+   "id": "mb830bcce",
+   "name": "- Khởi•Linh•",
+   "zalo": "",
+   "role": "Thành Viên",
+   "heChinh": "",
+   "groups": {
+    "thongBao": false,
+    "troChuyen": false
+   },
+   "away": false,
+   "joinedAt": "2026-10-03",
+   "aliases": [],
+   "note": "",
+   "lc": 16040000000
   },
   {
    "id": "m6f4069b1",
@@ -335,7 +735,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 9520000000
+   "lc": 9520000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "md54125e3",
@@ -351,7 +753,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 10980000000
+   "lc": 10980000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "md4f53bce",
@@ -367,7 +771,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 13280000000
+   "lc": 13280000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "mcff24c3c",
@@ -383,7 +789,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "Xin nghỉ tuần 41 vì đi công tác.",
-   "lc": 11390000000
+   "lc": 11390000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m74c6c3de",
@@ -399,7 +807,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 11670000000
+   "lc": 11670000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m460ae906",
@@ -415,7 +825,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 12100000000
+   "lc": 12100000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m402e31aa",
@@ -431,7 +843,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 15930000000
+   "lc": 15930000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m3ba0b468",
@@ -447,7 +861,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 15040000000
+   "lc": 15040000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m81394d39",
@@ -463,7 +879,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "Chuyên đánh Bát hoang, gọi khi cần đội hình.",
-   "lc": 10320000000
+   "lc": 10320000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m67e79cc3",
@@ -479,7 +897,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 9040000000
+   "lc": 9040000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "mdb2aa1f7",
@@ -495,7 +915,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 13780000000
+   "lc": 13780000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m37e1d35c",
@@ -511,7 +933,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 11140000000
+   "lc": 11140000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "mea55798b",
@@ -527,7 +951,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 9170000000
+   "lc": 9170000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m9be43323",
@@ -543,7 +969,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 8740000000
+   "lc": 8740000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "mdfbf3126",
@@ -559,7 +987,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 7880000000
+   "lc": 7880000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m5d5533c1",
@@ -575,7 +1005,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 7930000000
+   "lc": 7930000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m78eeac2e",
@@ -591,7 +1023,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 10640000000
+   "lc": 10640000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m2e3ef8a4",
@@ -607,7 +1041,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 9350000000
+   "lc": 9350000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "mc9f50f9b",
@@ -623,7 +1059,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 7050000000
+   "lc": 7050000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "ma72587e4",
@@ -639,7 +1077,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 14770000000
+   "lc": 14770000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "me7e82c45",
@@ -655,7 +1095,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 9020000000
+   "lc": 9020000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m9cab8c48",
@@ -671,7 +1113,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 15210000000
+   "lc": 15210000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m2155607f",
@@ -687,7 +1131,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 12370000000
+   "lc": 12370000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m457a1f18",
@@ -703,7 +1149,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 14920000000
+   "lc": 14920000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m4ead8be4",
@@ -719,7 +1167,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 11890000000
+   "lc": 11890000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m5f124d19",
@@ -735,7 +1185,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 15650000000
+   "lc": 15650000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m28824a6f",
@@ -751,7 +1203,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 10350000000
+   "lc": 10350000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m0d730cb7",
@@ -767,7 +1221,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 12820000000
+   "lc": 12820000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "mbd604583",
@@ -783,7 +1239,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 12200000000
+   "lc": 12200000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m90435573",
@@ -799,7 +1257,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 5650000000
+   "lc": 5650000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m54e5aecd",
@@ -815,7 +1275,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 14920000000
+   "lc": 14920000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m37e0d75e",
@@ -831,7 +1293,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 13880000000
+   "lc": 13880000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m638f0994",
@@ -847,7 +1311,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 6380000000
+   "lc": 6380000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m1e47a6d7",
@@ -863,7 +1329,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 12360000000
+   "lc": 12360000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m57f83671",
@@ -879,7 +1347,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 12550000000
+   "lc": 12550000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "mcca5b934",
@@ -895,7 +1365,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 15080000000
+   "lc": 15080000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "ma1c6f6a2",
@@ -911,7 +1383,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 10750000000
+   "lc": 10750000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "me15a8b49",
@@ -927,7 +1401,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 6680000000
+   "lc": 6680000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m3d0ddbbd",
@@ -943,7 +1419,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 10350000000
+   "lc": 10350000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m859721ff",
@@ -959,7 +1437,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 10620000000
+   "lc": 10620000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m38ec134e",
@@ -975,7 +1455,9 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 10710000000
+   "lc": 10710000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   },
   {
    "id": "m09734573",
@@ -1010,560 +1492,430 @@
    "joinedAt": "2026-10-03",
    "aliases": [],
    "note": "",
-   "lc": 9500000000
+   "lc": 9500000000,
+   "leftAt": "2026-10-03",
+   "leftReason": "Không còn trong Sheet"
   }
  ],
  "weeks": {
   "2026-W40": {
    "mac7eebe3": {
     "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
+     "quyetDau": 3,
+     "loanDau": true,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 11090000000,
-    "ch": 10868.0,
-    "dg": 9.0,
-    "seen": "2 phút trước"
+    "lc": 11430000000,
+    "ch": 14661,
+    "seen": "3 phút trước"
    },
    "md3610f7f": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
+     "batHoang": false,
+     "quyNhat": false
     },
-    "lc": 12960000000,
-    "ch": 9228.0,
-    "dg": 21.0,
-    "seen": "20 phút trước"
+    "lc": 13100000000,
+    "ch": 12055,
+    "seen": "Trực tuyến"
    },
    "ma8eb729f": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
      "batHoang": false,
-     "quyNhat": true
+     "quyNhat": false
     },
-    "lc": 14520000000,
-    "ch": 8699.0,
-    "dg": 7.0,
+    "lc": 14740000000,
+    "ch": 11877,
     "seen": "Trực tuyến"
+   },
+   "m48f6a4b2": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 10930000000,
+    "ch": 14527,
+    "seen": "30 phút trước"
    },
    "mc273266d": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
      "batHoang": false,
-     "quyNhat": true
+     "quyNhat": false
+    },
+    "lc": 10950000000,
+    "ch": 14216,
+    "seen": "11 phút trước"
+   },
+   "m1b359ff6": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 11810000000,
+    "ch": 14125,
+    "seen": "25 phút trước"
+   },
+   "m62b77b22": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
     },
     "lc": 10330000000,
-    "ch": 10187.0,
-    "dg": 15.0,
-    "seen": "46 phút trước"
+    "ch": 14047,
+    "seen": "12 phút trước"
    },
-   "m6f4069b1": {
+   "mc18b917d": {
     "acts": {
      "quyetDau": 3,
-     "loanDau": false,
+     "loanDau": true,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 9520000000,
-    "ch": 4431.0,
-    "dg": 3.0,
+    "lc": 8330000000,
+    "ch": 13554,
+    "seen": "Trực tuyến"
+   },
+   "m66c6e7ab": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 14410000000,
+    "ch": 13501,
+    "seen": "2 phút trước"
+   },
+   "m4ef64b65": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 11250000000,
+    "ch": 13430,
+    "seen": "21 phút trước"
+   },
+   "m1f757181": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 9720000000,
+    "ch": 13347,
+    "seen": "11 phút trước"
+   },
+   "mf22361e6": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 11230000000,
+    "ch": 13223,
+    "seen": "Trực tuyến"
+   },
+   "m31e0717c": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 11270000000,
+    "ch": 13032,
+    "seen": "4 phút trước"
+   },
+   "m9b191051": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 12710000000,
+    "ch": 12931,
+    "seen": "51 phút trước"
+   },
+   "m422f73e5": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 10130000000,
+    "ch": 12916,
+    "seen": "47 phút trước"
+   },
+   "mf6cc9d47": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 8529999999,
+    "ch": 12812,
+    "seen": "3 giờ trước"
+   },
+   "m66750445": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 9190000000,
+    "ch": 12760,
+    "seen": "7 giờ trước"
+   },
+   "m5c0358b1": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 12350000000,
+    "ch": 12740,
+    "seen": "42 phút trước"
+   },
+   "m23cf2a70": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 7300000000,
+    "ch": 12732,
     "seen": "1 ngày trước"
    },
-   "md54125e3": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": false,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 10980000000,
-    "ch": 4671.0,
-    "dg": 5.0,
-    "seen": "3 ngày trước"
-   },
-   "md4f53bce": {
+   "m2b664f33": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
-     "batHoang": true,
-     "quyNhat": false
-    },
-    "lc": 13280000000,
-    "ch": 11042.0,
-    "dg": 10.0,
-    "seen": "20 phút trước"
-   },
-   "mcff24c3c": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": true,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 11390000000,
-    "ch": 6846.0,
-    "dg": 0.0,
-    "seen": "3 ngày trước"
-   },
-   "m74c6c3de": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 11670000000,
-    "ch": 4241.0,
-    "dg": 3.0,
-    "seen": "2 phút trước"
+    "lc": 10500000000,
+    "ch": 12605,
+    "seen": "14 giờ trước"
    },
-   "m460ae906": {
+   "m9ddb520d": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 12100000000,
-    "ch": 9303.0,
-    "dg": 14.0,
-    "seen": "12 giờ trước"
-   },
-   "m402e31aa": {
-    "acts": {
-     "quyetDau": 2,
-     "loanDau": true,
-     "batHoang": true,
+     "batHoang": false,
      "quyNhat": false
     },
-    "lc": 15930000000,
-    "ch": 10623.0,
-    "dg": 17.0,
-    "seen": "Trực tuyến"
+    "lc": 8010000000,
+    "ch": 12388,
+    "seen": "2 giờ trước"
    },
-   "m3ba0b468": {
+   "m05c72a90": {
     "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
-     "batHoang": true,
-     "quyNhat": true
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
     },
-    "lc": 15040000000,
-    "ch": 7448.0,
-    "dg": 16.0,
+    "lc": 9150000000,
+    "ch": 12102,
     "seen": "1 giờ trước"
    },
-   "m81394d39": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 10320000000,
-    "ch": 6642.0,
-    "dg": 21.0,
-    "seen": "20 phút trước"
-   },
-   "m67e79cc3": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 9040000000,
-    "ch": 3714.0,
-    "dg": 3.0,
-    "seen": "3 ngày trước"
-   },
-   "mdb2aa1f7": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": false,
-     "batHoang": true,
-     "quyNhat": false
-    },
-    "lc": 13780000000,
-    "ch": 10509.0,
-    "dg": 19.0,
-    "seen": "Trực tuyến"
-   },
-   "m37e1d35c": {
+   "ma777a416": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 11140000000,
-    "ch": 10300.0,
-    "dg": 15.0,
-    "seen": "20 phút trước"
-   },
-   "mea55798b": {
-    "acts": {
-     "quyetDau": 1,
-     "loanDau": false,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 9170000000,
-    "ch": 7276.0,
-    "dg": 12.0,
-    "seen": "2 phút trước"
+    "lc": 9670000000,
+    "ch": 11918,
+    "seen": "24 phút trước"
    },
-   "m9be43323": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": true,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 8740000000,
-    "ch": 6062.0,
-    "dg": 7.0,
-    "seen": "Trực tuyến"
-   },
-   "mdfbf3126": {
+   "m514bfe1e": {
     "acts": {
      "quyetDau": 3,
-     "loanDau": false,
+     "loanDau": true,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 7880000000,
-    "ch": 4652.0,
-    "dg": 6.0,
-    "seen": "Trực tuyến"
+    "lc": 10670000000,
+    "ch": 11907,
+    "seen": "3 giờ trước"
    },
-   "m5d5533c1": {
+   "m08160f41": {
     "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
+     "quyetDau": 3,
+     "loanDau": true,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 7930000000,
-    "ch": 2534.0,
-    "dg": 5.0,
-    "seen": "3 ngày trước"
+    "lc": 9030000000,
+    "ch": 11688,
+    "seen": "4 phút trước"
    },
-   "m78eeac2e": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 10640000000,
-    "ch": 9466.0,
-    "dg": 8.0,
-    "seen": "12 giờ trước"
-   },
-   "m2e3ef8a4": {
+   "m96a19c5c": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
      "batHoang": false,
-     "quyNhat": true
+     "quyNhat": false
     },
-    "lc": 9350000000,
-    "ch": 3059.0,
-    "dg": 9.0,
-    "seen": "2 ngày trước"
+    "lc": 10310000000,
+    "ch": 11623,
+    "seen": "25 phút trước"
    },
-   "mc9f50f9b": {
+   "m94583c14": {
     "acts": {
-     "quyetDau": 1,
+     "quyetDau": 3,
      "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
+     "batHoang": false,
+     "quyNhat": false
     },
-    "lc": 7050000000,
-    "ch": 8660.0,
-    "dg": 13.0,
-    "seen": "12 giờ trước"
-   },
-   "ma72587e4": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 14770000000,
-    "ch": 7424.0,
-    "dg": 7.0,
+    "lc": 8910000000,
+    "ch": 11510,
     "seen": "1 giờ trước"
    },
-   "me7e82c45": {
+   "m58312e7f": {
     "acts": {
-     "quyetDau": 0,
+     "quyetDau": 3,
      "loanDau": true,
      "batHoang": false,
-     "quyNhat": true
+     "quyNhat": false
     },
-    "lc": 9020000000,
-    "ch": 8802.0,
-    "dg": 16.0,
+    "lc": 8289999999,
+    "ch": 11497,
+    "seen": "3 giờ trước"
+   },
+   "mdf2a252e": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 8050000000,
+    "ch": 11410,
+    "seen": "12 giờ trước"
+   },
+   "m374d855d": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 7710000000,
+    "ch": 11302,
+    "seen": "6 giờ trước"
+   },
+   "m4e420709": {
+    "acts": {
+     "quyetDau": 3,
+     "loanDau": true,
+     "batHoang": false,
+     "quyNhat": false
+    },
+    "lc": 10230000000,
+    "ch": 11066,
     "seen": "1 giờ trước"
    },
-   "m9cab8c48": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 15210000000,
-    "ch": 6168.0,
-    "dg": 2.0,
-    "seen": "3 ngày trước"
-   },
-   "m2155607f": {
+   "m6089626a": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 12370000000,
-    "ch": 9078.0,
-    "dg": 22.0,
-    "seen": "5 giờ trước"
-   },
-   "m457a1f18": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": false,
-     "batHoang": true,
-     "quyNhat": false
-    },
-    "lc": 14920000000,
-    "ch": 8062.0,
-    "dg": 6.0,
-    "seen": "Trực tuyến"
-   },
-   "m4ead8be4": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 11890000000,
-    "ch": 9616.0,
-    "dg": 25.0,
-    "seen": "5 giờ trước"
-   },
-   "m5f124d19": {
-    "acts": {
-     "quyetDau": 1,
-     "loanDau": false,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 15650000000,
-    "ch": 6507.0,
-    "dg": 9.0,
-    "seen": "Trực tuyến"
-   },
-   "m28824a6f": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 10350000000,
-    "ch": 6670.0,
-    "dg": 13.0,
-    "seen": "12 giờ trước"
-   },
-   "m0d730cb7": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": false,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 12820000000,
-    "ch": 7397.0,
-    "dg": 10.0,
-    "seen": "Trực tuyến"
+    "lc": 9270000000,
+    "ch": 10868,
+    "seen": "14 giờ trước"
    },
-   "mbd604583": {
+   "m0b8d7f41": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
      "batHoang": false,
-     "quyNhat": true
+     "quyNhat": false
     },
-    "lc": 12200000000,
-    "ch": 9306.0,
-    "dg": 17.0,
-    "seen": "5 giờ trước"
+    "lc": 6450000000,
+    "ch": 10844,
+    "seen": "37 phút trước"
    },
-   "m90435573": {
+   "m7b8a2d5b": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
      "batHoang": false,
-     "quyNhat": true
+     "quyNhat": false
     },
-    "lc": 5650000000,
-    "ch": 9156.0,
-    "dg": 16.0,
-    "seen": "5 giờ trước"
+    "lc": 6630000000,
+    "ch": 10202,
+    "seen": "3 giờ trước"
    },
-   "m54e5aecd": {
+   "m74f65fa3": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
+     "batHoang": false,
+     "quyNhat": false
     },
-    "lc": 14920000000,
-    "ch": 11487.0,
-    "dg": 13.0,
+    "lc": 8550000000,
+    "ch": 10160,
     "seen": "1 giờ trước"
    },
-   "m37e0d75e": {
+   "m3e3edf23": {
     "acts": {
      "quyetDau": 3,
      "loanDau": true,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 13880000000,
-    "ch": 8683.0,
-    "dg": 16.0,
-    "seen": "12 giờ trước"
-   },
-   "m638f0994": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": false,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 6380000000,
-    "ch": 10501.0,
-    "dg": 17.0,
-    "seen": "Trực tuyến"
-   },
-   "m1e47a6d7": {
-    "acts": {
-     "quyetDau": 0,
-     "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 12360000000,
-    "ch": 9749.0,
-    "dg": 14.0,
-    "seen": "12 giờ trước"
-   },
-   "m57f83671": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": true,
-     "batHoang": false,
-     "quyNhat": true
-    },
-    "lc": 12550000000,
-    "ch": 9256.0,
-    "dg": 16.0,
-    "seen": "1 giờ trước"
-   },
-   "mcca5b934": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": false,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 15080000000,
-    "ch": 9374.0,
-    "dg": 5.0,
-    "seen": "5 giờ trước"
-   },
-   "ma1c6f6a2": {
-    "acts": {
-     "quyetDau": 2,
-     "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 10750000000,
-    "ch": 9289.0,
-    "dg": 19.0,
-    "seen": "12 giờ trước"
-   },
-   "me15a8b49": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 6680000000,
-    "ch": 11012.0,
-    "dg": 15.0,
-    "seen": "12 giờ trước"
-   },
-   "m3d0ddbbd": {
-    "acts": {
-     "quyetDau": 3,
-     "loanDau": false,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 10350000000,
-    "ch": 4857.0,
-    "dg": 6.0,
-    "seen": "12 giờ trước"
+    "lc": 10280000000,
+    "ch": 9712,
+    "seen": "2 giờ trước"
    },
-   "m859721ff": {
+   "mb6787f14": {
     "acts": {
-     "quyetDau": 0,
+     "quyetDau": 3,
      "loanDau": true,
-     "batHoang": true,
-     "quyNhat": true
-    },
-    "lc": 10620000000,
-    "ch": 6222.0,
-    "dg": 15.0,
-    "seen": "1 giờ trước"
-   },
-   "m38ec134e": {
-    "acts": {
-     "quyetDau": 2,
-     "loanDau": false,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 10710000000,
-    "ch": 9034.0,
-    "dg": 11.0,
-    "seen": "20 phút trước"
+    "lc": 7690000000,
+    "ch": 7279,
+    "seen": "37 phút trước"
    },
-   "mce5734a5": {
+   "mb830bcce": {
     "acts": {
-     "quyetDau": 0,
-     "loanDau": false,
+     "quyetDau": 3,
+     "loanDau": true,
      "batHoang": false,
      "quyNhat": false
     },
-    "lc": 9500000000,
-    "ch": 8000
+    "lc": 16040000000,
+    "ch": 3771,
+    "seen": "7 giờ trước"
    }
   }
  }
