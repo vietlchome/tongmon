@@ -135,26 +135,36 @@ def qd_of(e):
     v = (e.get('acts') or {}).get('quyetDau', 0)
     return 3 if v is True else max(0, min(3, int(v or 0)))
 
-def eligible_names(weeks, members, wk):
-    ws = sorted(weeks); prev = ([w for w in ws if w < wk] or [None])[-1]
+ELIG_DEF = {'qd': 3, 'bh': 2, 'qn': 2, 'ch': 0, 'dg': 0, 'ld': False}
+
+def eligible_names(weeks, members, wk, c=None):
+    """Danh sách đủ điều kiện quay thưởng tuần wk, theo điều kiện ở tab Cài đặt (giống hệt cách web tính)."""
+    c = dict(ELIG_DEF, **(c or {}))
+    ws = [w for w in sorted(weeks) if w <= wk]
+    def missed(mid, key, n):
+        if not n or len(ws) < n: return False
+        return all((weeks[w].get(mid) is not None) and not (weeks[w][mid].get('acts') or {}).get(key) for w in ws[-n:])
     out = []
     for m in members:
         if m.get('leftAt'): continue
         e = weeks.get(wk, {}).get(m['id'])
-        if not e or qd_of(e) < 3: continue
-        p = weeks.get(prev, {}).get(m['id']) if prev else None
-        a, b = e.get('acts') or {}, (p or {}).get('acts') or {}
-        if p is not None and any(not a.get(k) and not b.get(k) for k in ('batHoang', 'quyNhat')): continue
+        if not e: continue
+        a = e.get('acts') or {}
+        if qd_of(e) < c['qd']: continue
+        if c['ld'] and not a.get('loanDau'): continue
+        if c['ch'] and (e.get('ch') or 0) < c['ch']: continue
+        if c['dg'] and (e.get('dg') or 0) < c['dg']: continue
+        if missed(m['id'], 'batHoang', c['bh']) or missed(m['id'], 'quyNhat', c['qn']): continue
         out.append(m['name'])
     return out
 
-def spin_week(now, wk, weeks, members, hist, donors):
+def spin_week(now, wk, weeks, members, hist, donors, elig=None):
     """Quay thưởng cho tuần wk khi quản trị bấm nút trên web. Kết quả do máy bốc ngẫu nhiên (secrets), không ai chọn được:
     50% Chia thưởng (bốc 1 người đủ điều kiện, nhận cả hũ), 50% Tích trữ (hũ giữ nguyên). Mỗi tuần chỉ quay 1 lần."""
     import secrets
     if not wk or wk not in weeks: print(f'Không quay: chưa có số liệu tuần {wk}.'); return None
     if any(h.get('week') == wk for h in hist): print(f'Không quay: tuần {wk} đã quay rồi.'); return None
-    names = eligible_names(weeks, members, wk)
+    names = eligible_names(weeks, members, wk, elig)
     today = now.strftime('%Y-%m-%d')
     sp = {'week': wk, 'date': today, 'at': now.strftime('%H:%M %d/%m/%Y'), 'count': len(names), 'list': names, 'auto': True}
     # Bảo hiểm: đã Tích trữ 3 lần liên tiếp thì lần này chắc chắn Chia thưởng (nếu có người đủ điều kiện)
@@ -203,6 +213,12 @@ def main():
         'tiers': tiers_pct(sv),
         'roles': roles, 'potUnit': nfc(sv('Đơn vị hũ thưởng', 'VNĐ')),
         'noticeMax': int(num(sv('Số cáo thị hiển thị', 4), 'Cài đặt') or 4),
+        'elig': {'qd': int(num(sv('Quay thưởng: Quyết đấu tối thiểu (lượt)', 3), 'Cài đặt') or 0),
+                 'bh': int(num(sv('Quay thưởng: loại nếu bỏ Bát hoang (tuần liền)', 2), 'Cài đặt') or 0),
+                 'qn': int(num(sv('Quay thưởng: loại nếu bỏ Quy nhất (tuần liền)', 2), 'Cài đặt') or 0),
+                 'ch': num(sv('Quay thưởng: cống hiến tối thiểu', 0), 'Cài đặt') or 0,
+                 'dg': num(sv('Quay thưởng: lệnh dị giới tối thiểu', 0), 'Cài đặt') or 0,
+                 'ld': key(nfc(sv('Quay thưởng: bắt buộc Loạn đấu', 'Không'))) in ('có', 'co', 'x', '1', 'true')},
         'sheetUrl': nfc(sv('Link Google Sheet', '')),
         'adminHash': hashlib.sha256(pw.encode()).hexdigest() if pw else (old.get('settings') or {}).get('adminHash'),
         'spinKey': spin_key(pw, os.environ.get('SPIN_TOKEN', '')) or (old.get('settings') or {}).get('spinKey'),
@@ -326,7 +342,7 @@ def main():
     # Lịch sử quay do máy tự quay, lưu trong data.json (không nhập trên Sheet nữa)
     hist = [h for h in (old.get('pot') or {}).get('history', []) if isinstance(h, dict)]
     # Quay cho tuần mới nhất đang có trên web (trùng với tuần web hiển thị ở vòng quay)
-    sp = spin_week(now, max(weeks) if weeks else None, weeks, members, hist, pot['donors']) if os.environ.get('SPIN') == '1' else None
+    sp = spin_week(now, max(weeks) if weeks else None, weeks, members, hist, pot['donors'], settings['elig']) if os.environ.get('SPIN') == '1' else None
     if sp: hist.append(sp); print(f"Quay thưởng {sp['week']}: " + ('Tích trữ' if sp.get('keep') else f"{sp['winner']} trúng {sp['amount']:,.0f}") + f" ({sp['count']} người đủ điều kiện)")
     hist.sort(key=lambda x: (x.get('date', ''), x.get('week', '')))
     pot['history'] = hist

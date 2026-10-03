@@ -1125,14 +1125,33 @@ const roleHtml = m => `<span class="role ${LEAD_ROLES.test(m.role||'')?'lead':''
 const heHtml = m => esc(m.heChinh||'—') + (m.hePhu? ` <span class="muted">/ ${esc(m.hePhu)}</span>`:'');
 const roleOrder = m => { const i=D.settings.roles.indexOf(m.role); return i<0?99:i; };
 function evChips(m, wk){ const e=E(wk,m.id)||{acts:{}}; return ACTS.map(a=>{ if(a[0]==='quyetDau'){ const n=qdOf(e); return `<span class="chip ${n===3?'on':n?'half':''}" title="${a[1]}: ${n}/3 lượt">QĐ ${n}/3</span>`; } return `<span class="chip ${e.acts&&e.acts[a[0]]?'on':''}" title="${a[1]}">${a[2]}</span>`; }).join(''); }
-function missedTwice(m, wk, key){ const p = prevWeekOf(wk); if(!p) return false; const a=(E(wk,m.id)||{acts:{}}).acts||{}, b=(E(p,m.id)||{acts:{}}).acts||{}; return !a[key] && !b[key] && memberWeeks(m).includes(p); }
+// Điều kiện quay thưởng: đặt ở tab Cài đặt của Sheet
+const ELIG = () => Object.assign({qd:3, bh:2, qn:2, ch:0, dg:0, ld:false}, D.settings.elig||{});
+// Bỏ hoạt động `key` n tuần liên tiếp tính đến tuần wk (chỉ tính các tuần người đó có số liệu)
+function missedN(m, wk, key, n){
+  if(!n) return false; const ws = weeks().filter(w=>w<=wk).slice(-n); if(ws.length<n) return false;
+  return ws.every(w=>{ const e=E(w,m.id); return e && !(e.acts||{})[key]; });
+}
+function missedTwice(m, wk, key){ return missedN(m, wk, key, key==='batHoang'?ELIG().bh:ELIG().qn); }
+function eligText(){
+  const c = ELIG(), p = [];
+  if(c.qd) p.push(`đánh đủ ${c.qd}/3 lượt Tông môn quyết đấu`);
+  if(c.ld) p.push('tham gia Loạn đấu');
+  if(c.ch) p.push(`góp từ ${fmtN(c.ch)} cống hiến`);
+  if(c.dg) p.push(`góp từ ${fmtN(c.dg)} lệnh dị giới`);
+  [['bh','Bát hoang'],['qn','Quy nhất']].forEach(([k,n])=>{ if(c[k]===1) p.push('tham gia '+n); else if(c[k]>1) p.push(`không bỏ ${n} ${c[k]} tuần liên tiếp`); });
+  return p.length ? p.join(', ') : 'mọi thành viên có số liệu trong tuần';
+}
 function eligible(m, wk){
   wk = wk || lastWeek(); if(!wk) return {ok:false, why:'Chưa có số liệu'};
   const e = E(wk,m.id); if(!e) return {ok:false, why:'Chưa có số liệu tuần này'};
-  const why = [];
-  if(qdOf(e)<3) why.push('Quyết đấu '+qdOf(e)+'/3 lượt');
-  if(missedTwice(m,wk,'batHoang')) why.push('Bỏ Bát hoang 2 tuần liền');
-  if(missedTwice(m,wk,'quyNhat')) why.push('Bỏ Quy nhất 2 tuần liền');
+  const c = ELIG(), why = [];
+  if(qdOf(e)<c.qd) why.push('Quyết đấu '+qdOf(e)+'/3 lượt');
+  if(c.ld && !(e.acts||{}).loanDau) why.push('Không tham gia Loạn đấu');
+  if(c.ch && num(e.ch)<c.ch) why.push('Cống hiến '+fmtN(e.ch||0)+'/'+fmtN(c.ch));
+  if(c.dg && num(e.dg)<c.dg) why.push('Lệnh dị giới '+fmtN(e.dg||0)+'/'+fmtN(c.dg));
+  if(missedN(m,wk,'batHoang',c.bh)) why.push(`Bỏ Bát hoang ${c.bh} tuần liền`);
+  if(missedN(m,wk,'quyNhat',c.qn)) why.push(`Bỏ Quy nhất ${c.qn} tuần liền`);
   return {ok:!why.length, why:why.join(', ')};
 }
 const grpChips = m => GROUPS.map(g=>`<span class="chip ${m.groups[g[0]]?'on':''}" title="${g[1]}">${g[2]}</span>`).join('');
@@ -1257,7 +1276,7 @@ function rankCard(title, ch, key, actKey, wk){
 function showMiss(k, title){
   const wk=lastWeek(); const L = active().filter(m=>!m.away && E(wk,m.id) && !(E(wk,m.id).acts||{})[k]).sort((a,b)=>a.name.localeCompare(b.name));
   modal(`<div class="hd"><h2>Không tham gia ${title}</h2><button class="iconbtn" onclick="closeModal()" aria-label="Đóng">✕</button></div><div class="bd">
-  ${L.map(m=>`<div class="watch" onclick="openMember('${m.id}')"><span class="nm">${esc(m.name)}</span><span class="why">${esc(m.zalo||'')}</span>${missedTwice(m,wk,k)?'<span class="pill st-bad">Bỏ 2 tuần liền</span>':''}</div>`).join('')}</div>`);
+  ${L.map(m=>`<div class="watch" onclick="openMember('${m.id}')"><span class="nm">${esc(m.name)}</span><span class="why">${esc(m.zalo||'')}</span>${missedTwice(m,wk,k)?`<span class="pill st-bad">Bỏ ${k==='batHoang'?ELIG().bh:ELIG().qn} tuần liền</span>`:''}</div>`).join('')}</div>`);
 }
 function eventsBlock(wk){
   if(!wk) return '';
@@ -1297,7 +1316,7 @@ function potBlock(){
     <div class="pot-main"><h3>Hũ thưởng tông môn</h3>
       <div class="bigrow">${SVG_COIN}<div class="big">${fmtN(P.value||0)} <span class="unit">${esc(S.potUnit)}</span></div></div>
       ${n?`<span class="acc">Đã tích luỹ ${n} tuần chưa có người trúng</span>`:''}
-      <div class="rule"><b>Mỗi tuần quay 1 lần:</b> 50% chia thưởng cả hũ cho 1 người bốc ngẫu nhiên, 50% tích trữ sang tuần sau. Tích trữ tối đa ${MAX_KEEP} lần liên tiếp, lần thứ ${MAX_KEEP+1} chắc chắn nổ hũ.<br><b>Điều kiện:</b> đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang hoặc Quy nhất 2 tuần liên tiếp.
+      <div class="rule"><b>Mỗi tuần quay 1 lần:</b> 50% chia thưởng cả hũ cho 1 người bốc ngẫu nhiên, 50% tích trữ sang tuần sau. Tích trữ tối đa ${MAX_KEEP} lần liên tiếp, lần thứ ${MAX_KEEP+1} chắc chắn nổ hũ.<br><b>Điều kiện:</b> ${eligText()}.
         ${wk?`<div class="eln"><span><b>${el.length}</b> người đủ điều kiện ${weekShort(wk)}</span><button class="btn sm" onclick="showElig()">Xem danh sách</button></div>`:''}</div>
       <button class="btn gold" style="margin-top:14px" onclick="go('wheel')">Tới vòng quay thưởng</button>
     </div>
@@ -1736,7 +1755,7 @@ function genZalo(){
     ACTS.forEach(a=>{ const L=A.filter(m=>a[0]==='quyetDau'?qdOf(E(wk,m.id))===3:(E(wk,m.id)||{acts:{}}).acts[a[0]]).sort((x,y)=>curLC(y)-curLC(x)); s += `\n${a[1]}${a[0]==='quyetDau'?' đủ 3/3 lượt':''} (${L.length} người):\n` + (L.map(m=>`• ${m.name}`).join('\n')||'• (chưa có)') + '\n'; });
   } else if(t.value==='elig'){
     const ok = A.filter(m=>eligible(m,wk).ok);
-    s = `🎰 Danh sách đủ điều kiện quay hũ ${weekLabel(wk).toLowerCase()} (${ok.length} người)\nHũ hiện tại: ${fmtN(D.pot.value)} ${S.potUnit}\n\n` + (ok.map(m=>`• ${m.name}`).join('\n')||'Chưa có ai.') + `\n\nĐiều kiện: đánh đủ 3/3 lượt Tông môn quyết đấu, không bỏ Bát hoang tranh đoạt hoặc Tông môn quy nhất 2 tuần liên tiếp.`;
+    s = `🎰 Danh sách đủ điều kiện quay hũ ${weekLabel(wk).toLowerCase()} (${ok.length} người)\nHũ hiện tại: ${fmtN(D.pot.value)} ${S.potUnit}\n\n` + (ok.map(m=>`• ${m.name}`).join('\n')||'Chưa có ai.') + `\n\nĐiều kiện: ${eligText()}.`;
   } else {
     const n = potWeeks();
     s = `💰 Hũ thưởng ${S.name}\n\nGiá trị hiện tại: ${fmtN(D.pot.value)} ${S.potUnit}` + (n?`\nĐã tích luỹ ${n} tuần chưa có người trúng!`:'') + (D.pot.history.filter(x=>!x.keep).length?`\nLần trúng gần nhất: ${D.pot.history.filter(x=>!x.keep).slice(-1)[0].winner}`:'') + `\n\nQuay hũ mỗi tuần: 50% chia thưởng cả hũ, 50% tích trữ sang tuần sau. Các đạo hữu nhớ tham gia!`;
